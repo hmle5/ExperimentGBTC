@@ -9,16 +9,15 @@ from flask import (
     flash,
     send_file,
 )
-import json
+
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-import random
 import uuid
 from datetime import datetime
 
 
-from .utilis import get_client_ip, get_user_agent
+from utilis import get_client_ip, get_user_agent
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -88,6 +87,13 @@ def privacy():
     return render_template("privacy.html")
 
 
+# Exit page
+@app.route("/exit")
+def exit():
+    return render_template("exit.html")
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+    app.run(debug=True)
