@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facial Similarity Rating</title>
+    <title>Investment Decision Survey</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -29,66 +29,16 @@
         .error-text {
             font-size: 0.9rem;
         }
-
-        .form-check {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .form-check-input:focus {
-            outline: none;
-        }
-
-        .form-check-label {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .form-check-label:hover {
-            text-decoration: underline dotted;
-        }
-
-        .form-check-input:checked+.form-check-label {
-            color: #0056b3;
-        }
-
-        .form-check-input:checked+.form-check-label::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 12px;
-            width: 12px;
-            border-radius: 50%;
-            background-color: #007bff;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .modal-header {
-            border-bottom: none;
-        }
-
-        .modal-body p {
-            font-size: 1.2rem;
-            color: #dc3545;
-        }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
-                        <h2>Facial Similarity Rating</h2>
+                        <h2>Investment Decision Survey</h2>
                     </div>
                     <div class="card-body">
                         {% if error %}
@@ -96,42 +46,45 @@
                             {{ error }}
                         </div>
                         {% endif %}
-                        <p class="lead">
+
                         <h4>Overview</h4>
-
-                        In this survey, you will evaluate facial similarity between pairs of individuals across
-                        <b>60</b>
-                        comparisons, each corresponding to a survey question. After completing the comparisons, you
-                        will answer two feedback questions about your experience. Once all questions are finished,
-                        you will receive a completion code. Use this code to confirm your survey completion on
-                        MTurk.
-                        </p>
-
                         <p>
-                        <h4>Your Payment</h4>
-                        The estimated time to complete this survey is <b>30 minutes </b>. You are guaranteed to receive
-                        <b>$3</b>
-                        within <b>48 hours</b> after completing this survey.
-
-
+                            In this survey, you will act as an investor deciding how to allocate funds to startups.
+                            Your choices will be influenced by different pieces of information about the startup and
+                            market conditions.
                         </p>
+
+                        <h4>Investment Task</h4>
+                        <p>
+                            You will be given an initial investment amount of <b>$10</b>. You will be presented with
+                            startup options, and you must evaluate their potential <b>success</b> and <b>failure</b>
+                            probabilities before deciding how much to invest.
+                        </p>
+
+                        <h4>Your Payment</h4>
+                        <p>
+                            The estimated time to complete this survey is <b>10-15 minutes</b>. Upon successful
+                            completion,
+                            you will receive <b>$3</b> within 48 hours.
+                        </p>
+
                         <hr>
-                        <form method="POST" action="/index" id="questionForm">
+
+                        <form method="POST" action="{{ url_for('main.index') }}" id="understandingForm">
                             <div class="mb-4">
                                 <label for="understandingQuestion" class="form-label fw-bold">
                                     Understanding Question:
                                 </label>
                                 <p class="mb-2">
-                                    Your answer needs to be correct to proceed to the next question. Which of the
-                                    following statements is true?
+                                    Your answer must be correct to proceed. Which of the following is TRUE about this
+                                    survey?
                                 </p>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="answer" value="incorrect"
                                         id="option1">
                                     <label class="form-check-label" for="option1">
                                         After completing all comparison tasks in this survey, I will receive $3
-                                        within
-                                        48 hours WITHOUT having to confirm my survey completion on MTurk.
+                                        within 48 hours WITHOUT having to confirm my survey completion on MTurk.
                                     </label>
                                 </div>
                                 <div class="form-check">
@@ -152,9 +105,9 @@
                                 {% endif %}
                             </div>
 
-                            <p>Click <b>Next</b> to view the instruction on the comparison task.</p>
+                            <p>Click <b>Next</b> to begin the survey.</p>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" {% if error %}disabled{% endif %}>
+                                <button type="submit" class="btn btn-primary btn-lg">
                                     Next
                                 </button>
                             </div>
@@ -186,7 +139,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Event listener for form submission
-        document.getElementById("questionForm").addEventListener("submit", function (event) {
+        document.getElementById("understandingForm").addEventListener("submit", function (event) {
             const selectedAnswer = document.querySelector('input[name="answer"]:checked');
             if (!selectedAnswer) {
                 return;
