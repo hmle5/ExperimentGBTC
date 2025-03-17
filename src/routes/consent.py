@@ -3,31 +3,37 @@ import uuid
 from datetime import datetime
 from models import db, UserConsent, Response
 from utilis import get_client_ip, get_user_agent, generate_unique_participant_id
+import logging
+from flask import Flask, request, render_template
+from flask_session import Session
+from flask_session_captcha import FlaskSessionCaptcha
 
 main_bp = Blueprint("main", __name__)
 
 
-@main_bp.route("/", methods=["GET"])
+@main_bp.route("/consent", methods=["GET"])
 def consent():
     ip = get_client_ip()
     user_agent = get_user_agent()
     consent_record = UserConsent.query.filter_by(
         ip_address=ip, user_agent=user_agent
     ).first()
+
     if consent_record and consent_record.consent_given:
-        return redirect(
-            url_for("main.index")
-        )  # Ensure you have an 'index' route defined
+        return redirect(url_for("main.index"))  # Redirect if already consented
+
     return render_template("consent.html")
 
 
 @main_bp.route("/give_consent", methods=["POST"])
 def give_consent():
+    """Processes user consent."""
     consent_status = request.form.get("consent")
     if consent_status == "accepted":
         ip = get_client_ip()
         user_agent = get_user_agent()
         consent_id = str(uuid.uuid4())
+
         consent_record = UserConsent(
             consent_id=consent_id,
             ip_address=ip,
@@ -36,10 +42,11 @@ def give_consent():
         )
         db.session.add(consent_record)
         db.session.commit()
+
         session["consent_id"] = consent_id
-        return redirect(url_for("main.index"))
+        return redirect(url_for("main.index"))  # Proceed to index
     elif consent_status == "denied":
-        return redirect(url_for("main.exit"))  # Ensure you have an 'exit' route defined
+        return redirect(url_for("main.exit"))  # Redirect to exit page
     else:
         flash("Please select an option to proceed.")
         return redirect(url_for("main.consent"))
