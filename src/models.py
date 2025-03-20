@@ -22,6 +22,10 @@ class Response(db.Model):
         unique=True,
     )
     participant_id = db.Column(db.String(100), unique=True, nullable=False)
+    unique_code = db.Column(db.String(50), unique=True, nullable=True)
+    story_type = db.Column(db.String(20), nullable=True)  # Track which story was shown
+    user_answer = db.Column(db.String(300), nullable=True)  # User's answer
+    is_correct = db.Column(db.Boolean, nullable=True)  # Whether the answer was correct
     completed = db.Column(db.Boolean, default=False, nullable=False)
     start_time = db.Column(db.DateTime, nullable=True)
     end_time = db.Column(db.DateTime, nullable=True)

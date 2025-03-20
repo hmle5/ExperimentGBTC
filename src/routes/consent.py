@@ -58,7 +58,7 @@ def privacy():
 
 
 # Exit page
-@main_bp.route("/exit")
+@main_bp.route("/exit", methods=["GET", "POST"])
 def exit():
     return render_template("exit.html")
 
@@ -77,13 +77,24 @@ def index():
     if not consent_record or not consent_record.consent_given:
         return redirect(url_for("main.consent"))
 
-    # Check if this user has already completed the survey
-    existing_responses = Response.query.filter_by(
-        consent_id=consent_record.consent_id, completed=True
-    ).all()
-    if existing_responses:
-        error = "You have already completed this survey."
-        return render_template("index.html", error=error)
+    # Check if there's an existing response for this user
+    response_record = Response.query.filter_by(
+        consent_id=consent_record.consent_id
+    ).first()
+
+    if response_record:
+        # Resume from last recorded point
+        session["participant_id"] = response_record.participant_id
+        session["start_time"] = response_record.start_time
+        session["question_answered"] = True  # Assume they answered correctly before
+
+        if response_record.completed:
+            error = "You have already completed this survey."
+            return render_template("index.html", error=error)
+
+        return redirect(
+            url_for("survey_bp.instructions")
+        )  # Resume from where they left off
 
     # Handling the understanding question
     if request.method == "POST" and not error:
@@ -91,13 +102,13 @@ def index():
         if answer != "correct":
             error = "Incorrect answer. Please select the correct option to proceed."
         else:
-            # Generate a unique participant ID
+            # Generate a new participant ID if no existing record
             participant_id = generate_unique_participant_id()
             session["participant_id"] = participant_id
             session["start_time"] = datetime.now()
             session["question_answered"] = True
 
-            # Create a response record
+            # Create a new response record
             response_record = Response(
                 consent_id=consent_record.consent_id,
                 participant_id=participant_id,
@@ -107,14 +118,6 @@ def index():
             db.session.add(response_record)
             db.session.commit()
 
-            return redirect(url_for("main.instructions"))  # Redirect to the survey page
+            return redirect(url_for("survey_bp.instructions"))  # Redirect to survey
 
     return render_template("index.html", error=error)
-
-
-@main_bp.route("/instructions", methods=["GET"])
-def instructions():
-    if "participant_id" not in session:
-        return redirect(url_for("main.index"))  # Ensure only valid participants proceed
-
-    return render_template("instructions.html")

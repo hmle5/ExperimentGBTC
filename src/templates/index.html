@@ -47,30 +47,19 @@
                         </div>
                         {% endif %}
 
-                        <h4>Overview</h4>
-                        <p>
-                            In this survey, you will act as an investor deciding how to allocate funds to startups.
-                            Your choices will be influenced by different pieces of information about the startup and
-                            market conditions.
-                        </p>
 
-                        <h4>Investment Task</h4>
-                        <p>
-                            You will be given an initial investment amount of <b>$10</b>. You will be presented with
-                            startup options, and you must evaluate their potential <b>success</b> and <b>failure</b>
-                            probabilities before deciding how much to invest.
-                        </p>
 
                         <h4>Your Payment</h4>
                         <p>
                             The estimated time to complete this survey is <b>10-15 minutes</b>. Upon successful
                             completion,
-                            you will receive <b>$3</b> within 48 hours.
+                            you will receive <b>$2</b> within 48 hours.
                         </p>
 
                         <hr>
 
                         <form method="POST" action="{{ url_for('main.index') }}" id="understandingForm">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <div class="mb-4">
                                 <label for="understandingQuestion" class="form-label fw-bold">
                                     Understanding Question:
@@ -83,7 +72,7 @@
                                     <input class="form-check-input" type="radio" name="answer" value="incorrect"
                                         id="option1">
                                     <label class="form-check-label" for="option1">
-                                        After completing all comparison tasks in this survey, I will receive $3
+                                        After completing all comparison tasks in this survey, I will receive $2
                                         within 48 hours WITHOUT having to confirm my survey completion on MTurk.
                                     </label>
                                 </div>
@@ -91,7 +80,7 @@
                                     <input class="form-check-input" type="radio" name="answer" value="correct"
                                         id="option2">
                                     <label class="form-check-label" for="option2">
-                                        After completing all comparison tasks in this survey, I will receive $3
+                                        After completing all comparison tasks in this survey, I will receive $2
                                         within
                                         48 hours. For this payment, I need to enter on MTurk a survey completion
                                         code

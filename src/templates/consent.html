@@ -25,6 +25,7 @@
                         <p>Please review the consent options below and select your response. Your participation is
                             voluntary, and you may choose not to participate if you wish.</p>
                         <form method="post" action="{{ url_for('main.give_consent') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="radio" name="consent" value="accepted"
                                     id="acceptConsent">
