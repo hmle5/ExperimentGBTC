@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h3>Attention Check</h3>
+                        <!-- <h3>Attention Check</h3> -->
                     </div>
                     <div class="card-body">
                         <p>
@@ -21,7 +21,7 @@
                             there are participants who do not carefully read the questions and just quickly click
                             through the survey. This means that there are a lot of random answers which compromise the
                             results of research studies. To show that you read our questions carefully, please choose
-                            both <strong>Others</strong> and <strong>Agree</strong> as your answer to the next question.
+                            both others and agree as your answer to the next question.
                         </p>
                         <form method="POST" action="{{ url_for('survey_bp.educating') }}" id="attentionCheckForm">
 
@@ -73,7 +73,7 @@
 
             if (!(selectedValues.includes("Agree") && selectedValues.includes("Others") && selectedValues.length === 2)) {
                 event.preventDefault();
-                alert("Please follow the instruction: Select both 'Others' and 'Agree'.");
+                alert("Your answer is not correct, please read the question again.");
             }
         });
     </script>

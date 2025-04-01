@@ -21,12 +21,13 @@ from captcha.image import ImageCaptcha  # Import image CAPTCHA generator
 from routes.consent import main_bp
 from routes.survey import survey_bp
 from routes.admin import admin_bp
-from utilis import generate_news_story_file
+from utilis import generate_news_story_file, generate_startup_file
 
 
 def create_app():
     app = Flask(__name__)
     generate_news_story_file()
+    generate_startup_file()
 
     # Configure application securely
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "default_very_secure_key")
@@ -68,7 +69,7 @@ def create_app():
         return send_file(captcha_path, mimetype="image/png")
 
     @app.route("/", methods=["GET", "POST"])
-    @limiter.limit("3 per minute")  # Prevent CAPTCHA abuse
+    @limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
     def captcha_check():
         if request.method == "POST":
             user_input = request.form.get("captcha", "").strip().upper()

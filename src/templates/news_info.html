@@ -102,7 +102,7 @@
             margin-top: 20px;
         }
     </style>
-    <script>
+    <!-- <script>
         function validateNewsAnswer() {
             const selectedOption = document.querySelector('input[name="news_answer"]:checked');
             const correctAnswer = document.getElementById("correct_answer").value;
@@ -130,7 +130,29 @@
 
             return true;
         }
+    </script> -->
+    <script>
+        function validateNewsAnswer() {
+            const selectedOption = document.querySelector('input[name="news_answer"]:checked');
+            const correctAnswer = document.getElementById("correct_answer").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (!selectedOption) {
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "⚠ Please select an answer before proceeding.";
+                return false;
+            }
+
+            if (selectedOption.value !== correctAnswer) {
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "⚠ Incorrect answer. Please review the article and try again.";
+                return false;
+            }
+
+            return true;
+        }
     </script>
+
 </head>
 
 <body>
@@ -148,7 +170,7 @@
                 <input type="hidden" name="story_type" value="{{ story_type }}">
                 <input type="hidden" name="unique_code" value="{{ unique_code }}">
                 <input type="hidden" id="correct_answer" value="{{ correct_answer }}">
-                <input type="hidden" id="correct_code" value="{{ unique_code }}">
+                <!-- <input type="hidden" id="correct_code" value="{{ unique_code }}"> -->
 
                 <div class="question-section">
                     <p><strong>{{ question }}</strong></p>
@@ -164,11 +186,11 @@
                     {% endfor %}
                 </div>
 
-                <p class="mt-3 text-center"><strong>Your Unique Code:</strong> <span id="unique_code_display"
+                <!-- <p class="mt-3 text-center"><strong>Your Unique Code:</strong> <span id="unique_code_display"
                         class="text-primary">{{ unique_code }}</span></p>
 
                 <input type="text" id="user_code" name="user_code" class="code-input" required
-                    placeholder="Enter your code here">
+                    placeholder="Enter your code here"> -->
 
                 <p id="error-message" class="error-message"></p>
 

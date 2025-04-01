@@ -62,7 +62,7 @@ def generate_news_story_file():
         return  # File already exists, do nothing
 
     def generate_code():
-        return "".join(random.choices(string.ascii_uppercase + string.digits, k=10))
+        return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
     # Generate 500 unique entries for each story type
     stories = []
@@ -110,3 +110,52 @@ def mark_story_as_used(story_code):
     # Save updated JSON file
     with open(NEWS_FILE, "w") as f:
         json.dump(stories, f, indent=4)
+
+
+STARTUP_FILE = "startup_info.json"
+
+
+def generate_startup_file():
+    if os.path.exists(STARTUP_FILE):
+        return
+
+    def generate_code():
+        return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
+
+    startups = []
+    for _ in range(500):
+        startups.append(
+            {"code": generate_code(), "used": False, "founder": "Jessica Wilson"}
+        )
+        startups.append(
+            {"code": generate_code(), "used": False, "founder": "Joseph Wilson"}
+        )
+
+    with open(STARTUP_FILE, "w") as f:
+        json.dump(startups, f, indent=4)
+
+
+def get_unused_startup():
+    if not os.path.exists(STARTUP_FILE):
+        generate_startup_file()
+
+    with open(STARTUP_FILE, "r") as f:
+        startups = json.load(f)
+
+    unused = [s for s in startups if not s["used"]]
+    return random.choice(unused) if unused else None
+
+
+def mark_startup_as_used(code):
+    if not os.path.exists(STARTUP_FILE):
+        return
+
+    with open(STARTUP_FILE, "r") as f:
+        startups = json.load(f)
+
+    for s in startups:
+        if s["code"] == code:
+            s["used"] = True
+
+    with open(STARTUP_FILE, "w") as f:
+        json.dump(startups, f, indent=4)
