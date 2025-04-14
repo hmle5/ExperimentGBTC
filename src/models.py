@@ -53,3 +53,13 @@ class Response(db.Model):
 
     # Index for faster queries
     __table_args__ = (db.Index("idx_response_consent_id", "consent_id"),)
+
+
+class StartupSetAssignment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    participant_id = db.Column(db.String(100), nullable=False, index=True)
+    startup_set_code = db.Column(db.String(10), nullable=False, unique=True)
+    assigned_at = db.Column(db.DateTime, default=datetime.utcnow)
+    duration_seconds = db.Column(db.Float, nullable=True)
+    used = db.Column(db.Boolean, default=False, nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

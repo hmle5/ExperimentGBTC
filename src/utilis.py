@@ -4,6 +4,7 @@ import os
 import json
 import random
 import string
+import pandas as pd
 
 
 # Utilities
@@ -28,7 +29,7 @@ HOLMES_ARTICLE = {
     "title": "Elizabeth Holmes, Theranos C.E.O. and Silicon Valley Star, Accused of Fraud",
     "content": """Holding up a few drops of blood, Elizabeth Holmes became a darling of Silicon Valley by promising that her company’s new device would give everyday Americans unlimited control over their health with a single finger prick.
 Ms. Holmes, a Stanford University dropout who founded her company, Theranos, at age 19, captivated investors and the public with her invention: a technology cheaply done at a local drugstore that could detect a range of illnesses, from diabetes to cancer.
-With that carefully crafted pitch, Ms. Holmes, whose striking stage presence in a uniform of black turtlenecks drew comparisons to Steve Jobs, became an overnight celebrity, featured on magazine covers(https://www.nytimes.com/interactive/2015/10/12/t-magazine/elizabeth-holmes-tech-visionaries-brian-chesky.html?_r=1) and richest-woman(https://www.forbes.com/sites/katiasavchuk/2015/05/27/young-and-rich-these-self-made-women-are-just-getting-started/#369040134def) lists and in glowing articles.
+With that carefully crafted pitch, Ms. Holmes, whose striking stage presence in a uniform of black turtlenecks drew comparisons to Steve Jobs, became an overnight celebrity, featured on magazine covers and richest-woman lists and in glowing articles.
 Her fall — and the near-collapse of Theranos — has been equally dramatic in the last few years. On Wednesday, the Securities and Exchange Commission charged Ms. Holmes, now 34, with widespread fraud, accusing her of exaggerating — even lying — about her technology while raising $700 million from investors.""",
     "source": "The New York Times",
     "question": "What was the product promised by Elizabeth Holmes’ start-up and what happened to it?",
@@ -112,50 +113,172 @@ def mark_story_as_used(story_code):
         json.dump(stories, f, indent=4)
 
 
-STARTUP_FILE = "startup_info.json"
+# === CONFIGURABLE CONSTANTS ===
+DEFAULT_EXCEL_PATH = "data/clean_data.xlsx"
+DEFAULT_JSON_PATH = "startup_data.json"
+DEFAULT_NUM_SETS = 1000
+DEFAULT_SET_SIZE = 6
+DEFAULT_CODE_LENGTH = 10
 
 
-def generate_startup_file():
-    if os.path.exists(STARTUP_FILE):
-        return
+def normalize_text(text):
+    """Fix unicode artifacts like curly quotes, non-breaking spaces, etc."""
+    if pd.isna(text):
+        return ""
+    return (
+        str(text)
+        .replace("\xa0", " ")  # non-breaking space
+        .replace("\u2019", "'")  # curly apostrophe
+        .replace("\u2018", "'")
+        .replace("\u201c", '"')
+        .replace("\u201d", '"')
+        .strip()
+    )
 
-    def generate_code():
-        return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
-    startups = []
-    for _ in range(500):
-        startups.append(
-            {"code": generate_code(), "used": False, "founder": "Jessica Wilson"}
+def load_excel_data(excel_path):
+    """Load and normalize all string fields in both sheets."""
+    sheets = pd.read_excel(excel_path, sheet_name=None)
+    startup_df = sheets["Tabelle1"]
+    founder_df = sheets["Tabelle2"]
+
+    # Normalize string fields in both DataFrames
+    for df in (startup_df, founder_df):
+        for col in df.select_dtypes(include="object").columns:
+            df[col] = df[col].apply(normalize_text)
+
+    return startup_df, founder_df
+
+
+def generate_unique_code(existing_codes, length=8):
+    """Generate a unique alphanumeric code not already in use."""
+    while True:
+        code = "".join(random.choices(string.ascii_uppercase + string.digits, k=length))
+        if code not in existing_codes:
+            return code
+
+
+def prepare_randomized_startup_set(
+    startup_df, founder_names, evaluation_sentences, set_size
+):
+    """Prepare one startup set with normalized data and substituted evaluation sentence."""
+    selected_startups = startup_df.sample(n=set_size, replace=False).to_dict(
+        orient="records"
+    )
+    assigned_founders = random.sample(founder_names, set_size)
+    assigned_sentences = random.choices(evaluation_sentences, k=set_size)
+
+    combined = []
+    for i, startup in enumerate(selected_startups):
+        name = startup["Startup_name_altered"]
+        sentence = assigned_sentences[i].replace("[StartupName]", name)
+
+        combined.append(
+            {
+                "Startup_name": name,
+                "Industry": startup["Industry"],
+                "Product_info": startup["Product_info_altered"],
+                "Founded": (
+                    int(startup["Founded_10"])
+                    if not pd.isna(startup["Founded_10"])
+                    else None
+                ),
+                "Founder_age": (
+                    int(startup["Founder_inferred_age"])
+                    if not pd.isna(startup["Founder_inferred_age"])
+                    else None
+                ),
+                "Founder_Nstartups": (
+                    int(startup["Founder_Nstartups"])
+                    if not pd.isna(startup["Founder_Nstartups"])
+                    else None
+                ),
+                "Assigned_Founder": assigned_founders[i],
+                "Evaluation_sentence": sentence,
+            }
         )
-        startups.append(
-            {"code": generate_code(), "used": False, "founder": "Joseph Wilson"}
+
+    random.shuffle(combined)
+    return combined
+
+
+def save_startup_sets_to_json(sets, path):
+    """Save the full list of generated sets to a JSON file."""
+    with open(path, "w") as f:
+        json.dump(sets, f, indent=4)
+
+
+def generate_startup_sets(
+    excel_path=DEFAULT_EXCEL_PATH,
+    output_path=DEFAULT_JSON_PATH,
+    num_sets=DEFAULT_NUM_SETS,
+    set_size=DEFAULT_SET_SIZE,
+    code_length=DEFAULT_CODE_LENGTH,
+):
+    """Generate randomized startup sets and write to JSON if not already existing."""
+    if os.path.exists(output_path):
+        return False
+
+    startup_df, founder_df = load_excel_data(excel_path)
+
+    # Ensure required fields are present
+    startup_df = startup_df.dropna(
+        subset=["Startup_name_altered", "Industry", "Product_info_altered"]
+    )
+    founder_names = founder_df["Founder_name_altered"].dropna().unique().tolist()
+    evaluation_sentences = startup_df["Evaluation_sentence"].dropna().tolist()
+
+    # Validation
+    if len(founder_names) < set_size:
+        raise ValueError("Not enough founder names in Excel to build a full set.")
+
+    startup_sets = []
+    used_codes = set()
+
+    for _ in range(num_sets):
+        startup_data = prepare_randomized_startup_set(
+            startup_df, founder_names, evaluation_sentences, set_size
+        )
+        code = generate_unique_code(used_codes, length=code_length)
+        used_codes.add(code)
+
+        startup_sets.append(
+            {
+                "code": code,
+                "used": False,
+                "startups": startup_data,
+            }
         )
 
-    with open(STARTUP_FILE, "w") as f:
-        json.dump(startups, f, indent=4)
+    save_startup_sets_to_json(startup_sets, output_path)
+    return True
 
 
-def get_unused_startup():
-    if not os.path.exists(STARTUP_FILE):
-        generate_startup_file()
+def mark_startup_set_as_used(code, path=DEFAULT_JSON_PATH):
+    """
+    Mark a startup set as 'used': True in the JSON file for a given code.
 
-    with open(STARTUP_FILE, "r") as f:
-        startups = json.load(f)
+    Args:
+        code (str): The 10-character startup set code.
+        path (str): Path to the JSON file.
 
-    unused = [s for s in startups if not s["used"]]
-    return random.choice(unused) if unused else None
+    Returns:
+        bool: True if update was successful, False if code not found or file missing.
+    """
+    if not os.path.exists(path):
+        return False
 
+    with open(path, "r") as f:
+        sets = json.load(f)
 
-def mark_startup_as_used(code):
-    if not os.path.exists(STARTUP_FILE):
-        return
-
-    with open(STARTUP_FILE, "r") as f:
-        startups = json.load(f)
-
-    for s in startups:
+    updated = False
+    for s in sets:
         if s["code"] == code:
             s["used"] = True
+            updated = True
+            break
 
-    with open(STARTUP_FILE, "w") as f:
-        json.dump(startups, f, indent=4)
+    if updated:
+        with open(path, "w") as f:
+            json.dump(sets, f, indent=4)
+    return updated

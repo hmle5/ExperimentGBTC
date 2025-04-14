@@ -21,13 +21,18 @@ from captcha.image import ImageCaptcha  # Import image CAPTCHA generator
 from routes.consent import main_bp
 from routes.survey import survey_bp
 from routes.admin import admin_bp
-from utilis import generate_news_story_file, generate_startup_file
+from utilis import (
+    generate_news_story_file,
+    # generate_startup_file,
+    generate_startup_sets,
+)
 
 
 def create_app():
     app = Flask(__name__)
     generate_news_story_file()
-    generate_startup_file()
+    # generate_startup_file()
+    generate_startup_sets()
 
     # Configure application securely
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "default_very_secure_key")

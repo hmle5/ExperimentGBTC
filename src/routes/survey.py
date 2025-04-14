@@ -1,19 +1,23 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 import random
 from datetime import datetime
-from models import db, Response
+from models import db, Response, StartupSetAssignment
 from utilis import (
     get_unused_story,
     mark_story_as_used,
     generate_news_story_file,
     HOLMES_ARTICLE,
     MYSTICETES_ARTICLE,
-    generate_startup_file,
-    get_unused_startup,
-    mark_startup_as_used,
+    # generate_startup_file,
+    # get_unused_startup,
+    # mark_startup_as_used,
+    generate_startup_sets,
+    mark_startup_set_as_used,
 )
 from models import db, Response
-
+import time
+import json
+import os
 
 survey_bp = Blueprint("survey_bp", __name__)  # Ensure the correct Blueprint name
 
@@ -116,118 +120,62 @@ def investment():
 
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
+    STARTUP_JSON_PATH = "startup_data.json"
 
-    # === POST: form submission ===
+    # === POST: submission (continue button) ===
     if request.method == "POST":
-        failure_prob = request.form.get("failure_prob")
-        success_prob = request.form.get("success_prob")
-        startup_code = request.form.get("startup_code")
-        founder_name = request.form.get("founder_name")
+        set_code = session.get("startup_set_code")
+        start_time = session.get("startup_set_start_time")
 
-        # Validate presence
-        if not failure_prob or not success_prob or not founder_name:
-            flash("Please complete all fields before submitting.", "error")
-            return redirect(url_for("survey_bp.investment"))
+        if not set_code or not start_time:
+            flash("Session expired. Please restart the task.", "error")
+            return redirect(url_for("main.index"))
 
-        # Validate numeric + range
-        try:
-            failure = float(failure_prob)
-            success = float(success_prob)
-        except ValueError:
-            flash("Please enter valid numeric values.", "error")
-            return redirect(url_for("survey_bp.investment"))
+        # Calculate time spent
+        time_spent = time.time() - start_time
 
-        if not (0 <= failure <= 100) or not (0 <= success <= 100):
-            flash("Probabilities must be between 0% and 100%.", "error")
-            return redirect(url_for("survey_bp.investment"))
+        # Update assignment model
+        assignment = StartupSetAssignment.query.filter_by(
+            startup_set_code=set_code
+        ).first()
+        if assignment:
+            assignment.used = True
+            assignment.duration_seconds = time_spent
+            db.session.commit()
 
-        if success + failure > 100:
-            flash(
-                "The sum of success and failure probabilities cannot exceed 100%.",
-                "error",
-            )
-            return redirect(url_for("survey_bp.investment"))
-
-        # Compute expected return
-        promised_return = 200  # hardcoded based on current startup setup
-        expected_return = success * promised_return / 100 - failure
-
-        # Save
-        mark_startup_as_used(startup_code)
-        response.startup_code = startup_code
-        response.founder_name = founder_name
-        response.failure_prob = failure
-        response.success_prob = success
-        response.expected_return = expected_return
-        response.last_page_viewed = "investment"
-        db.session.commit()
-
-        return redirect(url_for("survey_bp.investment_decision"))
-
-    # === GET: show startup info ===
-    generate_startup_file()
-    startup_entry = get_unused_startup()
-    if not startup_entry:
-        flash("All start-up profiles have been used. Survey is closed.", "error")
-        return redirect(url_for("main.index"))
-
-    return render_template(
-        "investment.html",
-        founder=startup_entry["founder"],
-        startup_code=startup_entry["code"],
-    )
-
-
-@survey_bp.route("/decision", methods=["GET", "POST"])
-def investment_decision():
-    if "participant_id" not in session:
-        return redirect(url_for("main.index"))
-
-    participant_id = session["participant_id"]
-    response = Response.query.filter_by(participant_id=participant_id).first()
-
-    if not response:
-        flash("No response data found for participant.", "error")
-        return redirect(url_for("main.index"))
-
-    # Pull saved values from database
-    success = response.success_prob or 0
-    failure = response.failure_prob or 0
-    promised = 200  # This can be dynamic if needed in the future
-    expected_return = round(success * promised / 100 - failure, 2)
-
-    if request.method == "POST":
-        investment_amount = request.form.get("investment_amount")
-
-        try:
-            amount = float(investment_amount)
-        except (ValueError, TypeError):
-            flash("Please enter a valid investment amount.", "error")
-            return redirect(url_for("survey_bp.investment_decision"))
-
-        if amount < 0 or amount > 10:
-            flash("Investment must be between $0 and $10.", "error")
-            return redirect(url_for("survey_bp.investment_decision"))
-
-        # Calculate expected dollar return
-        projected_dollar = round(amount * expected_return / 100, 2)
-
-        # Save to DB
-        response.voyagemind_investment = amount
-        response.voyagemind_dollar_return = projected_dollar
-        # response.last_page_viewed = "decision"
-        db.session.commit()
+        # Mark in JSON
+        mark_startup_set_as_used(set_code)
 
         return redirect(url_for("survey_bp.investment_reflecting"))
 
-    # For GET request – display the expected return UI
-    hedge_return = 35  # Static placeholder or randomized
+    # === GET: Display randomized startup set ===
+    if not os.path.exists(STARTUP_JSON_PATH):
+        generate_startup_sets()  # create it if not present
 
-    return render_template(
-        "decision.html",
-        expected_return=expected_return,
-        hedge_return=hedge_return,
+    if not os.path.exists(STARTUP_JSON_PATH):
+        flash("Startup data is missing and could not be generated.", "error")
+        return redirect(url_for("main.index"))
+
+    with open(STARTUP_JSON_PATH, "r") as f:
+        all_sets = json.load(f)
+
+    unused_sets = [s for s in all_sets if not s["used"]]
+    if not unused_sets:
+        flash("All startup sets have been used.", "error")
+        return redirect(url_for("main.index"))
+
+    selected_set = random.choice(unused_sets)
+    session["startup_set_code"] = selected_set["code"]
+    session["startup_set_start_time"] = time.time()
+
+    # Track in DB
+    new_assignment = StartupSetAssignment(
+        participant_id=participant_id, startup_set_code=selected_set["code"]
     )
+    db.session.add(new_assignment)
+    db.session.commit()
+
+    return render_template("investment_multi.html", startups=selected_set["startups"])
 
 
 @survey_bp.route("/investment_reflecting", methods=["GET", "POST"])
@@ -322,11 +270,24 @@ def final_page():
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
 
-    if not response or not response.unique_code or not response.startup_code:
+    # if not response or not response.unique_code or not response.startup_code:
+    #     flash("Missing completion code data.", "error")
+    #     return redirect(url_for("main.index"))
+    # Get startup code from StartupSetAssignment instead of response.startup_code
+    assignment = StartupSetAssignment.query.filter_by(
+        participant_id=participant_id
+    ).first()
+
+    if (
+        not response
+        or not response.unique_code
+        or not assignment
+        or not assignment.startup_set_code
+    ):
         flash("Missing completion code data.", "error")
         return redirect(url_for("main.index"))
 
-    expected_code = f"{response.unique_code}{response.startup_code}"
+    expected_code = f"{response.unique_code}{assignment.startup_set_code}"
 
     if request.method == "POST":
         mturk_id = request.form.get("mturk_id", "").strip()
