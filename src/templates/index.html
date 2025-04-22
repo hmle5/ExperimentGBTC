@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment Decision Survey</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to the Study</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
             background-color: #f8f9fa;
@@ -30,6 +30,14 @@
             font-size: 0.9rem;
         }
     </style>
+    <script>
+        function validateProlificID() {
+            const pid = document.getElementById("prolific_id").value.trim();
+            document.getElementById("continueButton").disabled = pid.length === 0;
+        }
+
+        window.onload = () => validateProlificID();
+    </script>
 </head>
 
 <body>
@@ -38,7 +46,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
-                        <h2>Investment Decision Survey</h2>
+                        <h2>Your Rewards</h2>
                     </div>
                     <div class="card-body">
                         {% if error %}
@@ -47,57 +55,29 @@
                         </div>
                         {% endif %}
 
-
-
-                        <h4>Your Payment</h4>
-                        <p>
-                            The estimated time to complete this survey is <b>10-15 minutes</b>. Upon successful
-                            completion,
-                            you will receive <b>$2</b> within 48 hours.
+                        <p>Thank you for participating in this study. It will take <strong>approximately 15
+                                minutes</strong> to complete this questionnaire. You will earn <strong>a reward of
+                                $2.5</strong> for participating.
                         </p>
+                        <p>To complete the questionnaire and earn this reward, you have to read all the instructions
+                            carefully and answer the questions correctly and as instructed.</p>
+                        <p>You also have the chance to earn <strong> an additional bonus reward of $1</strong> if your
+                            performance in the main task of the survey meets the threshold set for best performance.</p>
 
-                        <hr>
+                        <hr />
 
-                        <form method="POST" action="{{ url_for('main.index') }}" id="understandingForm">
+                        <form method="POST" action="{{ url_for('main.index') }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <div class="mb-4">
-                                <label for="understandingQuestion" class="form-label fw-bold">
-                                    Understanding Question:
-                                </label>
-                                <p class="mb-2">
-                                    Your answer must be correct to proceed. Which of the following is TRUE about this
-                                    survey?
-                                </p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="incorrect"
-                                        id="option1">
-                                    <label class="form-check-label" for="option1">
-                                        After completing all comparison tasks in this survey, I will receive $2
-                                        within 48 hours WITHOUT having to confirm my survey completion on MTurk.
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="correct"
-                                        id="option2">
-                                    <label class="form-check-label" for="option2">
-                                        After completing all comparison tasks in this survey, I will receive $2
-                                        within
-                                        48 hours. For this payment, I need to enter on MTurk a survey completion
-                                        code
-                                        that I will receive at the end of this survey.
-                                    </label>
-                                </div>
-                                {% if error %}
-                                <div class="text-danger mt-2 error-text">
-                                    {{ error }}
-                                </div>
-                                {% endif %}
+                            <div class="mb-3">
+                                <label for="prolific_id" class="form-label fw-bold">Please enter your Prolific
+                                    ID:</label>
+                                <input type="text" class="form-control" id="prolific_id" name="prolific_id"
+                                    oninput="validateProlificID()" required>
                             </div>
 
-                            <p>Click <b>Next</b> to begin the survey.</p>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    Next
+                                <button type="submit" class="btn btn-primary btn-lg" id="continueButton" disabled>
+                                    Continue
                                 </button>
                             </div>
                         </form>
@@ -106,42 +86,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal for incorrect answer -->
-    <div class="modal fade" id="incorrectModal" tabindex="-1" aria-labelledby="incorrectModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="incorrectModalLabel">Incorrect Answer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Incorrect answer. Please select the correct option to proceed.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Event listener for form submission
-        document.getElementById("understandingForm").addEventListener("submit", function (event) {
-            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-            if (!selectedAnswer) {
-                return;
-            }
-
-            // Check if the selected answer is incorrect
-            if (selectedAnswer.value === "incorrect") {
-                event.preventDefault(); // Prevent form submission
-                const modal = new bootstrap.Modal(document.getElementById('incorrectModal'));
-                modal.show(); // Show the modal
-            }
-        });
-    </script>
 </body>
 
 </html>

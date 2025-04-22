@@ -1,8 +1,8 @@
-"""Add StartupSetAssignment model
+"""Add prolific_id to Response
 
-Revision ID: d754103567be
+Revision ID: 4e7ea137abd1
 Revises: 
-Create Date: 2025-04-14 01:52:54.226699
+Create Date: 2025-04-22 01:24:33.468295
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd754103567be'
+revision = '4e7ea137abd1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -67,7 +67,7 @@ def upgrade():
     sa.Column('gender', sa.String(length=20), nullable=True),
     sa.Column('age', sa.Integer(), nullable=True),
     sa.Column('education_level', sa.String(length=50), nullable=True),
-    sa.Column('mturk_id', sa.String(length=100), nullable=True),
+    sa.Column('prolific_id', sa.String(length=100), nullable=True),
     sa.Column('completion_code', sa.String(length=50), nullable=True),
     sa.ForeignKeyConstraint(['consent_id'], ['user_consent.consent_id'], ),
     sa.PrimaryKeyConstraint('id'),

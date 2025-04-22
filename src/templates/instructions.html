@@ -21,44 +21,21 @@
                             there are participants who do not carefully read the questions and just quickly click
                             through the survey. This means that there are a lot of random answers which compromise the
                             results of research studies. To show that you read our questions carefully, please choose
-                            both others and agree as your answer to the next question.
+                            both <strong>others</strong> and <strong>agree</strong> as your answer to the next question.
                         </p>
-                        <form method="POST" action="{{ url_for('survey_bp.educating') }}" id="attentionCheckForm">
 
+                        <form method="POST" action="{{ url_for('survey_bp.educating') }}" id="attentionCheckForm">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <p><strong>Do you agree that yellow is your favorite color?</strong></p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Strongly Disagree"
-                                    id="strongDisagree">
-                                <label class="form-check-label" for="strongDisagree">Strongly Disagree</label>
+
+                            <div id="checkboxContainer">
+                                <!-- Checkboxes will be inserted here via JS -->
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Disagree"
-                                    id="disagree">
-                                <label class="form-check-label" for="disagree">Disagree</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Neutral"
-                                    id="neutral">
-                                <label class="form-check-label" for="neutral">Neutral</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Agree" id="agree">
-                                <label class="form-check-label" for="agree">Agree</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Strongly Agree"
-                                    id="strongAgree">
-                                <label class="form-check-label" for="strongAgree">Strongly Agree</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="answer" value="Others"
-                                    id="others">
-                                <label class="form-check-label" for="others">Others</label>
-                            </div>
+
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+
                         <p class="mt-3 text-muted">Please follow the instructions carefully to proceed.</p>
                     </div>
                 </div>
@@ -67,6 +44,50 @@
     </div>
 
     <script>
+        const options = [
+            { id: "strongDisagree", label: "Strongly Disagree", value: "Strongly Disagree" },
+            { id: "disagree", label: "Disagree", value: "Disagree" },
+            { id: "neutral", label: "Neutral", value: "Neutral" },
+            { id: "agree", label: "Agree", value: "Agree" },
+            { id: "strongAgree", label: "Strongly Agree", value: "Strongly Agree" },
+            { id: "others", label: "Others", value: "Others" },
+        ];
+
+        // Shuffle array
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Inject shuffled checkboxes into the DOM
+        window.onload = function () {
+            shuffle(options);
+            const container = document.getElementById("checkboxContainer");
+            options.forEach(opt => {
+                const div = document.createElement("div");
+                div.className = "form-check";
+
+                const input = document.createElement("input");
+                input.className = "form-check-input";
+                input.type = "checkbox";
+                input.name = "answer";
+                input.id = opt.id;
+                input.value = opt.value;
+
+                const label = document.createElement("label");
+                label.className = "form-check-label";
+                label.htmlFor = opt.id;
+                label.textContent = opt.label;
+
+                div.appendChild(input);
+                div.appendChild(label);
+                container.appendChild(div);
+            });
+        };
+
+        // Validate on submit
         document.getElementById("attentionCheckForm").addEventListener("submit", function (event) {
             const checkboxes = document.querySelectorAll('input[name="answer"]:checked');
             const selectedValues = Array.from(checkboxes).map(cb => cb.value);
