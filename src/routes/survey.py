@@ -113,6 +113,8 @@ def news_info():
     )
 
 
+
+
 @survey_bp.route("/investment", methods=["GET", "POST"])
 def investment():
     if "participant_id" not in session:
@@ -120,7 +122,29 @@ def investment():
 
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
-    STARTUP_JSON_PATH = "startup_data.json"
+    STARTUP_JSON_PATH = "startup_data.json" 
+
+    # === Load startup data if not already in session ===
+    if "startups" not in session:
+        with open(STARTUP_JSON_PATH, "r") as file:
+            startup_data = json.load(file)
+        
+        # Assuming that startup data is an array of sets, and each set has a 'code' and 'startups' list.
+        # You should also handle 'used' logic here to ensure it isn't used again.
+        set_code = session.get("startup_set_code")
+        if set_code:
+            startup_set = next((item for item in startup_data if item["code"] == set_code and not item["used"]), None)
+            if startup_set:
+                session["startups"] = startup_set["startups"]
+                session["startup_set_code"] = set_code
+            else:
+                flash("Invalid or expired startup set.", "error")
+                return redirect(url_for("main.index"))
+        else:
+            flash("No valid startup set found.", "error")
+            return redirect(url_for("main.index"))
+    startups = session["startups"]
+
 
     # === POST: submission (continue button) ===
     if request.method == "POST":
@@ -134,19 +158,67 @@ def investment():
         # Calculate time spent
         time_spent = time.time() - start_time
 
-        # Update assignment model
-        assignment = StartupSetAssignment.query.filter_by(
-            startup_set_code=set_code
-        ).first()
+        # Collect investments
+        investments = {}
+        total_investment = 0
+
+        # Process each startup's investment input
+        for startup in startups:
+            startup_name = startup['Startup_name']
+            field_name = f"investment_{startup_name}"  # Form field names like 'investment_Regenary'
+            amount_str = request.form.get(field_name)
+
+            # Check if investment is missing
+            if amount_str is None:
+                flash(f"Missing investment amount for at least one start-up.", "error")
+                return render_template("investment_multi.html", startups=startups)
+
+            # Validate the amount entered
+            try:
+                amount = int(amount_str)
+            except ValueError:
+                flash(f"Invalid amount for at least one start-up. Please enter a valid number.", "error")
+                return render_template("investment_multi.html", startups=startups)
+
+            # Check if amount is within the valid range
+            if not (0 <= amount <= 300000):
+                flash(f"Amount for at least one start-up is not between $0 and $300,000.", "error")
+                return render_template("investment_multi.html", startups=startups)
+
+            investments[startup_name] = amount
+            total_investment += amount
+
+        # Check if total investment matches the requirement
+        if total_investment != 300000:
+            flash(f"Total investment must be exactly $300,000. Your total: ${total_investment:,}. Please adjust your investments.", "error")
+            return render_template("investment_multi.html", startups=startups)
+
+        # Save investments and time spent to the database
+        if response:
+            response.startup_investments = investments  # Save the investment data (JSON)
+            response.startup_investment_duration = time_spent  # Save the time spent
+            db.session.commit()
+        else:
+            flash("Error saving your investments. Please try again.", "error")
+            return redirect(url_for("main.index"))
+
+        # Update assignment model (mark the set as used)
+        assignment = StartupSetAssignment.query.filter_by(startup_set_code=set_code).first()
         if assignment:
             assignment.used = True
             assignment.duration_seconds = time_spent
             db.session.commit()
 
-        # Mark in JSON
+        # Mark in JSON (external tracking of startup sets)
         mark_startup_set_as_used(set_code)
 
+        # Redirect to the next page after successful submission
         return redirect(url_for("survey_bp.investment_reflecting"))
+
+
+
+
+
 
     # === GET: Display randomized startup set ===
     if not os.path.exists(STARTUP_JSON_PATH):

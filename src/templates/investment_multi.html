@@ -84,12 +84,31 @@
             text-align: justify;
             margin-bottom: 50px;
         }
+
+        .flash-messages .alert-error {
+            color: #8b0000; /* Dark red text */
+            font-size: 16px;
+            margin-top: 20px;
+}
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- <div class="section-heading">Startup Evaluation Survey</div> -->
+    <!-- <div class="section-heading">Startup Evaluation Survey</div> -->
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="list-unstyled">
+                    {% for category, message in messages %}
+                        <li class="text-danger">{{ message }}</li>  <!-- dark red text -->
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    
 
 
         <form method="POST" action="{{ url_for('survey_bp.investment') }}">
@@ -127,6 +146,21 @@
                     <div>
                         <div class="section-label">Start-up Valuation</div>
                         <div class="section-text">{{ startup.Evaluation_sentence or "No evaluation available." }}</div>
+                    </div>
+
+                    <div style="margin-bottom: 50px;"></div> 
+
+                    <div>
+                        <div class="section-label" style="margin-top: 10px;">
+                            <strong>How much would you like to invest in this start-up?</strong><br>
+                            <small>(Please enter an amount between $0 and $300,000)</small>
+                        </div>
+                        <input type="number"
+                               name="investment_{{ startup.Startup_name }}"
+                               min="0"
+                               max="300000"
+                               class="investment-input"
+                               style="width: 120px; margin-top: 5px;">
                     </div>
 
                 </div>
