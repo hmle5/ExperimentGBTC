@@ -34,26 +34,27 @@ Her fall — and the near-collapse of Theranos — has been equally dramatic in 
     "source": "The New York Times",
     "question": "What was the product promised by Elizabeth Holmes’ start-up and what happened to it?",
     "options": [
-        "The product was a medical device that can cure cancer which was not approved to be used in hospitals.",
-        "The product was an invention that can diagnose diabetes which was not successful in having a market scale-up.",
-        "The product was a technology that can diagnose illnesses with minimal amounts of blood which was accused of cheating.",
+        "The product was a medical device that could cure cancer. However, it was not cleared for approval to be used in hospitals.",
+        "The product was an invention that could diagnose diabetes. However, it was not successful in achieving a market scale-up.",
+        "The product was a technology that could diagnose illnesses using minimal blood samples. However, it was accused of fraud.",
     ],
-    "correct_answer": "The product was a technology that can diagnose illnesses with minimal amounts of blood which was accused of cheating.",
+    "correct_answer": "The product was a technology that could diagnose illnesses using minimal blood samples. However, it was accused of fraud.",
 }
 
-MYSTICETES_ARTICLE = {
-    "title": "How whales sing without drowning, an anatomical mystery solved",
-    "content": """The deep haunting tones of the world’s largest animals, baleen whales (mysticetes), are iconic. But how the songs are produced has long been a mystery. 
-Whales evolved from land dwelling mammals, which vocalize by passing air through a structure called the larynx — a structure that also helps keep food from entering the respiratory system. However, toothed whales such as dolphins do not use their larynx to make sound, instead they have evolved a specialized organ in their nose. 
-Now the structure used by baleen whales — a modified version of the larynx is discovered. Whales like humpbacks and blue whales are able to create powerful vocalizations but their anatomy also limits the frequency of the sounds they can make and depth at which they can sing. This leaves them unable to escape anthropogenic noise pollution that occurs in the same range.""",
-    "source": "Nature",
-    "question": "What is mysticetes and what happened to it?",
+CONTROL_ARTICLE = {
+    "title": "Inflation Remains Top Concern, As Revenue Worries Grow",
+    "content": """This quarter, the MetLife & U.S. Chamber of Commerce Small Business Index is 62.3, down from last quarter’s Index Score of 69.1, but matching this time last year (62.3). While most Index measures are not down significantly this quarter, there is a slight softening across measures of business health, cash flow, and increases in staff.
+However, according to the results of the survey (conducted between January 28 – February 14), views of the U.S. and local economies are stable this quarter. Around three in ten small businesses (29%) believe that the U.S. economy is in good health and 37% say the same of their local economy. Both of these measures are on par with last quarter and Q1 2024.
+The survey’s findings also show that inflation continues to be small business owners’ top concern by far and this concern is at record highs—although concerns about revenue also jumped this month. In fact, consistent for the past three years, inflation (58%) continues to be the biggest challenge facing small businesses.
+""",
+    "source": "U.S. Chamber of Commerce",
+    "question": "Based on the news report, which statement best summarizes small businesses' current views about the U.S. economy?",
     "options": [
-        "mysticetes is a whale pieces that can produce sounds at high frequencies and how they could do that is now discovered.",
-        "mysticetes is a whale pieces also known as baleen that can sing while breathing in water and how they could do that is now being argued.",
-        "mysticetes is a whale pieces that can sing while breathing in water and how they could do that is now discovered.",
+        "Although inflation remains a record-high concern for businesses, reduction in revenue has recently been their biggest worry.",
+        "Despite some decreases in business performance measures, small businesses remain broadly optimistic about easing inflation.",
+        "About one-third of small businesses believe the economy is in good health, but inflation continues to be their biggest challenge.",
     ],
-    "correct_answer": "mysticetes is a whale pieces that can sing while breathing in water and how they could do that is now discovered.",
+    "correct_answer": "About one-third of small businesses believe the economy is in good health, but inflation continues to be their biggest challenge.",
 }
 
 
@@ -69,7 +70,7 @@ def generate_news_story_file():
     stories = []
     for _ in range(500):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
-        stories.append({"code": generate_code(), "used": False, "story": "mysticetes"})
+        stories.append({"code": generate_code(), "used": False, "story": "control"})
 
     # Save to JSON file
     with open(NEWS_FILE, "w") as f:
@@ -114,7 +115,7 @@ def mark_story_as_used(story_code):
 
 
 # === CONFIGURABLE CONSTANTS ===
-DEFAULT_EXCEL_PATH = "data/clean_data.xlsx"
+DEFAULT_EXCEL_PATH = "data/clean_data_new.xlsx"
 DEFAULT_JSON_PATH = "startup_data.json"
 DEFAULT_NUM_SETS = 1000
 DEFAULT_SET_SIZE = 6
@@ -139,15 +140,16 @@ def normalize_text(text):
 def load_excel_data(excel_path):
     """Load and normalize all string fields in both sheets."""
     sheets = pd.read_excel(excel_path, sheet_name=None)
-    startup_df = sheets["Tabelle1"]
-    founder_df = sheets["Tabelle2"]
+    startup_df = sheets["startup"]
+    founder_df = sheets["founder"]
+    value_df = sheets["value"]
 
     # Normalize string fields in both DataFrames
-    for df in (startup_df, founder_df):
+    for df in (startup_df, founder_df, value_df):
         for col in df.select_dtypes(include="object").columns:
             df[col] = df[col].apply(normalize_text)
 
-    return startup_df, founder_df
+    return startup_df, founder_df, value_df
 
 
 def generate_unique_code(existing_codes, length=8):
@@ -159,23 +161,23 @@ def generate_unique_code(existing_codes, length=8):
 
 
 def prepare_randomized_startup_set(
-    startup_df, founder_names, evaluation_sentences, set_size
+    startup_df, founder_firstname, evaluation_sentences, set_size
 ):
     """Prepare one startup set with normalized data and substituted evaluation sentence."""
     selected_startups = startup_df.sample(n=set_size, replace=False).to_dict(
         orient="records"
     )
-    assigned_founders = random.sample(founder_names, set_size)
-    assigned_sentences = random.choices(evaluation_sentences, k=set_size)
+    assigned_founders = random.sample(founder_firstname, set_size)
+    assigned_sentences = random.sample(evaluation_sentences, set_size)
 
     combined = []
     for i, startup in enumerate(selected_startups):
-        name = startup["Startup_name_altered"]
-        sentence = assigned_sentences[i].replace("[StartupName]", name)
+        founder_fullname = f"{assigned_founders[i]} {startup['Founder_lastname_altered']}"
+        sentence = f"{assigned_sentences[i]} {startup['Valuation_amount']}."
 
         combined.append(
             {
-                "Startup_name": name,
+                "Startup_name": startup["Startup_name_altered"],
                 "Industry": startup["Industry"],
                 "Product_info": startup["Product_info_altered"],
                 "Founded": (
@@ -188,12 +190,8 @@ def prepare_randomized_startup_set(
                     if not pd.isna(startup["Founder_inferred_age"])
                     else None
                 ),
-                "Founder_Nstartups": (
-                    int(startup["Founder_Nstartups"])
-                    if not pd.isna(startup["Founder_Nstartups"])
-                    else None
-                ),
-                "Assigned_Founder": assigned_founders[i],
+                "Founder_Nstartups": startup["Founder_Nstartups"],
+                "Assigned_Founder": founder_fullname,
                 "Evaluation_sentence": sentence,
             }
         )
@@ -219,17 +217,17 @@ def generate_startup_sets(
     if os.path.exists(output_path):
         return False
 
-    startup_df, founder_df = load_excel_data(excel_path)
+    startup_df, founder_df, value_df = load_excel_data(excel_path)
 
     # Ensure required fields are present
     startup_df = startup_df.dropna(
         subset=["Startup_name_altered", "Industry", "Product_info_altered"]
     )
-    founder_names = founder_df["Founder_name_altered"].dropna().unique().tolist()
-    evaluation_sentences = startup_df["Evaluation_sentence"].dropna().tolist()
+    founder_firstname = founder_df["Founder_firstname_altered"].dropna().unique().tolist()
+    evaluation_sentences = value_df["Evaluation_sentence"].dropna().tolist()
 
     # Validation
-    if len(founder_names) < set_size:
+    if len(founder_firstname) < set_size:
         raise ValueError("Not enough founder names in Excel to build a full set.")
 
     startup_sets = []
@@ -237,7 +235,7 @@ def generate_startup_sets(
 
     for _ in range(num_sets):
         startup_data = prepare_randomized_startup_set(
-            startup_df, founder_names, evaluation_sentences, set_size
+            startup_df, founder_firstname, evaluation_sentences, set_size
         )
         code = generate_unique_code(used_codes, length=code_length)
         used_codes.add(code)

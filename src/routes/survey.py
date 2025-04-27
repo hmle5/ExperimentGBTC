@@ -7,7 +7,7 @@ from utilis import (
     mark_story_as_used,
     generate_news_story_file,
     HOLMES_ARTICLE,
-    MYSTICETES_ARTICLE,
+    CONTROL_ARTICLE,
     # generate_startup_file,
     # get_unused_startup,
     # mark_startup_as_used,
@@ -67,7 +67,7 @@ def news_info():
             return redirect(url_for("survey_bp.news_info"))
 
         # Load article based on story_type to get the correct answer
-        article_data = HOLMES_ARTICLE if story_type == "holmes" else MYSTICETES_ARTICLE
+        article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
         correct_answer = article_data["correct_answer"]
 
         is_correct = user_answer == correct_answer
@@ -94,7 +94,7 @@ def news_info():
         return redirect(url_for("main.index"))
 
     article_data = (
-        HOLMES_ARTICLE if story_entry["story"] == "holmes" else MYSTICETES_ARTICLE
+        HOLMES_ARTICLE if story_entry["story"] == "holmes" else CONTROL_ARTICLE
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
