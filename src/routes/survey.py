@@ -98,7 +98,7 @@ def news_info():
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
-    random.shuffle(shuffled_options)
+    #random.shuffle(shuffled_options)
 
     return render_template(
         "news_info.html",
@@ -117,41 +117,73 @@ def news_info():
 
 @survey_bp.route("/investment", methods=["GET", "POST"])
 def investment():
+    print("Debug: participant_id in session:", session.get("participant_id"))
+
     if "participant_id" not in session:
         return redirect(url_for("main.index"))
 
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
-    STARTUP_JSON_PATH = "startup_data.json" 
+    STARTUP_JSON_PATH = "startup_data.json"
 
     # === Load startup data if not already in session ===
     if "startups" not in session:
         with open(STARTUP_JSON_PATH, "r") as file:
             startup_data = json.load(file)
-        
-        # Assuming that startup data is an array of sets, and each set has a 'code' and 'startups' list.
-        # You should also handle 'used' logic here to ensure it isn't used again.
+
+        # Check if a startup set code is already in the session
         set_code = session.get("startup_set_code")
+
         if set_code:
+            # If set_code exists in session, fetch the corresponding set
             startup_set = next((item for item in startup_data if item["code"] == set_code and not item["used"]), None)
             if startup_set:
                 session["startups"] = startup_set["startups"]
                 session["startup_set_code"] = set_code
             else:
-                flash("Invalid or expired startup set.", "error")
+                flash("Invalid or expired startup set. Please restart.", "error")
                 return redirect(url_for("main.index"))
         else:
-            flash("No valid startup set found.", "error")
-            return redirect(url_for("main.index"))
-    startups = session["startups"]
+            # If no set_code in session, pick the next unused set
+            unused_sets = [item for item in startup_data if not item["used"]]
+            print("Unused sets:", unused_sets)  # Debugging the unused sets list
+            
+            if not unused_sets:
+                flash("No unused startup sets available. Survey is closed.", "error")
+                return redirect(url_for("main.index"))
+
+            # Get the first unused set
+            selected_set = unused_sets[0]  # Always pick the first unused set
+            print("Selected set:", selected_set)  # Debugging the selected set
+
+            # Save the selected set to session
+            session["startups"] = selected_set["startups"]
+            session["startup_set_code"] = selected_set["code"]
+            session["startup_set_start_time"] = time.time()  # Track start time
+
+            # Mark the set as "used" in the data
+            print("Before marking as used:", selected_set)
+            selected_set["used"] = True
+
+            # Save updated startup data back to the JSON file
+            with open(STARTUP_JSON_PATH, "w") as file:
+                json.dump(startup_data, file)
+
+            print("After marking as used:", selected_set)
+
+    # === Debugging session data ===
+    print("Debug: session['startup_set_code']:", session.get("startup_set_code"))
+    print("Debug: session['startups']:", session.get("startups"))
+    print("Debug: session['startup_set_start_time']:", session.get("startup_set_start_time"))
 
 
     # === POST: submission (continue button) ===
     if request.method == "POST":
         set_code = session.get("startup_set_code")
+        startups = session.get("startups")
         start_time = session.get("startup_set_start_time")
 
-        if not set_code or not start_time:
+        if not set_code or not start_time or not startups:
             flash("Session expired. Please restart the task.", "error")
             return redirect(url_for("main.index"))
 

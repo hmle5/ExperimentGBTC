@@ -1,8 +1,8 @@
-"""Add prolific_id to Response
+"""Initial migration
 
-Revision ID: 4e7ea137abd1
+Revision ID: 58643c2ccf6f
 Revises: 
-Create Date: 2025-04-22 01:24:33.468295
+Create Date: 2025-04-28 14:49:07.633765
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4e7ea137abd1'
+revision = '58643c2ccf6f'
 down_revision = None
 branch_labels = None
 depends_on = None

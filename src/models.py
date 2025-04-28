@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
 
 db = SQLAlchemy()
 
@@ -47,6 +48,10 @@ class Response(db.Model):
     education_level = db.Column(db.String(50), nullable=True)
     prolific_id = db.Column(db.String(100), nullable=True)
     completion_code = db.Column(db.String(50), nullable=True)
+
+    # New fields to track investments and time spent
+    startup_investments = db.Column(db.JSON, nullable=True)  # Store the investment amounts as JSON
+    startup_investment_duration = db.Column(db.Float, nullable=True)  # Store the time spent during investment
 
     # Relationship for easy access to UserConsent
     user_consent = db.relationship("UserConsent", backref="responses")

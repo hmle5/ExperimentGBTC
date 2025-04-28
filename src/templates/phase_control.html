@@ -104,10 +104,10 @@
                     </div>
                     <div class="card-body">
                         <p>
-                            Now, imagine that you are a start-up investor. As part of their jobs, investors read news
-                            from the media to gather market insights. In the next page, you will be shown a piece of
-                            news. After reading that, you will receive a question related to the information you read.
-                            Please make sure to read the news thoroughly.
+                            Now, imagine that you are a start-up investor. As part of your role, you frequently analyze news 
+                            from the media to gain market insights. On the next page, you will read a news article. After 
+                            reading that, you will receive a question related to the presented information. Please make sure 
+                            that you read the news thoroughly.
                         </p>
 
                         <form method="POST" action="{{ url_for('survey_bp.news_info') }}"
@@ -134,29 +134,31 @@
             {
                 id: "market_question",
                 value: "market_question",
-                label: "As an investor, I will answer a question related to the market."
+                label: "As an investor, you will read a news article and answer a question related to it."
             },
             {
                 id: "read_news",
                 value: "read_news",
-                label: "As an investor, I will read a piece of news and answer a question related to it."
+                label: "As an investor, you will answer a question related to the market conditions."
             },
             {
                 id: "choose_info",
                 value: "choose_info",
-                label: "As an investor, I will choose between different information."
+                label: "As an investor, you will choose between different sources of information."
             }
         ];
 
+        /*
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
+        */
 
         function renderPhaseOptions() {
-            shuffle(phaseOptions);
+            //shuffle(phaseOptions);
             const container = document.getElementById("phaseOptions");
             phaseOptions.forEach(opt => {
                 const div = document.createElement("div");

@@ -154,6 +154,11 @@
                             investing in early-stage companies.
                         </p>
 
+                        <div class="text-end">
+                            <small>Source: Wikipedia</small>
+                        </div>
+                    
+
                         <form method="POST" action="{{ url_for('survey_bp.phase_control') }}" id="startupQuizForm">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
@@ -177,9 +182,9 @@
     <script>
         // Options for prospect question
         const prospectOptions = [
-            { id: "profitable", value: "profitable", label: "It is highly probable that a start-up with new ideas will be profitable" },
-            { id: "out_of_business", value: "out_of_business", label: "It is highly probable that a start-up will eventually go out of business" },
-            { id: "receive_investment", value: "receive_investment", label: "It is highly probable that a start-up will receive investments to develop their ideas" }
+            { id: "profitable", value: "profitable", label: "It is highly probable that a start-up with a new idea will become profitable." },
+            { id: "out_of_business", value: "out_of_business", label: "It is highly probable that a start-up will eventually go out of business." },
+            { id: "receive_investment", value: "receive_investment", label: "It is highly probable that a start-up will receive investments to develop its idea." }
         ];
 
         // Options for investor question
@@ -190,12 +195,14 @@
             { id: "none", value: "none", label: "None of the above" }
         ];
 
+        /*
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
+        */
 
         function injectOptions(containerId, options, groupName) {
             const container = document.getElementById(containerId);
@@ -223,8 +230,8 @@
 
         // Inject randomized options on load
         window.onload = function () {
-            shuffle(prospectOptions);
-            shuffle(investorOptions);
+            //shuffle(prospectOptions);
+            //shuffle(investorOptions);
             injectOptions("prospectOptions", prospectOptions, "prospect");
             injectOptions("investorOptions", investorOptions, "investors");
         };
@@ -233,7 +240,7 @@
             const prospectAnswer = document.querySelector('input[name="prospect"]:checked');
             const investorsAnswer = document.querySelector('input[name="investors"]:checked');
 
-            const correctProspect = "receive_investment";
+            const correctProspect = "out_of_business";
             const correctInvestors = "both";
 
             if (!prospectAnswer || !investorsAnswer) {
