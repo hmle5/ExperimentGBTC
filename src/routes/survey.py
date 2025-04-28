@@ -124,60 +124,10 @@ def investment():
 
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
+
     STARTUP_JSON_PATH = "startup_data.json"
 
-    # === Load startup data if not already in session ===
-    if "startups" not in session:
-        with open(STARTUP_JSON_PATH, "r") as file:
-            startup_data = json.load(file)
-
-        # Check if a startup set code is already in the session
-        set_code = session.get("startup_set_code")
-
-        if set_code:
-            # If set_code exists in session, fetch the corresponding set
-            startup_set = next((item for item in startup_data if item["code"] == set_code and not item["used"]), None)
-            if startup_set:
-                session["startups"] = startup_set["startups"]
-                session["startup_set_code"] = set_code
-            else:
-                flash("Invalid or expired startup set. Please restart.", "error")
-                return redirect(url_for("main.index"))
-        else:
-            # If no set_code in session, pick the next unused set
-            unused_sets = [item for item in startup_data if not item["used"]]
-            print("Unused sets:", unused_sets)  # Debugging the unused sets list
-            
-            if not unused_sets:
-                flash("No unused startup sets available. Survey is closed.", "error")
-                return redirect(url_for("main.index"))
-
-            # Get the first unused set
-            selected_set = unused_sets[0]  # Always pick the first unused set
-            print("Selected set:", selected_set)  # Debugging the selected set
-
-            # Save the selected set to session
-            session["startups"] = selected_set["startups"]
-            session["startup_set_code"] = selected_set["code"]
-            session["startup_set_start_time"] = time.time()  # Track start time
-
-            # Mark the set as "used" in the data
-            print("Before marking as used:", selected_set)
-            selected_set["used"] = True
-
-            # Save updated startup data back to the JSON file
-            with open(STARTUP_JSON_PATH, "w") as file:
-                json.dump(startup_data, file)
-
-            print("After marking as used:", selected_set)
-
-    # === Debugging session data ===
-    print("Debug: session['startup_set_code']:", session.get("startup_set_code"))
-    print("Debug: session['startups']:", session.get("startups"))
-    print("Debug: session['startup_set_start_time']:", session.get("startup_set_start_time"))
-
-
-    # === POST: submission (continue button) ===
+    # === POST: form submission ===
     if request.method == "POST":
         set_code = session.get("startup_set_code")
         startups = session.get("startups")
@@ -187,99 +137,106 @@ def investment():
             flash("Session expired. Please restart the task.", "error")
             return redirect(url_for("main.index"))
 
-        # Calculate time spent
         time_spent = time.time() - start_time
-
-        # Collect investments
         investments = {}
         total_investment = 0
 
-        # Process each startup's investment input
         for startup in startups:
             startup_name = startup['Startup_name']
-            field_name = f"investment_{startup_name}"  # Form field names like 'investment_Regenary'
+            field_name = f"investment_{startup_name}"
             amount_str = request.form.get(field_name)
 
-            # Check if investment is missing
             if amount_str is None:
-                flash(f"Missing investment amount for at least one start-up.", "error")
+                flash("Missing investment amount.", "error")
                 return render_template("investment_multi.html", startups=startups)
 
-            # Validate the amount entered
             try:
                 amount = int(amount_str)
             except ValueError:
-                flash(f"Invalid amount for at least one start-up. Please enter a valid number.", "error")
+                flash("Invalid amount entered.", "error")
                 return render_template("investment_multi.html", startups=startups)
 
-            # Check if amount is within the valid range
             if not (0 <= amount <= 300000):
-                flash(f"Amount for at least one start-up is not between $0 and $300,000.", "error")
+                flash("Each amount must be between 0 and 300,000.", "error")
                 return render_template("investment_multi.html", startups=startups)
 
             investments[startup_name] = amount
             total_investment += amount
 
-        # Check if total investment matches the requirement
         if total_investment != 300000:
-            flash(f"Total investment must be exactly $300,000. Your total: ${total_investment:,}. Please adjust your investments.", "error")
+            flash(f"Total investment must be exactly $300,000. Your total: ${total_investment:,}.", "error")
             return render_template("investment_multi.html", startups=startups)
 
-        # Save investments and time spent to the database
+        # Save to database
         if response:
-            response.startup_investments = investments  # Save the investment data (JSON)
-            response.startup_investment_duration = time_spent  # Save the time spent
+            response.startup_code = set_code
+            response.startup_investments = investments
+            response.startup_investment_duration = time_spent
             db.session.commit()
         else:
-            flash("Error saving your investments. Please try again.", "error")
+            flash("Error saving investments.", "error")
             return redirect(url_for("main.index"))
 
-        # Update assignment model (mark the set as used)
         assignment = StartupSetAssignment.query.filter_by(startup_set_code=set_code).first()
         if assignment:
             assignment.used = True
             assignment.duration_seconds = time_spent
             db.session.commit()
 
-        # Mark in JSON (external tracking of startup sets)
+        # Update external JSON (optional)
         mark_startup_set_as_used(set_code)
 
-        # Redirect to the next page after successful submission
+        # Clear session startup data
+        session.pop("startups", None)
+        session.pop("startup_set_code", None)
+        session.pop("startup_set_start_time", None)
+
         return redirect(url_for("survey_bp.investment_reflecting"))
 
+    # === GET: show form ===
+    if "startups" not in session:
+        # Load new set
+        with open(STARTUP_JSON_PATH, "r") as file:
+            startup_data = json.load(file)
 
+        unused_sets = [item for item in startup_data if not item["used"]]
 
+        if not unused_sets:
+            flash("No unused startup sets available.", "error")
+            return redirect(url_for("main.index"))
 
+        selected_set = unused_sets[0]
+        session["startups"] = selected_set["startups"]
+        session["startup_set_code"] = selected_set["code"]
+        session["startup_set_start_time"] = time.time()
 
+        selected_set["used"] = True
 
-    # === GET: Display randomized startup set ===
-    if not os.path.exists(STARTUP_JSON_PATH):
-        generate_startup_sets()  # create it if not present
-
-    if not os.path.exists(STARTUP_JSON_PATH):
-        flash("Startup data is missing and could not be generated.", "error")
-        return redirect(url_for("main.index"))
-
-    with open(STARTUP_JSON_PATH, "r") as f:
-        all_sets = json.load(f)
-
-    unused_sets = [s for s in all_sets if not s["used"]]
-    if not unused_sets:
-        flash("All startup sets have been used.", "error")
-        return redirect(url_for("main.index"))
-
-    selected_set = random.choice(unused_sets)
-    session["startup_set_code"] = selected_set["code"]
-    session["startup_set_start_time"] = time.time()
-
-    # Track in DB
-    new_assignment = StartupSetAssignment(
-        participant_id=participant_id, startup_set_code=selected_set["code"]
-    )
-    db.session.add(new_assignment)
+        with open(STARTUP_JSON_PATH, "w") as file:
+            json.dump(startup_data, file)
+    
+    assignment = StartupSetAssignment.query.filter_by(participant_id=participant_id).first()
+    if not assignment:
+        assignment = StartupSetAssignment(
+            participant_id=participant_id,
+            startup_set_code=selected_set["code"],
+            used=True,
+            duration_seconds=None
+        )
+        db.session.add(assignment)
+    else:
+        assignment.startup_set_code = selected_set["code"]
+        assignment.used = True
+        assignment.duration_seconds = None
     db.session.commit()
 
-    return render_template("investment_multi.html", startups=selected_set["startups"])
+    startups = session["startups"]
+
+    print("Debug: session['startup_set_code']:", session.get("startup_set_code"))
+    print("Debug: session['startups']:", startups)
+    print("Debug: session['startup_set_start_time']:", session.get("startup_set_start_time"))
+
+    return render_template("investment_multi.html", startups=startups)
 
 
 @survey_bp.route("/investment_reflecting", methods=["GET", "POST"])
