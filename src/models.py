@@ -56,6 +56,9 @@ class Response(db.Model):
     # New field to collect free-text approach answer
     investment_approach = db.Column(db.Text, nullable=True)
 
+    # New field to collect likert reflection answer
+    likert_reflection = db.Column(db.JSON, nullable=True)
+
     # Relationship for easy access to UserConsent
     user_consent = db.relationship("UserConsent", backref="responses")
 

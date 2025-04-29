@@ -291,10 +291,44 @@ def investment_approach():
         db.session.commit()
 
         return redirect(
-            url_for("survey_bp.investment_demographic")
+            url_for("survey_bp.investment_reflect_likert")
         )  # Replace with your next route
 
     return render_template("investment_approach.html")
+
+
+
+@survey_bp.route("/investment_reflect_likert", methods=["GET", "POST"])
+def investment_reflect_likert():
+    if "participant_id" not in session:
+        return redirect(url_for("main.index"))
+
+    participant_id = session["participant_id"]
+    response = Response.query.filter_by(participant_id=participant_id).first()
+
+    if request.method == "POST":
+        keys = [
+            "industry_rating", "product_rating", "maturity_rating",
+            "experience_rating", "innovativeness_rating", "integrity_rating"
+        ]
+
+        likert_data = {}
+        for key in keys:
+            val = request.form.get(key)
+            if not val:
+                flash(f"Missing response for: {key.replace('_', ' ').title()}", "error")
+                return redirect(url_for("survey_bp.investment_reflect_likert"))
+            likert_data[key] = int(val)
+
+        response.likert_reflection = likert_data  # Optional if column is Text
+        response.last_page_viewed = "investment_reflect_likert"
+        db.session.commit()
+
+        return redirect(url_for("survey_bp.investment_demographic"))  # Or next step
+
+    return render_template("investment_reflect_likert.html")
+
+
 
 
 @survey_bp.route("/demographic_collecting", methods=["GET", "POST"])
