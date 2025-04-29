@@ -1,7 +1,7 @@
 [
     {
         "code": "21JWFJO5EC",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -67,7 +67,7 @@
     },
     {
         "code": "QNSKGEO03Q",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Aegisline",
@@ -133,7 +133,7 @@
     },
     {
         "code": "FRJ0B5X6Y2",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Lendr",
@@ -199,7 +199,7 @@
     },
     {
         "code": "359LVSO3AL",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Expada",
@@ -265,7 +265,7 @@
     },
     {
         "code": "AGVKIGJ5FK",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",
@@ -331,7 +331,7 @@
     },
     {
         "code": "ED9JAI6QDX",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",
@@ -397,7 +397,7 @@
     },
     {
         "code": "1XWWJ7FYZN",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Regenary",
@@ -463,7 +463,7 @@
     },
     {
         "code": "94IODZLCKT",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",
@@ -529,7 +529,7 @@
     },
     {
         "code": "GB5VEMCK4Y",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",

@@ -78,66 +78,6 @@ def attentioncheck_1():
     return render_template("attentioncheck_1.html", error=error)
 
 
-# @main_bp.route("/index", methods=["GET", "POST"])
-# def index():
-#     error = None
-#     ip = get_client_ip()
-#     user_agent = get_user_agent()
-
-#     # Check if user has already given consent
-#     consent_record = UserConsent.query.filter_by(
-#         ip_address=ip, user_agent=user_agent
-#     ).first()
-
-#     if not consent_record or not consent_record.consent_given:
-#         return redirect(url_for("main.consent"))
-
-#     # Check if there's an existing response for this user
-#     response_record = Response.query.filter_by(
-#         consent_id=consent_record.consent_id
-#     ).first()
-
-#     if response_record:
-#         # Resume from last recorded point
-#         session["participant_id"] = response_record.participant_id
-#         session["start_time"] = response_record.start_time
-#         session["question_answered"] = True  # Assume they answered correctly before
-
-#         if response_record.completed:
-#             error = "You have already completed this survey."
-#             return render_template("index.html", error=error)
-
-#         return redirect(
-#             url_for("survey_bp.instructions")
-#         )  # Resume from where they left off
-
-#     # Handling the understanding question
-#     if request.method == "POST" and not error:
-#         answer = request.form.get("answer")
-#         if answer != "correct":
-#             error = "Incorrect answer. Please select the correct option to proceed."
-#         else:
-#             # Generate a new participant ID if no existing record
-#             participant_id = generate_unique_participant_id()
-#             session["participant_id"] = participant_id
-#             session["start_time"] = datetime.now()
-#             session["question_answered"] = True
-
-#             # Create a new response record
-#             response_record = Response(
-#                 consent_id=consent_record.consent_id,
-#                 participant_id=participant_id,
-#                 completed=False,
-#                 start_time=datetime.now(),
-#             )
-#             db.session.add(response_record)
-#             db.session.commit()
-
-#             return redirect(url_for("survey_bp.instructions"))  # Redirect to survey
-
-#     return render_template("index.html", error=error)
-
-
 @main_bp.route("/index", methods=["GET", "POST"])
 def index():
     error = None
