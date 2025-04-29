@@ -53,6 +53,9 @@ class Response(db.Model):
     startup_investments = db.Column(db.JSON, nullable=True)  # Store the investment amounts as JSON
     startup_investment_duration = db.Column(db.Float, nullable=True)  # Store the time spent during investment
 
+    # New field to collect free-text approach answer
+    investment_approach = db.Column(db.Text, nullable=True)
+
     # Relationship for easy access to UserConsent
     user_consent = db.relationship("UserConsent", backref="responses")
 

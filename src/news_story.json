@@ -1,5002 +1,5002 @@
 [
     {
-        "code": "NPFXM3E3",
+        "code": "EW0EGYRB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0VCXPAK2",
+        "code": "CSTD8BG8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9D8KDEKY",
+        "code": "KEZV9MYU",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NYBHJ4QD",
+        "code": "VYMYBAJI",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "VKEVU69A",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "YT9X2Q0C",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "YSGKP1Z3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "BETZCDNB",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "AWG49HB0",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "4ZLZMM07",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "74EHX6LR",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "ZCOFLO91",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "ZJ5O7UWR",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "H0EALI5A",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "D25RF6G0",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "PLTRG0VY",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "A2C4IHC2",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "URNHCSTE",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "BMMMEOTB",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "AGCL7AES",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "I4XARUOX",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "G4V58GQU",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "D3DW4XHG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "R3E6YYNG",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "BRQWMX99",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "TSE4R8M7",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "4NI87QYZ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "TB5ELE4H",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "EZTXYI5Y",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "W4E7ZJVQ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "FZV003ZF",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "D5SUY5ZG",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "G9IRKOHT",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "K5K0E3TX",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "XDY7HO99",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "99BV5R2M",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "0BI73VL0",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "7EF5NLA5",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "O0M6CZXE",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "WHZUBQZZ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "SS4M0IC3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "QFJ6K17O",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "R72JALT9",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "MM16D4YH",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "FUTLVK37",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "B93IDDR7",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "CSQT45XP",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FZNXRJ0T",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "501PEZMU",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "6Q4F70GG",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "5OW8F260",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "AVX10GXR",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "DYS8PHUE",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "EC3AZ1BT",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "N041EPG1",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "F9GPJF99",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "UTJU5CL6",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "XR4765A0",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "PPNFDVT4",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FV9F6COZ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "AZDT25GC",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "5KMEDJVQ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "8XM9MO6L",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "6XZ0LCZG",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "MZO57YDB",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "O6GGX4VD",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "0FUXGQYU",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "RNYU3K16",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "P5OQVCIK",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "6XLN6MZD",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "SR853VVX",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "N6F3GFUB",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "E8CNQP8F",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "73NETIQ8",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "GYJ0JBZZ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "HJAD2JC5",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "IWK38ZUA",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "WCW586NZ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "H14OCCA3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "KJSLT2N1",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "YXP3P5SX",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "DSFCPDXF",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "VNYTNS57",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "NGM5LGR9",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "KFHU0TKC",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "O4C9BFDK",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "2JKQJQIZ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "DIE4Q4N4",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "WNTO5JVP",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "ARWRWU71",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "4BWW5DDY",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "N2MVNLZZ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "AM6RLOWD",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "HZ912BPC",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "GEPBL21V",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "UMV069VQ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "8VTXN4QV",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "5V4NO0BU",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "XL0ZRRMP",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "1VM251WP",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "E34MZO6R",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "CF1EYUPE",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "UQXNFSRN",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "49B1Z2YC",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "PS00K3CG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "C9MUGQAP",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "EMEWXQ97",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "SA1IYUDK",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "A239UU99",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "SZMMIFK4",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "7YBDVAXB",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "4NK7K8UU",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "3V0Q9BZE",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "2SJQ6XJA",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "OJYW5UWD",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FM5C0CKF",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "KNSNWO3E",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "DRO3U5W8",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "WW0S8AKF",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "HZ84AYAV",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "DXVG4CI3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "XRLNNRV5",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "RVZJBDQI",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "G4EI8KRK",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "A3V85YTG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "CTJSQ692",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "VJEUCYLZ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "N2RXHHDS",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "EFJJPCYH",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "0HB9CXSM",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "ILADLFK6",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "PYD87H97",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "5XLB7KJB",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "2N7U7FW4",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "0BFYXZIE",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "KX2ZM5A6",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "HI6KOL4Y",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FLC5U31T",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "4JR5VWWI",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "6LQK2OMQ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "CITEZF3V",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "BQW6VM8I",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "WNCL5QM1",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FUQJS838",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "5W9EOE2O",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "M7CFHXB6",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "PPOFXK26",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "CNPVKQKQ",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "RN91088J",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "H9ZS9FOW",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "U7VWIA98",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "WYSAS1DU",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "6SCOAPAJ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "6JZXDJT2",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "Q5TUWQOC",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "CGQ6SQCW",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "BDOIQMWN",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "O6BUS6F3",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "8SISRMT3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "D4MIVM1L",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "ITWRDABR",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "35KZ2XHC",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "76QD8LQW",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "UNY2SFTL",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "T17HK8D1",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "A0V5YTHO",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "8BH0FXRW",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "OG56R0UN",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "SGRHC9YI",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "GHVZPTDI",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "46BJFUIE",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "TQHUF6AP",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "Z6WE3OE9",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "XPQDGUKY",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "EYSTN5AG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "WEZWHOW4",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "842JNUFG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "JEFDGQQR",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "FM7CTNMO",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "FZMS0H9Z",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "DF8VHQDJ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "EZCD6DLD",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "BLFER2Q3",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "35OO8XA4",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "SRBKK3P7",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "5FG73WIM",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "JIS861WQ",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "M67BWCUE",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "0X7CAFLG",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "YWJZK9NU",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "F1QEM8S2",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "J15R5R66",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "MIBX75SY",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "V222IDNB",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "73L2BKGB",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "XT28JB8M",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "UUIZN5J0",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "AU4CSSOF",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "CBGKJ5CN",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "YNUDNSJV",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "9X9C22K2",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "WIMAQ3ZV",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "CB4VQNT7",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "TU0T9ZYM",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "JSINL27X",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "DHJL8U1E",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "TZUYHKMY",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "IG582WO9",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "AKMLCRD2",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "X1TKFR6Q",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "S9JQDIKW",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "7ODXCH88",
+        "used": false,
+        "story": "control_news"
+    },
+    {
+        "code": "YN8I3LPH",
+        "used": false,
+        "story": "holmes"
+    },
+    {
+        "code": "3GKFFQRP",
         "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "I9O61UKI",
+        "code": "JEMIW8MJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "BJB5UFQO",
+        "code": "SGMLL5VG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "TI2X9J05",
+        "code": "RCPU0DS8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "S10RFQ90",
+        "code": "YD84NZRI",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "921679LT",
+        "code": "SCQ0YVC5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3AC7LZK4",
+        "code": "F9TS3UR7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5YD1BXG2",
+        "code": "H5ZTFU2L",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0MWVK5LC",
+        "code": "3QHRJ75Z",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7V23D47I",
+        "code": "TIVWDILX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "41I7F72D",
+        "code": "8DBO9BH1",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BVCKS9KE",
+        "code": "ICMYTIXY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XJ53DMUS",
+        "code": "QN4BT5CF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IOFIH0HG",
+        "code": "39IHATIR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "JZ9DFFUD",
+        "code": "4GKXXS0G",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QJPC4N4T",
+        "code": "LM6W05HM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PTZ0C8VY",
+        "code": "Z8N116DV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GWRBKRRP",
+        "code": "E87YW8FR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FOAZ7VBI",
+        "code": "AYB0FL9R",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VEMF0DX7",
+        "code": "BHXR70KT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XXVP2AU1",
+        "code": "519TKX19",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "I1WGEJRG",
+        "code": "VI1NVA46",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OK3R3CPX",
+        "code": "PP99S785",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "KCQH5DQ6",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "4SYSCUWB",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "DZ68KKNV",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "L3FCMG9P",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "7E33G2J8",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ZT2L7APE",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "TVRHLSJ0",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "6DGTK7B3",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "OBOEKDU5",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "PA3XZT8O",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "LFY3QF3B",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "30SQWEWX",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "675QOBA7",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "TVYNQO00",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "6O54ZBKK",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "4LODSCMU",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "DPUZL3CJ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "UN6NP12X",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "ZQ9UDJOK",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "FOV0HEO5",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "T7NU2B6T",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "3A15FDMW",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "Q2A2Z4YG",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "UBQMZ1VA",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "LNGK31CQ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "OEDMKXIF",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "5XV8WYHI",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "6B3PBYDQ",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "S71GPL5W",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "MF1NA99S",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "UOBYXOG6",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "P8I86O3G",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "6SXMZEYS",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "GS7RUD2L",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "USANN6MM",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ERSCS0NK",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "4J7S2P5N",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "FWBXEC6Z",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "1EOY8GO4",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "PECVKQ45",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "YPNI382F",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "GFGJFT7O",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "PLXE5D6V",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "9HRPTME0",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "MP2A2UT0",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "D2IT5T3D",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "R9Z4SYFT",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "MOP3K688",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "R10CUX7Y",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "U1XDPVGE",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "07E6Z1ON",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "QT7YHIP9",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "4TGA7HW1",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "4H9X4AKX",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "HLFLH962",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "R3BIEUT3",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "C06G7WT1",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "6HGJPTP3",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "0A454O73",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ZSMTN5UX",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "E8P0Z4EO",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "DPHCOO0S",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "MMOZ2A1X",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "LQRRCMEM",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "4ZXJDZOZ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "1HQVY0OT",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "SA2BOTXM",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "L35TC31R",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "OF9J50DK",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "RDZKD6BQ",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "WCBQ6FYG",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "FJW5AYBV",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "8YGAFQ97",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "4Y7YMUTN",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "2JXYALVE",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "VO6PZZGQ",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "D6ZKOICX",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "QB34WIT7",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "S22SNHX4",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "AZI8I582",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "BT09MV46",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "ZBXSYC8T",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "6XKNW0ND",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "8GPL6IQ8",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "STUTKWFO",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "Q1LXIOIU",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "8K9BQ5NA",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "3003877F",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "SIW84V8Z",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "UW6XF1BW",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "TAWANGTX",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "GUZZ3J3C",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "XSRTJDGJ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "OLQA8TGA",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "TCKC6HLT",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "3TR4PYXU",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "3Q7ENMM0",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "L09TBA3W",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "17OP931R",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ITKMCZL9",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "S2QQ85T1",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "IKS2RLA0",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "I3H1F8DO",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "VL70BG2W",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "N1W7WVA8",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "VQ3EPEOC",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "BY5E0VSG",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "187FE46D",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "GMMQEEKW",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "FMQJO33C",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "VDMDYR20",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "XVM88ATZ",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "CBDADKNC",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "FSRJFB4Y",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "OKF9NJ6R",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "E66DZLTF",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "QXZCYZI8",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "6ER97G15",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "5HOLH1RB",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "T6LW3OKC",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "LAKNX5EH",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "7EWATFOP",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "C38VOQNZ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "X0OMWZMR",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "LQ1PK6AB",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "UG80S499",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "TNCJI3UZ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "EPOICGVT",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "X9W9TEUE",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "0KK5NK8C",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "JAV9FE3X",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "RD4P39QJ",
+        "code": "7EJFBJTS",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "7DGCPQQS",
-        "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "M52GAZU7",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "C0MC5ICP",
+        "code": "NI74JJH4",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "4AGPX0OG",
+        "code": "46UXHL4B",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "7DC98T9F",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "T0F3VR9J",
+        "code": "H19RZ9B0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4CEPNPLS",
+        "code": "PWPGH6H7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WNR8A19V",
+        "code": "WWHKHQ2D",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N4S5HCVU",
+        "code": "Z5UFLOY8",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "QYJSKHBO",
-        "used": true,
-        "story": "mysticetes"
     },
     {
-        "code": "7ERKHJCE",
+        "code": "3QPMTEU4",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "YZ97LB6C",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "X2I0MK8H",
+        "code": "5WRAGPF4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LJRHPL9O",
+        "code": "9EDG8GA7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9PNN19BX",
+        "code": "4BKB51I4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "M8MFV0K7",
+        "code": "YUT203FB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7B5AZ8WB",
+        "code": "IZO9FDYP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8SE72EP3",
+        "code": "9YICUQUW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PSINI0TC",
+        "code": "QCFODN10",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "U9YLSA04",
+        "code": "55A4PNX7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GK3KYJ6I",
+        "code": "U2GO31E2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "AX5J30NQ",
+        "code": "L5NF1VZ5",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JLEGRKYV",
+        "code": "8ZXKS275",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NJSZ616Y",
+        "code": "EFQYSL9X",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JQ4PTE5J",
+        "code": "5O7O5SJ7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z2NJPDAA",
+        "code": "WALXJBWB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1EX6T1D2",
+        "code": "DHWQEPWV",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "442YXU1E",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "OL3P3TK9",
+        "code": "0APS37WU",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "BWGTS81M",
+        "code": "ZXB942JY",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "EVUEEAPG",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "C5BFTFX8",
+        "code": "ETJQI87L",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "M0QZ9EA0",
+        "code": "D52ZGGQ4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PAIVFB74",
+        "code": "MD3M3LXQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "F5AQUDD0",
+        "code": "FP0D1REW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WHQEEHAK",
+        "code": "THYRBRA3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2QS1A9WP",
+        "code": "8CEXAK15",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CJTXDRN2",
+        "code": "5INPJEHG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "P8TBQA4U",
+        "code": "MSJZUN84",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "U9VBRYJ2",
+        "code": "J6W74WPU",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GZBQ9GQI",
+        "code": "G7A6NZY2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QJ0EWJYH",
+        "code": "QLKT82RS",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "F625Q4TT",
-        "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "HSFC69R1",
+        "code": "73I463VN",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "AO9U7BN5",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "LFZJVEIW",
+        "code": "IU7AVSKI",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ZF1RKK54",
+        "code": "T3RRRAY7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9QT3VP2I",
+        "code": "OI3XV7QI",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CUDFQ4Y5",
+        "code": "W1JTPY57",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CBY6KX50",
+        "code": "SO7XGYUJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "41JSLJOB",
+        "code": "BMCJSA2D",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "IN8B06KF",
+        "code": "CXODHGPF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XHU3R7NF",
+        "code": "LGNCNWBR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5VDECYPS",
+        "code": "K9Y48420",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5AQOJBZH",
+        "code": "084OY063",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QLPI5ZZF",
+        "code": "FUIGO1X7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "KF58KFY8",
+        "code": "F4WFNHFV",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EKAET09P",
+        "code": "SXN0PQ5E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SRHMJXI8",
+        "code": "SB2WJY32",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FQ5LLE6B",
+        "code": "ISKC2TID",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "176ZIK2I",
+        "code": "RS8K61GQ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EZVGPD5F",
+        "code": "WJPIXE5S",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6CX2PMO9",
+        "code": "MJ5GZG3Y",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "SVXNEN2N",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "RFDYLMLL",
+        "code": "AHMSH8N3",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "6AXSOOKI",
+        "code": "R3ND2CHG",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "ZTZ4B0SO",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "JMXMJRMO",
+        "code": "B3IOQZV9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VVUCOFBV",
+        "code": "M55NNIG5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LVLXD3DH",
+        "code": "N7DZ88Y0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IY3REGRL",
+        "code": "7YSOOM2B",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5GO0R15U",
+        "code": "6A9PVJIO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "U3XLWV4I",
+        "code": "540U65A6",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QUJKPM8T",
+        "code": "5TONE76G",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MBKBHQM9",
+        "code": "O9EPCMJD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Q1XNHYG7",
+        "code": "255Y8YA7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "240GGYSY",
+        "code": "T8J1LD1N",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VTLBLIJ7",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "CJFT2LDQ",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "VFM4NOHY",
+        "code": "87BOIYBE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WTX9R281",
+        "code": "A1V2J5XP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CFHBVVL3",
+        "code": "31TC0GKM",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JIRGJ0NS",
+        "code": "MISNK5CW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "MIWYJCCH",
+        "code": "TJGHISY6",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "50HMQTZT",
+        "code": "T6JDFQ6N",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "W482LHKY",
+        "code": "EHG2A09Q",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BR1EE0MK",
+        "code": "KFMHCQAO",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LZGX0KDA",
+        "code": "F7QDQPV8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IJTNSSW3",
+        "code": "XN1PXIXT",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "ZSJX85DG",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "VT3HOJ1S",
+        "code": "52ZFX36O",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "QQGBZVD0",
+        "code": "EFYMF30R",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "4RQXWJ1Q",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "DKAMLOVU",
+        "code": "2OHX9E3I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "H7IHKML4",
+        "code": "Z4TMBWJC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6RV0PGIP",
+        "code": "6G7PDT0N",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "T6ZUX6AR",
+        "code": "2LZDAONO",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z16LJ41A",
+        "code": "9NVE3WPP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FI96646Z",
+        "code": "DBW0BTP2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8WXEZKAB",
+        "code": "3U154VKS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Z18CFI0I",
+        "code": "S87QQCH2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8J16I43W",
+        "code": "PEOO4JJN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "U7R1C5WX",
+        "code": "SU0IG4ZR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "H8HLSGAL",
+        "code": "G7CVO515",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JYNDLCA2",
+        "code": "88BHCORC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LATT0HWA",
+        "code": "YNHZR5ZL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VEOB5FGR",
+        "code": "LK4EENUY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9Y3IR5PS",
+        "code": "OT5VKI6B",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N5PSOBBA",
+        "code": "DV5HD5YJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OPX2GK75",
+        "code": "4UZZYX3O",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7DTVET2T",
+        "code": "SXV7PHD9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4RRBNONH",
+        "code": "R3RWMAU9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WWID8G4E",
+        "code": "TMBUZNED",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "51YNVNQR",
+        "code": "ML6W7UTG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WH4LO847",
+        "code": "P3398OJW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ZOYPCPKQ",
+        "code": "IL1MML2S",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UI9JSZ1I",
+        "code": "0V7HKRDF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "05M9XGE3",
+        "code": "WT8R0UWO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "92LSKK5P",
+        "code": "3WE2ARQ4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CBIC0YX8",
+        "code": "3TEFNQ30",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XQT20IAV",
+        "code": "RDRKDKMP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "SD0V0SUK",
+        "code": "AU8VZG4M",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E5O6M0DI",
+        "code": "CDN45RFA",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HA2URPBM",
+        "code": "SKG3SHN2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RK07DOBV",
+        "code": "U2PXD18S",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GLGAGJWC",
+        "code": "BRY7K6NX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MV195KG0",
+        "code": "BI87SYHC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PC8I4P1X",
+        "code": "96B0OG0K",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J6OQ41MU",
+        "code": "H7AJQIRX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "M2FHJRF2",
+        "code": "8W5V7XI8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "B2Y5SQWZ",
+        "code": "MNT1CLSC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8HQYSZRE",
+        "code": "BZ4TEBSW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E68T7SI8",
+        "code": "SOOH7R25",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "T8H40M2V",
+        "code": "1Y7NNPJB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "L2ZXKRH8",
+        "code": "RHNFWBHK",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "V90SLISG",
+        "code": "CE34I2PL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "LS6HWBHQ",
+        "code": "WCDKU2BT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "JXWJV8I6",
+        "code": "VQJXE0NJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "C9Y67I7B",
+        "code": "9SLOYFIM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "D62JL15N",
+        "code": "UJMGYATD",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FDE5QCHL",
+        "code": "X1K8XS3J",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ISEL76R7",
+        "code": "K7N0J99A",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2YR4UAU9",
+        "code": "OJB4Z51Z",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PCOLJOUK",
+        "code": "D9ANNN41",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "K2TDK19S",
+        "code": "9Q15MJB4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "I8ZCS2O4",
+        "code": "8E4JB6GF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CKUMSP9X",
+        "code": "CKTCAXO8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "G86Q8CKD",
+        "code": "JFZM6K3Y",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "HEPTNQFI",
+        "code": "OXPEKYG9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RAP96TWX",
+        "code": "5Q5O1ZXA",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MSGTETCQ",
+        "code": "SF9OY0V4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "MHQ49I3F",
+        "code": "E8DU67SP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QX4N33X8",
+        "code": "ER337HGB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DTY6YHPL",
+        "code": "DK8IXW4E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XGN2EKLA",
+        "code": "RAYT200V",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9LD4U8SG",
+        "code": "2K9H04K8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ES1LSQVN",
+        "code": "4Q0Q5SHF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9YF7U1PD",
+        "code": "F92SNPXJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DMCQD4M4",
+        "code": "MUDMP7HC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "H4TJHH2T",
+        "code": "NI0QFR6Z",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "0HBGG78D",
+        "code": "M81GEHCY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6U1T8UMQ",
+        "code": "U94A8P8I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OWGVLHGT",
+        "code": "5D2V8W83",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LDWJ027D",
+        "code": "SFGBBAA6",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "76UE3SRE",
-        "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "N0JKSWNX",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "ETX5G1MV",
+        "code": "JJIEZHXF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PAIBK6MI",
+        "code": "QLMIN41V",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NFVJORI3",
+        "code": "R44EIRAH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VRFLNG6O",
+        "code": "VX1KYVO2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "HF4EKGHK",
+        "code": "X2YIX9FP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "7Y7AZ9BJ",
+        "code": "MA9U60AG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "B7LSJ5ZQ",
+        "code": "X61OV4VC",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "5ZQ5FA3B",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "NP5VOWA6",
+        "code": "US08H60N",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "NIX2OO8E",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4DZCL1VD",
+        "code": "0CGXCU8E",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "X5FAHA5P",
+        "code": "L95E3ZJZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DMH3LLZ9",
+        "code": "DZMBB913",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WCNMN44M",
+        "code": "IW90GLTE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ZGVNY7WF",
+        "code": "MQG34BG2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6QOTKR2R",
+        "code": "HYO2V48W",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SN3CA7Y6",
+        "code": "84GTB3B9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DJ157RV7",
+        "code": "SP8672UQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RNGQVGHA",
+        "code": "XG69NYZJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ITJM5X0E",
+        "code": "ZVXJ2C3F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NLDQZR9I",
+        "code": "1ELLUIEY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3OTFAI1Y",
+        "code": "6RLNKTTT",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "R1YG5O4J",
+        "code": "IPAL9O2O",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TM4ZUPXA",
+        "code": "J78KS4DK",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E9NHOB6K",
+        "code": "UACGYIG0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WS6NZ1LN",
+        "code": "R7F38GCN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DPTUWVXP",
+        "code": "FY3DHB6B",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LYWXQOHK",
+        "code": "XBE8TVJP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "KFRX6W09",
+        "code": "CPY77KYQ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "23AZ2DCK",
+        "code": "JM67N67U",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "81BBL73K",
+        "code": "2XVDWO4U",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DDF28464",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "FAZU6VS9",
-        "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "P28CT33S",
+        "code": "01HKYBH8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NL07E64L",
+        "code": "MYOY3XSE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ZQH3QTG7",
+        "code": "LXCX00DZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DI1VNFX2",
+        "code": "HHQM52ZD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z8GR6LM3",
+        "code": "9V1GYC9I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IJ2O1FNU",
+        "code": "HHUBWRX7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "23FN0A9J",
+        "code": "43JBE3EL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J70Y9E77",
+        "code": "BHCT8VIQ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "2TUAMGIN",
+        "code": "3LOY5SYW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OXMACSFJ",
+        "code": "H5TNUUAY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "SSJZ5T2V",
+        "code": "LZ282F3X",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BY23BCNW",
+        "code": "SYE57CR1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "S4X3MI2W",
+        "code": "RHK97UN6",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5IK7S96A",
+        "code": "74KYHFIL",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "A1AKPZNR",
+        "code": "RAAKKIF2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7UJ681F6",
+        "code": "DLKBUXB9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "MRFNX28J",
+        "code": "NQ1M95D0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MALEZYY3",
+        "code": "T6I56X4W",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Q2748TH4",
+        "code": "BYD31OO4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5X8PW8ZD",
+        "code": "32MCO9H8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "K4FP6O96",
+        "code": "L7I0HWBZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E5YEMI2M",
+        "code": "SQYG6ZBX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5BGJKU6V",
+        "code": "QFR88ITX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "503EGFEL",
+        "code": "K9JZET2A",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1M6YZ1K9",
+        "code": "IM6UFBM8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5P7NEAAF",
+        "code": "SDC2DHF1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0V7AFEOM",
+        "code": "SCSW134F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E9FZ9JE1",
+        "code": "AF5YHTL7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TKGGR3NX",
+        "code": "L46ZY69O",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "R30JWJFK",
+        "code": "7VAPPA65",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RBE3I09L",
+        "code": "WM23AY8B",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CKC6JIIZ",
+        "code": "ROTSH7B0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "93M238DD",
+        "code": "HASD931L",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "695J75AW",
+        "code": "MS6E6EYN",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "MXI4ZM69",
+        "code": "6BPF59NZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NMQNWTE6",
+        "code": "TYJXYHVK",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "YQE28WTO",
+        "code": "SSFUHGII",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QB2C8CB8",
+        "code": "GEWPVPE5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9KMBM3LP",
+        "code": "94SL4XW2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "04RK6VJB",
+        "code": "K36T19RR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FNMAFIR1",
+        "code": "2HKN77WP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QL23ATPF",
+        "code": "J4OAX5LQ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NNNZPJPI",
+        "code": "HSFYW3GX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2NGCFTW0",
+        "code": "5HI9PNV4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "91NFWXML",
+        "code": "OA1GOCUM",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JUKAJ4UT",
+        "code": "OV4D4OM5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HC1SM2UM",
+        "code": "8MEUQ9WM",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7YIRF30E",
+        "code": "RLHA8F1E",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "SLMIPVY3",
+        "code": "VN74VHCT",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2AE46YYB",
+        "code": "HDP3QNPS",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "93KPBK2U",
+        "code": "VUQE77TQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7C108QI5",
+        "code": "WDV8Y8HB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F068JSX1",
+        "code": "AMOFELXX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NIVPG65Y",
+        "code": "6IPMAPT3",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RQRAJ1LE",
+        "code": "E4DLBTCR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BUJNKRNG",
+        "code": "DGX3H32R",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9QA7M0G7",
+        "code": "G1ZH1GJM",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UB5MVKSZ",
+        "code": "ZGWT50GY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GF880Z6B",
+        "code": "XRTMCL8Y",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "93TJB5Q7",
+        "code": "NI24Z83T",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QBBTBDPP",
+        "code": "5XTC134C",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FBCFCAZ5",
+        "code": "NJ1XKH92",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "AMTRIJJ1",
+        "code": "5QW0ZWBL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "O21E72CA",
+        "code": "ECHRLHU7",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "BXP9GD35",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "MOKDE8WN",
-        "used": true,
         "story": "holmes"
-    },
-    {
-        "code": "1LTBJDMZ",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "XYWSOHHK",
+        "code": "85OWVLRS",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ET5WZAC3",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EZTOO59J",
+        "code": "BDVCW1T9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CEL5JGA2",
+        "code": "384BHG48",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MRQAATKE",
+        "code": "DPE18ZG1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "D8Z8WCG3",
+        "code": "MG80G3TC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SN169D5M",
+        "code": "AOBL5GE6",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "C5JGLM75",
+        "code": "U09W7ODS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MQ8T5ZMO",
+        "code": "745UN2SZ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KJ8F4PLR",
+        "code": "O1GQODBF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1PSOYRED",
+        "code": "4FC292DB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "E8ZR5WRF",
+        "code": "JGZ1YI78",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "A3LIUE30",
+        "code": "X8WRKWSW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PZ037906",
+        "code": "AMBSIVZD",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "3YRSUWNS",
+        "code": "C4QR1106",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6D8Q9HB2",
+        "code": "2AJMDT8N",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PAQDKHSM",
+        "code": "4LM94YII",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VKXF7I7S",
+        "code": "ZBWJEXMQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "R8QT3AJR",
+        "code": "U3975O9T",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F7SX08E4",
+        "code": "ZQTZS57G",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "W7U3NI1R",
+        "code": "U20P6YCF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "YUOSRK82",
+        "code": "DF3L1VNK",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RYWUGXUL",
+        "code": "L7BH52J7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F8POXP7B",
+        "code": "JJWPI1RQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "LJELSN7H",
+        "code": "Y7XZOKDC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HFPY7NO6",
+        "code": "IOOKCXUF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SKSYTB9Z",
+        "code": "YG1LIO1Q",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QIIQ78F4",
+        "code": "VLWEHWOC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "HXUMIGVR",
+        "code": "9DN1UCWG",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XCJKHCXE",
+        "code": "Y0Y40E9U",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WDLGLM9J",
+        "code": "QW4CF0OL",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1NNFHJX7",
+        "code": "6NAZ38W4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ZA2ALNM0",
+        "code": "ITR03SWQ",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "925Y8AVO",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "XCJH0PA5",
+        "code": "WW44GY5P",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "JY1X6DL0",
+        "code": "O77GQ6OJ",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "366IPNXU",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "Y92O6U5Q",
+        "code": "C17RHL1L",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "C9WJAULC",
+        "code": "UUBNNSTW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VQ75ITW6",
+        "code": "3DP7JWX9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "80B4PQX4",
+        "code": "YKXVRJYZ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F9UZVF3Q",
+        "code": "TZ7LCCJR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EGSZCBBU",
+        "code": "7F982C2Y",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "E3WIKUG5",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "BC9Z83JF",
+        "code": "TB8ORWR7",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "C3FECFK5",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "W1WE852H",
+        "code": "P9PFQCD1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "E1TRFFSP",
+        "code": "FQVKSR8I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2Q870M1G",
+        "code": "VEIOF0Q3",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UZML37KF",
+        "code": "0OHXCFQT",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XR8XN5K4",
+        "code": "UVKRJ2VI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "K4U8UNQS",
+        "code": "0M7HG2NW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "44PUO9TX",
+        "code": "IMSWXSJ4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "A9DLLF3S",
+        "code": "MPCQN5FA",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1U7HTRWM",
+        "code": "6K6E8GD8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1GYBE8JB",
+        "code": "GUGCM591",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J76NL4VW",
+        "code": "UE62NCLS",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Q6EMRLTM",
+        "code": "MWASDFQQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "F88THOQR",
+        "code": "RB6A8W9W",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "N2OBF0D6",
+        "code": "XT10HL27",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "HC95I0WO",
+        "code": "BLZZ3T5J",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HL0XFKFP",
+        "code": "5JSHU74S",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ZCKTF4XM",
+        "code": "91QWSH5N",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QGEXU2SD",
+        "code": "IFWXLOIZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1R0E0RA8",
+        "code": "1GQCCRJM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KAGPGAMP",
+        "code": "QXBY1XIJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UHCBJS31",
+        "code": "3H4Z559M",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "PKRLSGV9",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "FR8OR72Y",
+        "code": "U4ZQTLNB",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "ARZKPN5H",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "KZAB0PTS",
+        "code": "NF23YGBR",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "0OQR3BQP",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "91IDIHRF",
+        "code": "D9DVAPI1",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "9UNCTR0C",
+        "code": "58L31AQ5",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "WZ14JVWL",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "4FUSX4WX",
+        "code": "QDS2ZGY6",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1XJ2PHSV",
+        "code": "KANMXFJB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GGY82AYF",
+        "code": "IHXW8S6M",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "LCV0C2K4",
+        "code": "CRHK2E4Q",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "R4R5JN8W",
+        "code": "3MHWBU4Z",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "AWQMCRHI",
+        "code": "HC641UZQ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "R20D6G0Z",
+        "code": "2YOO1JNC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RR27VD3H",
+        "code": "IJ067C81",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HEDSCHR1",
+        "code": "Q1E2GF2K",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WN4MMXGJ",
+        "code": "ZBUXR4CH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ZUYLI31D",
+        "code": "GY5GPR2I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Z8I9M3IT",
+        "code": "PZTJ3BFD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HRLRJ0XK",
+        "code": "KT29KEU3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VINR0R6Q",
+        "code": "ZTM697TF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "28F2T7RO",
+        "code": "TD2PGK3C",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "A9ELTANP",
+        "code": "ZA4HI0YM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "YPRILXH3",
+        "code": "GGCNWLVQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MP77HKP0",
+        "code": "7T3L483E",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "P19ZM78I",
+        "code": "8NFQZL6M",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QQDDZ88D",
+        "code": "4EVG2740",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "J4OJU4EE",
+        "code": "YC95NIHK",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "3HLCH5YF",
+        "code": "7MUUTLOY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XDKSJBL3",
+        "code": "OIXTWTUI",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RJ74YWVU",
+        "code": "JJY6DGL1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "08VYRRAS",
+        "code": "LLBTVQX2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JHGWSM8N",
+        "code": "V4XER0Y2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "290MD23D",
+        "code": "2OOM8P6J",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NKWRVQVU",
+        "code": "SCV32GCY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OUR3R2XT",
+        "code": "H6QZWDWR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SPYQYPRK",
+        "code": "G15P1JSH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OD8EK19N",
+        "code": "SPKQH6VH",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "AM5X2PC5",
+        "code": "7Z6FL44G",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "B1QEGAVG",
+        "code": "ZAKVY6VO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7CO2U08J",
+        "code": "EJHDSSLI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RGGTEEDZ",
+        "code": "BFS7FG9Y",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "13L8Z8FZ",
+        "code": "DJNDYZOR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WXVOMYR2",
+        "code": "5JEHM6IA",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VLIDHO1K",
+        "code": "TZAJP4XX",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "WBWAJKZC",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "UDE1EZ7W",
+        "code": "FSI702L0",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "TCF6DQ3I",
+        "code": "02LWB3YE",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "W5VL1024",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "AML0ZLRT",
+        "code": "7C5S7TDB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CS8VTMR7",
+        "code": "QSLBGHJP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4VV7T7WO",
+        "code": "XNP80LSA",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BL5BAZ7M",
+        "code": "Y22AHZ17",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XJMOYRTI",
+        "code": "HO905V0C",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "P9BDVFYB",
+        "code": "IYH8N90X",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LYMPVLPX",
+        "code": "C20WLXNP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QK5AAPRD",
+        "code": "ICMHKJP8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6GMJTSM7",
+        "code": "YP9GT7GB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BTHEBPQ5",
+        "code": "O3G6SI1O",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GEPQDCGO",
+        "code": "U5D2LIPW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5EG8YGLS",
+        "code": "N3PS5FVX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HJIF36PU",
+        "code": "GINYESWB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4AJZ8YNX",
+        "code": "QVGUKVB0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "IM22G9IS",
+        "code": "YXJQLRAP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ISB5S549",
+        "code": "6338U2O8",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "7JS7ZHMV",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "9YUBKC9L",
+        "code": "FHKUEM2J",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "BF3675QP",
+        "code": "DMYOS4Z9",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "LLS15NCV",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "RIB1ND9L",
+        "code": "4DQYLKFD",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "M5XRGVEG",
+        "code": "4KMI2IAP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CPZTDPTQ",
+        "code": "NPVOEOOG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EEOGAMTQ",
+        "code": "H81D7C48",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5SKPCMF1",
+        "code": "KY2MND5P",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Y18QKNRG",
+        "code": "M0LJXEJD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9EUZS2EA",
+        "code": "W57R5IQK",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "YD7UZBIC",
-        "used": true,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "VIFHQ9FY",
-        "used": true,
-        "story": "mysticetes"
-    },
-    {
-        "code": "3AM27SVN",
+        "code": "WCVBY3NM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LNJ2EQ6Z",
+        "code": "BXS55MSS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6N1EWFSY",
+        "code": "6AGKMA6G",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XF34SYDC",
+        "code": "Z6GNKEYI",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SJYK8EU9",
+        "code": "7B3IEWDE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3M8LUZ7L",
+        "code": "87NDGEAW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UOTZSORH",
+        "code": "0COA5L9D",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NXQKUT3M",
+        "code": "D5TQGFYN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Q4Y4XTE9",
+        "code": "WM4W3VID",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VQ9T1E5W",
+        "code": "1SY7BTBF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "901IIOJ0",
+        "code": "WW5BQ3RZ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GADOJZKI",
+        "code": "D5ZMKVBV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SNCH9WDF",
+        "code": "SPJOFMJB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "JWKU2WOO",
+        "code": "3HVANK4R",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J89QCM5I",
+        "code": "2O36WMSC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UUPH1R6N",
+        "code": "CJVMG7EV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "B4YST0ML",
+        "code": "0TPXKT6Z",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1MIDOEOJ",
+        "code": "BKV6RMU3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PNRAO6R8",
+        "code": "JMI518BF",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "49SJ40JM",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "V5O91FFB",
+        "code": "36DL2K2Z",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "UBU1A5E0",
+        "code": "LUJQ1T0H",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "ARJQIR9A",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "EF0BZS8Q",
+        "code": "PV8R5GPY",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RN3PC5U1",
+        "code": "1721FW2Z",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8ZEJX8ZF",
+        "code": "YZ0SNRWF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IX678J2O",
+        "code": "2EZ5N23L",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ASSVPRO5",
+        "code": "4TCBH6RN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "KOBK1THG",
+        "code": "2I8FNYI5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "O8UV242D",
+        "code": "A19QF2RX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "YD6W2I76",
+        "code": "AANWN2VP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0043CHNT",
+        "code": "LKHY3EOR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "0E1NE9IX",
+        "code": "XJQB9NAB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4W052QW0",
+        "code": "QHU32XGM",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7WP7M5EQ",
+        "code": "73UKGFAE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UAL2IF7H",
+        "code": "IZ2V00FX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Y8EVCQ4O",
+        "code": "IVKN2X2H",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1J5LVAG2",
+        "code": "WNTFGWT9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SN1R7N1O",
+        "code": "WA8L3FD4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VB5SAHYL",
+        "code": "X1RYPD1H",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XXPH24SJ",
+        "code": "JF85O4WY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CKVPX0JG",
+        "code": "Y4E8OJB1",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "41CJMMP1",
+        "code": "W6CPR9I2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Y5KWNQ8B",
+        "code": "F0VQVOPG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QPAFAETR",
+        "code": "GTUBKWQD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "2ZZ0P25Y",
+        "code": "LWGF1OCC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UY0JTOFV",
+        "code": "9YNJNVZH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0KBU1D0Z",
+        "code": "BD2VPQLQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RLEW6VR4",
+        "code": "U010VSD1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OKQHA6JG",
+        "code": "7485ENA8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FDO0CQKQ",
+        "code": "TRTWSDDV",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VSZXS3AX",
+        "code": "OEOLH7PV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GOFANK4R",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "TRRLQYZ6",
-        "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "2RH3V7AW",
+        "code": "5KNBGJTS",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CX2VB6VL",
+        "code": "S4DUKYAR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "S45L4OWU",
+        "code": "ZLYXFTMI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NBICNEO7",
+        "code": "Q58UPTCB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "31P9H5CI",
+        "code": "6FK0KC47",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Y6ODD5SR",
+        "code": "YI0BG9GL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UYXA05IN",
+        "code": "G0IAC06W",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "AIYP7QIG",
+        "code": "FQPT9W8C",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4LUIQ72U",
+        "code": "UCL3XU4O",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "D3FBGT9W",
+        "code": "Y6N6P22M",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ABWJ86LZ",
+        "code": "JJP2YXJM",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "MLP0CMSY",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "AUN09P7C",
+        "code": "LSI7CC73",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "T7A3TUO8",
+        "code": "FIOONLG4",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "3BNT5ZFD",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "JXACIQIK",
+        "code": "XWCLQO3H",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OK0Y7TOY",
+        "code": "D17GGRBT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PMMBTFH5",
+        "code": "71HGKWSN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "83JSXFO5",
+        "code": "H23Z61Y0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "N2BSQ2KP",
+        "code": "1MWZJ4IB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "AP7RLQ3B",
+        "code": "16BSHRF3",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "2638Q5IT",
+        "code": "70RASB3B",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QBFU0NIM",
+        "code": "PSGE1X34",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HYZXUB5S",
+        "code": "FSFBW0JU",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "TJ84M437",
+        "code": "803L6FDT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "JYBMMLG5",
+        "code": "QVWXBTJF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7O0CU3FK",
+        "code": "U1JFJAUL",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Y321KLD3",
+        "code": "YNKIWQ3X",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7YP8743W",
+        "code": "3BKCWHK1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z8RW5CYA",
+        "code": "ZHUQGD62",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Q7O5J9ZP",
+        "code": "J2AIBBRU",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "G1G02DFA",
+        "code": "2KPXPHVH",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "O8V8VWM6",
+        "code": "W5IH787S",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "D8ZYM8CA",
+        "code": "CXJDH0MU",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2MXJ78KQ",
+        "code": "98M4YYL1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "WNKYZSUQ",
+        "code": "Q83RTRAV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FSDEAADT",
+        "code": "3HO0H2FT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PRJY54LS",
+        "code": "RBRMR7NS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9Q0MCE8U",
+        "code": "UEZ15RYC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3194ZRKH",
+        "code": "ACJ2BBDZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7M57K00V",
-        "used": true,
-        "story": "holmes"
-    },
-    {
-        "code": "880S5T6Q",
+        "code": "X0NW8AR0",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "0R1WLUZ1",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "74QR9LZM",
+        "code": "F42RSX9I",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PFDX1TZP",
+        "code": "W58FMIH9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F19XLF3Y",
+        "code": "4SPZIAOJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ZC6KV989",
+        "code": "7ZZDODVE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "BN141H6H",
+        "code": "7JJUK6O0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ESBJ8Q06",
+        "code": "JKKRFA38",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UDJUAA7D",
+        "code": "B41Q1X18",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JN94BYI7",
+        "code": "7RQN3MJ0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DQS26X92",
+        "code": "4D3ZK9XB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BW8MM6Q1",
+        "code": "KTH9VFR8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3KTIWRFT",
+        "code": "0NZ3GJ16",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ODK5VE0O",
+        "code": "TUWFRL6Y",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KD3CSIHA",
+        "code": "A97DZ6L8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4TSW5JQB",
+        "code": "30DY8HI0",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "OC6FEQ76",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "VR3W0G0F",
+        "code": "LTJ6JME8",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "Z7N99SCP",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GZ0HV1L6",
+        "code": "Z564M1ZG",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OJ58BY8S",
+        "code": "418XL8AC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GX9DUJ9J",
+        "code": "4OP5IGUC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "B52CD7CF",
+        "code": "ZDFGGILV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "806R3P2F",
+        "code": "SPJIYIVR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NQTZ09FO",
+        "code": "TTE7B10K",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OWZF5LHF",
+        "code": "DZ5KPVTH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TWN3DP5N",
+        "code": "PBELB0K0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "TX08ESNS",
+        "code": "WAXGJUAR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3EZCMC7V",
+        "code": "Q71281TJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "U7V8NZNZ",
+        "code": "RIMSCROJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9R0RKC84",
+        "code": "S7AXHZ9L",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "94YYKDO1",
+        "code": "X7QAEAI3",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UHBPXZ5Z",
+        "code": "KB7BBN73",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ECE9OOYR",
+        "code": "9QIYIPZT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9ZAPI5UW",
+        "code": "9EFUHLV6",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9CR3SG4U",
+        "code": "31X8HPN0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DB43F1VB",
+        "code": "1N511PAE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "S4EJTBXS",
+        "code": "WOEI9PXI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GBC1RB2V",
+        "code": "5GIMODF5",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1LWBL6N5",
+        "code": "QSNYVSWZ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "84689UZW",
+        "code": "4LV5YFEC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GO99WYTV",
+        "code": "R3849SO0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z8ZTMKYQ",
+        "code": "GGHPSRKZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "30T0JGBJ",
+        "code": "3229VCNY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6E72NI77",
+        "code": "8Q53J6Z8",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2JQ03XIX",
+        "code": "90HSVTLL",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "HAQTG88B",
+        "code": "KTNLGFGS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "GUC06DKI",
+        "code": "FTVTZKXK",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "VNSRRSQ3",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "I31BLVZB",
+        "code": "J6V3YBQA",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "KRQ7HX2T",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "V8L3RHXZ",
+        "code": "XZD8YY21",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "F9VXFW35",
+        "code": "MZ3NC413",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "TL5U8K3N",
+        "code": "8AK9B51X",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6A1ZPS3R",
+        "code": "R8D4QWE2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "M466ZBO6",
+        "code": "8NL518C9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GJS4ZNBP",
+        "code": "I42W6D8O",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MCLH1PWY",
+        "code": "H37X0HE7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "YTJSX6JR",
+        "code": "B8BB6DRE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PFZFBWMJ",
+        "code": "HRL3NYIK",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XSRTPTRC",
+        "code": "RJYHQE39",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "YKWQM3ZU",
+        "code": "LT6M3WYY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QQL8FRTX",
+        "code": "3BJHATVX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XNTTT5S8",
+        "code": "S6U8ED58",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6GF7UF7F",
+        "code": "NZGWT60Q",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NF0Q4X0F",
+        "code": "ID1C9W6D",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "H9TBV315",
+        "code": "6BKK3AD6",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UH3KLD4X",
+        "code": "LR21NW1J",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KIZWYPZ5",
+        "code": "X0QE3F3E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UPQ11Q0R",
+        "code": "MLDNLSSD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "MTCW0MMV",
+        "code": "Q75ETO3E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MU5COCMP",
+        "code": "ZLQJH3XC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6ZACV18P",
+        "code": "MRY7Z3W0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IZVB1HD2",
+        "code": "8776I60Y",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "N9PA8FJS",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "XC94KY3V",
+        "code": "2KM7SKU0",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "4MAJYL1G",
+        "code": "588XY122",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "3IH0GC2M",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "C792YSUS",
+        "code": "A2R9G1ML",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Z4PGN9ZL",
+        "code": "JDATV4HN",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GFPSBU3P",
+        "code": "9AWBD6HY",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UYGZMJ06",
+        "code": "P4XO2L9Q",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "O5JEH1TH",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "XOETF4HB",
+        "code": "8Z45WZYR",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "AEKLYXEE",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "954W6LZM",
+        "code": "AITE296D",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "2XSRH3NL",
+        "code": "HDKZKIDQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "COB60Z4V",
+        "code": "DZRZ8I8B",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "JZB8B8CC",
+        "code": "784UENSY",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1EB6N1QQ",
+        "code": "AICIN3KX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KM4LRZZQ",
+        "code": "E5X2VWAO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "I3ZUCOLG",
+        "code": "W4YT4O38",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "E5NMOM5V",
+        "code": "7ZN221Q4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4IPNNDM1",
+        "code": "YREZ7BVT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8X4KABP7",
+        "code": "ZYQG4BDH",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "ORWVO0YP",
+        "code": "KPZA5XE6",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "IXXIDGUO",
+        "code": "0K29MWFS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "8FCK2X13",
+        "code": "7QTHL506",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "N2V1IZPA",
+        "code": "BO3XMWVN",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XR66Y24L",
+        "code": "5DONYFC9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "LXGTP24I",
+        "code": "IFNLQY1Y",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "7VW1HY9G",
+        "code": "R19HFCVG",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "O46USNTE",
+        "code": "DNQOXWIG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UHN33RNH",
+        "code": "Y1R48OND",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UWO49YD3",
+        "code": "KZ57EY5W",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2U57O8D5",
+        "code": "N92XFOBC",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "HQ7I0Y3H",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "EBISG2KE",
+        "code": "HD11189H",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "71FSAA1B",
+        "code": "MC6GJD8P",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "125UA33N",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "M54AR5LO",
+        "code": "C69N28FT",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DKX1MVCR",
+        "code": "0KIG8DIR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TZFRFVY4",
+        "code": "BXFFRVJU",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PIRC61AI",
+        "code": "8GK5PNJ7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EJ1IDY88",
+        "code": "4JTX3X4K",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JMG1TOIR",
+        "code": "KGO8L3LJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OB2A29SD",
+        "code": "R5CL7H2S",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BVXA0GOL",
+        "code": "O1X1QLL5",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "0QL7B8OC",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "BDH5UZ02",
+        "code": "B555YDM4",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "28BEL3P6",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N4O5FRMB",
+        "code": "A7BYMRYA",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CFZ2848D",
+        "code": "WW59OEJZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "V0J0V9OE",
+        "code": "C71HGKM9",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "US2EK92X",
+        "code": "BKOWRW5W",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "SG9XN7WY",
+        "code": "41T7BE73",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RGCWIEHP",
+        "code": "77OUH9LX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2AWNQPJ0",
+        "code": "D1OULGRE",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "FF51HR1R",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "LYB7ASRT",
+        "code": "TXHFPJQ5",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "28CQJKMN",
+        "code": "201IMCLB",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "DWNTC1VT",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "WC24Y95F",
+        "code": "7SZK8Q1P",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "5RC0UCTE",
+        "code": "TWVWUDP8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "AOLDLY7P",
+        "code": "SUA1VNVC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "R830192A",
+        "code": "NJOIMMJF",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "3SWHILYW",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "UVIRAPRA",
+        "code": "X4FRUXGY",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "30N9ZNRD",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N6UBY46Y",
+        "code": "NGSDFYH4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "2E9RBW4I",
+        "code": "9LLFWG8X",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BWO5RJ7W",
+        "code": "B5VNX2RR",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "BU1Q5J2N",
+        "code": "QQ17G9Q3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OFS6YF6P",
+        "code": "2TBXO27C",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FL9HE6PV",
+        "code": "QWH5OFO0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "O435K4IT",
+        "code": "GUPBZ559",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FOGAWW7Y",
+        "code": "4A71MGXQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CL4MGMIY",
+        "code": "OS4XSZW5",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OHZ2C03F",
+        "code": "XU0YP7C7",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "0HJZBHTF",
+        "code": "89J6VAEW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "C6IGAKDM",
+        "code": "ZK5KDJDV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "U45BP0LF",
+        "code": "CJN3E8QE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ZM6SRYSF",
+        "code": "YA63ALSG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QGPG68CR",
+        "code": "HG1N22SE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "9F8HVN7H",
+        "code": "MZ4YCC2E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UMCY8B98",
+        "code": "1XE44ZG3",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RQIK2VK9",
+        "code": "8VMVEE71",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EZK9M0UA",
+        "code": "1T4SPAHJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KEKAUYK4",
+        "code": "FX8Z5UYL",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "F6MZNVGW",
+        "code": "DYV4RMG1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TLWMNHXF",
+        "code": "UR77IXBG",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4TA4AGT0",
+        "code": "9MT0GRMM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "7G7IBRBR",
+        "code": "VJVUR05R",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BO083TRX",
+        "code": "QZM8B1RI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "41RCLA3G",
+        "code": "OE62AWTX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6KG1GRIS",
+        "code": "L1CY95VX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0N14471X",
+        "code": "HREAWGB4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "IBQVROJ8",
+        "code": "7NB2AQYA",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QRQB0FTX",
+        "code": "PQSPYI85",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9JZTNYIC",
+        "code": "3UNM21WR",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "M8K63WCU",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "7DA9TT43",
+        "code": "NUCCMXNK",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "YSQ41FC8",
+        "code": "1KFUOU9A",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "RVEGLMKC",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "9RIY0DDI",
+        "code": "EP2XSALE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "YD1O50K2",
+        "code": "M6SB19DC",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "D4H4D2QZ",
+        "code": "SI9TLFTO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "YL19ZGY2",
+        "code": "YMHW9KML",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "N2XQ9QRQ",
+        "code": "R58OB9VK",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UBA3A6M1",
+        "code": "D5DIAGV2",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "0ZNO7BYF",
+        "code": "5G74AP0U",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "CQYJ6NQN",
+        "code": "ACR3VFE0",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RMAMFT22",
+        "code": "4DOACC5Q",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "0YJJ9VIJ",
+        "code": "NG2LH8HF",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "1GHLK13G",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "KC8TTCL7",
+        "code": "7C7GV2G2",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "NQQVB94G",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UU52ZQ8V",
+        "code": "GUR19A8W",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8CNOV4E8",
+        "code": "XEQD0U07",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "A98464DN",
+        "code": "VQFRTQ8K",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "V44FOZ9F",
+        "code": "E0WMMYF0",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "1BIEJTYW",
+        "code": "EXQXH199",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "6Q2SDT8L",
+        "code": "CQ7S7T4T",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4HJBHCDO",
+        "code": "TZPSV4NH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Y8LQAJHZ",
+        "code": "7H1JRBL5",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "HC0ZLYYF",
+        "code": "YF2ZTRS6",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8WG78O82",
+        "code": "O2RB6JGT",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "OYU1029Q",
+        "code": "Y5CLGM3E",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QU6BLRSH",
+        "code": "FNCJCOMR",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EIHM3VKF",
+        "code": "1T3YKXIE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "V61EQ2GI",
+        "code": "M0JMZE4S",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "EUICT07D",
+        "code": "LHTU8DFY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8HJSPRDH",
+        "code": "JPOZ8CWC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J3NGOUT3",
+        "code": "M7GENKA1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5109E69Y",
+        "code": "9LHT4HVQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WQL5DJY1",
+        "code": "0Q1JYHPA",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FA46SEZ4",
+        "code": "VF32Y2YF",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6ZNYP2OH",
+        "code": "CZ7EOH6W",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5GFZC1R6",
+        "code": "BIFPF82R",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "21MQQ872",
+        "code": "JFC0A0RV",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EUPMPO39",
+        "code": "L9APQ43F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JA1OP4MK",
+        "code": "HVEESJ4F",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "J75N3GYS",
+        "code": "TLATWJWS",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "LA8TXW99",
+        "code": "20NUNUIL",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Q1F4WA7M",
+        "code": "WET3SQRB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BXC7NLRU",
+        "code": "RMO6J5GF",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "L46IJUF4",
+        "code": "XFTKFWQ1",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "C6TPMS6M",
+        "code": "U2G93R7K",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NGZQ2HFI",
+        "code": "7LNHHVOZ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "25PRBDOH",
+        "code": "V5TI1GRD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "GRQ1TJLP",
+        "code": "00872SV4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "V76LE6V9",
+        "code": "YU5LNOCS",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "B4BN7H37",
+        "code": "WF40ROGW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "08DCN2G8",
+        "code": "72RVSCLE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XLRNSOSH",
+        "code": "Q65MVUW2",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "JO8DZRBY",
+        "code": "WISMYUQG",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4A1HW0KG",
+        "code": "WI4O9ZXE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "9C5M9VC8",
+        "code": "8AKPFK8I",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4W188EFG",
+        "code": "TXF8480O",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "E0L0DCWN",
+        "code": "AT3PVAHZ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "8UNZVWP5",
+        "code": "MWTQAT5M",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N2L1HN5P",
+        "code": "0Z7W4014",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "BI0LSZNI",
+        "code": "L8IV0U3K",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "NUG18T7E",
+        "code": "SE1RMS09",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KZL8171V",
+        "code": "1B1UI03F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "674JH1VV",
+        "code": "MTBTP8S1",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "YSC6SB4M",
+        "code": "NFFIRDG1",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "FO4E6QHF",
+        "code": "J2S5YZ5M",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "K72QQ9ER",
+        "code": "F6HHW37F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "VLCM6RS2",
+        "code": "3C6G0IZB",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "O7LCZD8U",
+        "code": "7QGFGS15",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6A4US4M9",
+        "code": "9NZ6CFFT",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "U0XMQXMI",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "DQGDFM59",
+        "code": "YUX7S1G4",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "U5BMYJIG",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UADZ0CMV",
+        "code": "66P1B7O4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1N5LVO6A",
+        "code": "CD78S3TC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "PHBI9DOZ",
+        "code": "LSR0NNCY",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "1PTJKVTE",
+        "code": "SCHWZSAQ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "QNBO3Z3V",
+        "code": "5AHSXX2B",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "IV2DEQ21",
+        "code": "PW7RB93F",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2F5DSFZV",
+        "code": "PZU3871K",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "3957NNV7",
+        "code": "N2KL6NI9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "C6TX668K",
+        "code": "4N43SEVA",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "DX7DKW3Y",
+        "code": "HW4ZAQLK",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2PP1IXWK",
+        "code": "6KFJR6VX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "U2QFCQE4",
+        "code": "I0ORIP8P",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "W8WBJR9B",
+        "code": "AH8FMPVH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "TF3U40PR",
+        "code": "632SG6IP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "R1TAYL0H",
+        "code": "YH1P30H8",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "8YJOFGC2",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "3UUOAZGJ",
+        "code": "H42C8UK2",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "V2XHZZEA",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "A9VA096C",
+        "code": "RS9JSIVV",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4Q5I659Q",
+        "code": "DHV1DIP9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "J7FIUZEL",
+        "code": "NUMNAD30",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "PB8RXJHP",
+        "code": "O4LGPDYO",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "4GALEFIC",
+        "code": "YCOEK3PJ",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "4MONAQ8M",
+        "code": "JTLXTLN9",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XPOJ6W62",
+        "code": "YQ1CPWUX",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "VJC3DET0",
+        "code": "N7RCYRJY",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DPUJW7K6",
+        "code": "T9I4IRVE",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "Z47FVL7N",
+        "code": "LQ53WH1O",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "N2DC293V",
+        "code": "AQ86WP26",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UZ699DKR",
+        "code": "WBERU56T",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "T7C0O516",
+        "code": "OY7B1HRD",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "B5LQU001",
+        "code": "WS72SE3A",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "YOSM6Y8V",
+        "code": "WTG9XJM6",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "XUZFQDCV",
+        "code": "FIS9PG85",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "WH9B27SE",
+        "code": "2DCD4H22",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "UEI8CZSO",
+        "code": "EQNQ5BM4",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "MSFGF3LS",
+        "code": "RWDRBU9Z",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "18ABVX2D",
+        "code": "8JVVVQV3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "F323F8H5",
+        "code": "BU3OZ01J",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "KLN9W8U5",
+        "code": "G9UET7FP",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Z2N9RVTJ",
+        "code": "ODQFVDTV",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "ANRXOGGM",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "SGGJMHIH",
+        "code": "VMX2C186",
         "used": false,
-        "story": "holmes"
-    },
-    {
-        "code": "IJOPJN83",
-        "used": true,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "B6QZ92T8",
+        "code": "UBTJ4YTK",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OXXOUDNN",
+        "code": "35TD9SXV",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DT19HQH5",
+        "code": "X9AZEKKW",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "RV3TI89V",
+        "code": "FLBXLYWX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "773MG0QN",
+        "code": "KBXF5JQT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "OUD3HRZK",
+        "code": "5NQTL3ZY",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "C0ZBKW3N",
+        "code": "D23BS2V8",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "QE6W65R7",
+        "code": "EHWJ4XNE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "Y4CR0C0F",
+        "code": "9R75GSKT",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "FRR9SLYL",
+        "code": "5K62IR8B",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "UXH2OMRS",
+        "code": "9831CFS4",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EVDLYCIA",
+        "code": "C7SOG8R3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "6H8MJ28L",
+        "code": "G3RXXQ7F",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "M2KINJ9U",
+        "code": "GDFJ3LCW",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "DJYCMPYX",
+        "code": "0V437VGH",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "ME4H3094",
+        "code": "M037XS9J",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "B60BO5PK",
+        "code": "3PNHSNCI",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "EQICKUZ0",
+        "code": "4T6H5FMC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "8XU3YVOS",
+        "code": "T3MYT94M",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "ZUQ6MVN5",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "LN3XHC8R",
+        "code": "3ZKWGQZF",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "FX09TN9A",
+        "code": "DXL7PB99",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "55Y4HSQP",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "MKH0EF1W",
+        "code": "UN27JJ4A",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XFWPI7AF",
+        "code": "BUC769XP",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "R5SQ4HR1",
+        "code": "DNPG90T3",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "G3KPCXX3",
+        "code": "IJG7AP52",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "5UBTPBVS",
+        "code": "RKTIPY8E",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "RZD7BNMO",
+        "code": "BCSAEAMJ",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "J0QTL1GJ",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "OBZLDZ4E",
+        "code": "7WLGSOEQ",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "7SNWFI2O",
+        "code": "G96114Q9",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "ITTFAC3V",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "Y0VHKRKH",
+        "code": "2Y8YO7QJ",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "2ME2OR8N",
+        "code": "J11RURF7",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "CBB7QQ68",
+        "code": "GH30N3RB",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "XXLQD6ZN",
+        "code": "5YH3NJAK",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "NQOD7SDL",
+        "code": "D6HSORBE",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "BQ89KO2S",
+        "code": "MHSKSRAO",
         "used": false,
         "story": "holmes"
-    },
-    {
-        "code": "VGP6ZFST",
-        "used": false,
-        "story": "mysticetes"
     },
     {
-        "code": "8EQTU1ZX",
+        "code": "Y2NCX224",
         "used": false,
-        "story": "holmes"
+        "story": "control_news"
     },
     {
-        "code": "QQOI3X68",
+        "code": "VJO150S4",
         "used": false,
-        "story": "mysticetes"
-    },
-    {
-        "code": "JMN149R9",
-        "used": true,
         "story": "holmes"
     },
     {
-        "code": "T63D85G6",
+        "code": "0JVMYDUC",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     },
     {
-        "code": "TDP6Y3G3",
+        "code": "OWD9Y0GM",
         "used": false,
         "story": "holmes"
     },
     {
-        "code": "H1J4ILBX",
+        "code": "BCB76PTX",
         "used": false,
-        "story": "mysticetes"
+        "story": "control_news"
     }
 ]

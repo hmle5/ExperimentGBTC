@@ -191,7 +191,7 @@ def investment():
         session.pop("startup_set_code", None)
         session.pop("startup_set_start_time", None)
 
-        return redirect(url_for("survey_bp.investment_reflecting"))
+        return redirect(url_for("survey_bp.investment_approach"))
 
     # === GET: show form ===
     if "startups" not in session:
@@ -239,8 +239,40 @@ def investment():
     return render_template("investment_multi.html", startups=startups)
 
 
-@survey_bp.route("/investment_reflecting", methods=["GET", "POST"])
-def investment_reflecting():
+# @survey_bp.route("/investment_reflecting", methods=["GET", "POST"])
+# def investment_reflecting():
+#     if "participant_id" not in session:
+#         return redirect(url_for("main.index"))
+
+#     participant_id = session["participant_id"]
+#     response = Response.query.filter_by(participant_id=participant_id).first()
+
+#     if request.method == "POST":
+#         startup_choices = request.form.getlist("startup_factors")
+#         founder_choices = request.form.getlist("founder_factors")
+
+#         if not startup_choices or not founder_choices:
+#             flash(
+#                 "Please select at least one factor for both startup and founder.",
+#                 "error",
+#             )
+#             return redirect(url_for("survey_bp.investment_reflecting"))
+
+#         response.startup_factors = ",".join(startup_choices)
+#         response.founder_factors = ",".join(founder_choices)
+#         response.last_page_viewed = "investment_reflecting"
+#         db.session.commit()
+
+#         return redirect(
+#             url_for("survey_bp.investment_demographic")
+#         )  # Replace with your next route
+
+#     return render_template("investment_reflecting.html")
+
+
+
+@survey_bp.route("/investment_approach", methods=["GET", "POST"])
+def investment_approach():
     if "participant_id" not in session:
         return redirect(url_for("main.index"))
 
@@ -248,26 +280,21 @@ def investment_reflecting():
     response = Response.query.filter_by(participant_id=participant_id).first()
 
     if request.method == "POST":
-        startup_choices = request.form.getlist("startup_factors")
-        founder_choices = request.form.getlist("founder_factors")
+        approach_text = request.form.get("investment_approach", "").strip()
 
-        if not startup_choices or not founder_choices:
-            flash(
-                "Please select at least one factor for both startup and founder.",
-                "error",
-            )
-            return redirect(url_for("survey_bp.investment_reflecting"))
+        if not approach_text or len(approach_text.split()) < 15:
+            flash("Please briefly describe your investment approach.", "error")
+            return redirect(url_for("survey_bp.investment_approach"))
 
-        response.startup_factors = ",".join(startup_choices)
-        response.founder_factors = ",".join(founder_choices)
-        response.last_page_viewed = "investment_reflecting"
+        response.investment_approach = approach_text
+        response.last_page_viewed = "investment_approach"
         db.session.commit()
 
         return redirect(
             url_for("survey_bp.investment_demographic")
         )  # Replace with your next route
 
-    return render_template("investment_reflecting.html")
+    return render_template("investment_approach.html")
 
 
 @survey_bp.route("/demographic_collecting", methods=["GET", "POST"])

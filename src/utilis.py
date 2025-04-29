@@ -70,7 +70,7 @@ def generate_news_story_file():
     stories = []
     for _ in range(500):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
-        stories.append({"code": generate_code(), "used": False, "story": "control"})
+        stories.append({"code": generate_code(), "used": False, "story": "control_news"})
 
     # Save to JSON file
     with open(NEWS_FILE, "w") as f:
