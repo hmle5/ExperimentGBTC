@@ -1,8 +1,8 @@
-"""Initial migration
+"""Initial migration.
 
-Revision ID: 58643c2ccf6f
+Revision ID: e6c08e965ec9
 Revises: 
-Create Date: 2025-04-28 14:49:07.633765
+Create Date: 2025-04-30 00:08:02.774877
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '58643c2ccf6f'
+revision = 'e6c08e965ec9'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -56,19 +56,15 @@ def upgrade():
     sa.Column('date_created', sa.DateTime(), nullable=False),
     sa.Column('date_updated', sa.DateTime(), nullable=False),
     sa.Column('startup_code', sa.String(length=50), nullable=True),
-    sa.Column('founder_name', sa.String(length=100), nullable=True),
-    sa.Column('failure_prob', sa.Float(), nullable=True),
-    sa.Column('success_prob', sa.Float(), nullable=True),
-    sa.Column('expected_return', sa.Float(), nullable=True),
-    sa.Column('voyagemind_investment', sa.Float(), nullable=True),
-    sa.Column('voyagemind_dollar_return', sa.Float(), nullable=True),
-    sa.Column('startup_factors', sa.String(length=300), nullable=True),
-    sa.Column('founder_factors', sa.String(length=300), nullable=True),
     sa.Column('gender', sa.String(length=20), nullable=True),
     sa.Column('age', sa.Integer(), nullable=True),
     sa.Column('education_level', sa.String(length=50), nullable=True),
     sa.Column('prolific_id', sa.String(length=100), nullable=True),
     sa.Column('completion_code', sa.String(length=50), nullable=True),
+    sa.Column('startup_investments', sa.JSON(), nullable=True),
+    sa.Column('startup_investment_duration', sa.Float(), nullable=True),
+    sa.Column('investment_approach', sa.Text(), nullable=True),
+    sa.Column('likert_reflection', sa.JSON(), nullable=True),
     sa.ForeignKeyConstraint(['consent_id'], ['user_consent.consent_id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('consent_id'),

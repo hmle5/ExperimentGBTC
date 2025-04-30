@@ -1,12 +1,21 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 import uuid
+import re
+import time
 from datetime import datetime
+from collections import Counter
+from nltk.corpus import words as nltk_words
+import nltk
+
+nltk.download("words")
+
 from models import db, UserConsent, Response
 from utilis import get_client_ip, get_user_agent, generate_unique_participant_id
-import logging
-from flask import Flask, request, render_template
-from flask_session import Session
-from flask_session_captcha import FlaskSessionCaptcha
+
+# import logging
+# from flask import Flask, request, render_template
+# from flask_session import Session
+# from flask_session_captcha import FlaskSessionCaptcha
 
 main_bp = Blueprint("main", __name__)
 
@@ -63,79 +72,71 @@ def exit():
     return render_template("exit.html")
 
 
+# @main_bp.route("/attentioncheck_1", methods=["GET", "POST"])
+# def attentioncheck_1():
+#     error = None
+#     if request.method == "POST":
+#         response_text = request.form.get("response", "").strip()
+#         word_count = len([w for w in response_text.split() if w.strip()])
+
+#         if word_count < 15:
+#             error = "Please enter at least 15 words."
+#         else:
+#             return redirect(url_for("main.index"))
+
+#     return render_template("attentioncheck_1.html", error=error)
+
+ENGLISH_WORDS = set(nltk_words.words())
+
+
+def is_english_word(word):
+    return word.lower() in ENGLISH_WORDS
+
+
+def is_gibberish(text):
+    words = [w for w in text.strip().split() if w]
+    if len(words) < 15:
+        return True
+
+    mostly_short = sum(1 for w in words if len(w) < 3) / len(words) > 0.3
+    unique_ratio = len(set(w.lower() for w in words)) / len(words)
+    too_repetitive = unique_ratio < 0.6
+    non_alpha = (
+        sum(1 for w in words if not re.fullmatch(r"[a-zA-Z]+", w)) / len(words) > 0.2
+    )
+
+    # New: how many words aren't in the dictionary
+    unknown_words = sum(1 for w in words if not is_english_word(w))
+    unknown_ratio = unknown_words / len(words)
+
+    return mostly_short or too_repetitive or non_alpha or unknown_ratio > 0.4
+
+
+def is_too_fast(min_seconds=5):
+    return time.time() - session.get("start_time", 0) < min_seconds
+
+
 @main_bp.route("/attentioncheck_1", methods=["GET", "POST"])
 def attentioncheck_1():
     error = None
+
     if request.method == "POST":
         response_text = request.form.get("response", "").strip()
-        word_count = len([w for w in response_text.split() if w.strip()])
+        honeypot = request.form.get("website", "")
 
-        if word_count < 15:
-            error = "Please enter at least 15 words."
+        if honeypot:
+            error = "Invalid submission."
+        elif is_too_fast():
+            error = "Please take more time to consider your answer."
+        elif is_gibberish(response_text):
+            error = "Your response appears repetitive or nonsensical. Please provide a real opinion with at least 15 meaningful words."
         else:
             return redirect(url_for("main.index"))
 
+    if request.method == "GET":
+        session["start_time"] = time.time()
+
     return render_template("attentioncheck_1.html", error=error)
-
-
-# @main_bp.route("/index", methods=["GET", "POST"])
-# def index():
-#     error = None
-#     ip = get_client_ip()
-#     user_agent = get_user_agent()
-
-#     # Check if user has already given consent
-#     consent_record = UserConsent.query.filter_by(
-#         ip_address=ip, user_agent=user_agent
-#     ).first()
-
-#     if not consent_record or not consent_record.consent_given:
-#         return redirect(url_for("main.consent"))
-
-#     # Check if there's an existing response for this user
-#     response_record = Response.query.filter_by(
-#         consent_id=consent_record.consent_id
-#     ).first()
-
-#     if response_record:
-#         # Resume from last recorded point
-#         session["participant_id"] = response_record.participant_id
-#         session["start_time"] = response_record.start_time
-#         session["question_answered"] = True  # Assume they answered correctly before
-
-#         if response_record.completed:
-#             error = "You have already completed this survey."
-#             return render_template("index.html", error=error)
-
-#         return redirect(
-#             url_for("survey_bp.instructions")
-#         )  # Resume from where they left off
-
-#     # Handling the understanding question
-#     if request.method == "POST" and not error:
-#         answer = request.form.get("answer")
-#         if answer != "correct":
-#             error = "Incorrect answer. Please select the correct option to proceed."
-#         else:
-#             # Generate a new participant ID if no existing record
-#             participant_id = generate_unique_participant_id()
-#             session["participant_id"] = participant_id
-#             session["start_time"] = datetime.now()
-#             session["question_answered"] = True
-
-#             # Create a new response record
-#             response_record = Response(
-#                 consent_id=consent_record.consent_id,
-#                 participant_id=participant_id,
-#                 completed=False,
-#                 start_time=datetime.now(),
-#             )
-#             db.session.add(response_record)
-#             db.session.commit()
-
-#             return redirect(url_for("survey_bp.instructions"))  # Redirect to survey
-
-#     return render_template("index.html", error=error)
 
 
 @main_bp.route("/index", methods=["GET", "POST"])

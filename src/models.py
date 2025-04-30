@@ -35,14 +35,14 @@ class Response(db.Model):
         db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow
     )
     startup_code = db.Column(db.String(50), nullable=True)
-    founder_name = db.Column(db.String(100), nullable=True)
-    failure_prob = db.Column(db.Float, nullable=True)
-    success_prob = db.Column(db.Float, nullable=True)
-    expected_return = db.Column(db.Float, nullable=True)
-    voyagemind_investment = db.Column(db.Float, nullable=True)
-    voyagemind_dollar_return = db.Column(db.Float, nullable=True)
-    startup_factors = db.Column(db.String(300), nullable=True)
-    founder_factors = db.Column(db.String(300), nullable=True)
+    # founder_name = db.Column(db.String(100), nullable=True)
+    # failure_prob = db.Column(db.Float, nullable=True)
+    # success_prob = db.Column(db.Float, nullable=True)
+    # expected_return = db.Column(db.Float, nullable=True)
+    # voyagemind_investment = db.Column(db.Float, nullable=True)
+    # voyagemind_dollar_return = db.Column(db.Float, nullable=True)
+    # startup_factors = db.Column(db.String(300), nullable=True)
+    # founder_factors = db.Column(db.String(300), nullable=True)
     gender = db.Column(db.String(20), nullable=True)
     age = db.Column(db.Integer, nullable=True)
     education_level = db.Column(db.String(50), nullable=True)
@@ -50,8 +50,12 @@ class Response(db.Model):
     completion_code = db.Column(db.String(50), nullable=True)
 
     # New fields to track investments and time spent
-    startup_investments = db.Column(db.JSON, nullable=True)  # Store the investment amounts as JSON
-    startup_investment_duration = db.Column(db.Float, nullable=True)  # Store the time spent during investment
+    startup_investments = db.Column(
+        db.JSON, nullable=True
+    )  # Store the investment amounts as JSON
+    startup_investment_duration = db.Column(
+        db.Float, nullable=True
+    )  # Store the time spent during investment
 
     # New field to collect free-text approach answer
     investment_approach = db.Column(db.Text, nullable=True)

@@ -1,4 +1,16 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask import (
+    Blueprint,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    flash,
+    get_flashed_messages,
+)
+
+from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
+
 import random
 from datetime import datetime
 from models import db, Response, StartupSetAssignment
@@ -84,6 +96,7 @@ def news_info():
         response.is_correct = is_correct
         response.last_page_viewed = "news_info"
         db.session.commit()
+        get_flashed_messages()  # <--- THIS clears any old messages BEFORE redirect
 
         return redirect(url_for("survey_bp.investment"))
 
@@ -98,7 +111,7 @@ def news_info():
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
-    #random.shuffle(shuffled_options)
+    # random.shuffle(shuffled_options)
 
     return render_template(
         "news_info.html",
@@ -111,8 +124,6 @@ def news_info():
         story_type=story_entry["story"],
         correct_answer=correct_answer,
     )
-
-
 
 
 @survey_bp.route("/investment", methods=["GET", "POST"])
@@ -142,7 +153,7 @@ def investment():
         total_investment = 0
 
         for startup in startups:
-            startup_name = startup['Startup_name']
+            startup_name = startup["Startup_name"]
             field_name = f"investment_{startup_name}"
             amount_str = request.form.get(field_name)
 
@@ -151,10 +162,22 @@ def investment():
                 return render_template("investment_multi.html", startups=startups)
 
             try:
-                amount = int(amount_str)
-            except ValueError:
+                amount = int(round(float(amount_str)))
+            except (ValueError, TypeError):
                 flash("Invalid amount entered.", "error")
                 return render_template("investment_multi.html", startups=startups)
+
+            # try:
+            #     amount = int(
+            #         Decimal(amount_str).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+            #     )
+            #     print(
+            #         f"{startup_name} → raw: {amount_str} → Decimal: {Decimal(amount_str)} → final: {amount}"
+            #     )
+
+            # except (InvalidOperation, ValueError, TypeError):
+            #     flash("Invalid amount entered.", "error")
+            #     return render_template("investment_multi.html", startups=startups)
 
             if not (0 <= amount <= 300000):
                 flash("Each amount must be between 0 and 300,000.", "error")
@@ -164,7 +187,10 @@ def investment():
             total_investment += amount
 
         if total_investment != 300000:
-            flash(f"Total investment must be exactly $300,000. Your total: ${total_investment:,}.", "error")
+            flash(
+                f"Total investment must be exactly $300,000. Your total: ${total_investment:,}.",
+                "error",
+            )
             return render_template("investment_multi.html", startups=startups)
 
         # Save to database
@@ -177,16 +203,19 @@ def investment():
             flash("Error saving investments.", "error")
             return redirect(url_for("main.index"))
 
-        assignment = StartupSetAssignment.query.filter_by(startup_set_code=set_code).first()
+        # Mark as used in DB
+        assignment = StartupSetAssignment.query.filter_by(
+            startup_set_code=set_code
+        ).first()
         if assignment:
             assignment.used = True
             assignment.duration_seconds = time_spent
             db.session.commit()
 
-        # Update external JSON (optional)
+        # Now permanently mark JSON set as used
         mark_startup_set_as_used(set_code)
 
-        # Clear session startup data
+        # Clear session so next GET loads a fresh set
         session.pop("startups", None)
         session.pop("startup_set_code", None)
         session.pop("startup_set_start_time", None)
@@ -195,7 +224,7 @@ def investment():
 
     # === GET: show form ===
     if "startups" not in session:
-        # Load new set
+        # Load new startup set
         with open(STARTUP_JSON_PATH, "r") as file:
             startup_data = json.load(file)
 
@@ -210,31 +239,37 @@ def investment():
         session["startup_set_code"] = selected_set["code"]
         session["startup_set_start_time"] = time.time()
 
-        selected_set["used"] = True
-
+        selected_set["used"] = True  # temporary flag only
         with open(STARTUP_JSON_PATH, "w") as file:
             json.dump(startup_data, file)
-    
-    assignment = StartupSetAssignment.query.filter_by(participant_id=participant_id).first()
-    if not assignment:
-        assignment = StartupSetAssignment(
-            participant_id=participant_id,
-            startup_set_code=selected_set["code"],
-            used=True,
-            duration_seconds=None
-        )
-        db.session.add(assignment)
-    else:
-        assignment.startup_set_code = selected_set["code"]
-        assignment.used = True
-        assignment.duration_seconds = None
-    db.session.commit()
 
+        # Create or update assignment
+        assignment = StartupSetAssignment.query.filter_by(
+            participant_id=participant_id
+        ).first()
+        if not assignment:
+            assignment = StartupSetAssignment(
+                participant_id=participant_id,
+                startup_set_code=selected_set["code"],
+                used=True,
+                duration_seconds=None,
+            )
+            db.session.add(assignment)
+        else:
+            assignment.startup_set_code = selected_set["code"]
+            assignment.used = True
+            assignment.duration_seconds = None
+        db.session.commit()
+
+    # else: session already has the set (retry after failed POST)
     startups = session["startups"]
 
     print("Debug: session['startup_set_code']:", session.get("startup_set_code"))
     print("Debug: session['startups']:", startups)
-    print("Debug: session['startup_set_start_time']:", session.get("startup_set_start_time"))
+    print(
+        "Debug: session['startup_set_start_time']:",
+        session.get("startup_set_start_time"),
+    )
 
     return render_template("investment_multi.html", startups=startups)
 
@@ -270,7 +305,6 @@ def investment():
 #     return render_template("investment_reflecting.html")
 
 
-
 @survey_bp.route("/investment_approach", methods=["GET", "POST"])
 def investment_approach():
     if "participant_id" not in session:
@@ -297,7 +331,6 @@ def investment_approach():
     return render_template("investment_approach.html")
 
 
-
 @survey_bp.route("/investment_reflect_likert", methods=["GET", "POST"])
 def investment_reflect_likert():
     if "participant_id" not in session:
@@ -308,8 +341,12 @@ def investment_reflect_likert():
 
     if request.method == "POST":
         keys = [
-            "industry_rating", "product_rating", "maturity_rating",
-            "experience_rating", "innovativeness_rating", "integrity_rating"
+            "industry_rating",
+            "product_rating",
+            "maturity_rating",
+            "experience_rating",
+            "innovativeness_rating",
+            "integrity_rating",
         ]
 
         likert_data = {}
@@ -327,8 +364,6 @@ def investment_reflect_likert():
         return redirect(url_for("survey_bp.investment_demographic"))  # Or next step
 
     return render_template("investment_reflect_likert.html")
-
-
 
 
 @survey_bp.route("/demographic_collecting", methods=["GET", "POST"])
