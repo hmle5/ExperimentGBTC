@@ -33,13 +33,37 @@
             background-color: #f8f9fa;
         }
 
-        .captcha-container {
-            max-width: 400px;
-        }
-
         .error-alert {
             display: none;
             margin-bottom: 15px;
+        }
+
+        .custom-header {
+            background-color: rgb(0, 80, 180); /* Dark blue background */
+            color: white; /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: center; /* Center the header text */
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 50%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .captcha-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
         }
     </style>
 </head>
@@ -48,12 +72,12 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="captcha-container">
             <div class="card shadow">
-                <div class="card-header bg-primary text-white text-center">
+                <div class="card-header custom-header">
                     <h3>CAPTCHA Verification</h3>
                 </div>
                 <div class="card-body">
-                    <!-- Error Message Alert -->
-                    <div id="error-message" class="alert alert-danger error-alert" role="alert"></div>
+                    <!-- Error Message Alert 
+                    <div id="error-message" class="alert alert-danger error-alert" role="alert"></div> -->
 
                     <p class="text-muted text-center">
                         Please complete the CAPTCHA verification to proceed.
@@ -81,8 +105,8 @@
                                 placeholder="Enter CAPTCHA (Case-sensitive)" required aria-label="Enter CAPTCHA">
                         </div>
 
-                        <div class="d-grid gap-2 mt-3">
-                            <button type="submit" class="btn btn-primary">Verify</button>
+                        <div class="captcha-container">
+                            <button type="submit" class="btn custom-btn">Verify</button>
                         </div>
                     </form>
                 </div>

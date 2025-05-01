@@ -113,6 +113,9 @@ def news_info():
     shuffled_options = article_data["options"].copy()
     # random.shuffle(shuffled_options)
 
+    # Determine image filename
+    image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+
     return render_template(
         "news_info.html",
         news_title=article_data["title"],
@@ -123,6 +126,7 @@ def news_info():
         unique_code=story_entry["code"],
         story_type=story_entry["story"],
         correct_answer=correct_answer,
+        image_filename=image_filename  # send image file to template
     )
 
 

@@ -1,7 +1,7 @@
 [
     {
         "code": "524RBIA7RR",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Expada",
@@ -67,7 +67,7 @@
     },
     {
         "code": "P3Y2L7TQEI",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -133,7 +133,7 @@
     },
     {
         "code": "1DH48OLW3Z",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -199,7 +199,7 @@
     },
     {
         "code": "16RKAR7HEG",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",
@@ -265,7 +265,7 @@
     },
     {
         "code": "GP7NC5DAUJ",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Aegisline",
@@ -331,7 +331,7 @@
     },
     {
         "code": "KGGJCQQLF0",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Expada",
@@ -397,7 +397,7 @@
     },
     {
         "code": "11XEW788PL",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -463,7 +463,7 @@
     },
     {
         "code": "SE3VOA9WVC",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Expada",
@@ -529,7 +529,7 @@
     },
     {
         "code": "A4CSWZLN1V",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Aegisline",

@@ -9,14 +9,11 @@
     <style>
         body {
             background-color: #f8f9fa;
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
         }
 
         .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
+            max-width: 1200px;
         }
 
         .startup-card {
@@ -24,11 +21,14 @@
             border: 1px solid #dee2e6;
             border-radius: 6px;
             padding: 30px;
-            margin-bottom: 40px;
+            margin: 30px auto;
+            width: 1000px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .startup-title {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #212529;
             margin-bottom: 20px;
@@ -42,17 +42,8 @@
         }
 
         .section-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #212529;
-        }
-
-        .eval-section {
-            margin-top: 30px;
-            padding: 15px 20px;
-            background-color: #e2e6ea;
-            border-left: 5px solid #0d6efd;
-            border-radius: 4px;
-            font-style: italic;
         }
 
         .btn-submit {
@@ -70,6 +61,12 @@
             background-color: #0b5ed7;
         }
 
+        .flash-messages .alert-error {
+            color: rgb(155, 3, 3);
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
         .section-heading {
             text-align: center;
             font-size: 2rem;
@@ -85,92 +82,136 @@
             margin-bottom: 50px;
         }
 
-        .flash-messages .alert-error {
-            color: #8b0000;
-            /* Dark red text */
-            font-size: 16px;
-            margin-top: 20px;
+        /* Custom color for header */
+        .custom-header {
+            background-color: rgb(0, 80, 180); /* Dark blue background */
+            color: white; /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: center; /* Center the header text */
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 20%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- <div class="section-heading">Startup Evaluation Survey</div> -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 
-        <div class="flash-messages">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <ul class="list-unstyled">
-                {% for category, message in messages %}
-                <li class="text-danger">{{ message }}</li> <!-- dark red text -->
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
-        </div>
+                <div class="card">
 
+                    <div class="card-header custom-header">
+                        <h3>Making Investments</h3>
+                    </div>
 
+                    <div class="card-body">
 
-        <form method="POST" action="{{ url_for('survey_bp.investment') }}">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <p class="mt-3 mb-3 text-muted fst-italic">Please read the information carefully to answer the questions.</p>
 
-            {% for startup in startups %}
-            <div class="startup-card">
-                <div class="startup-title">{{ startup.Startup_name or "Unnamed Startup" }}</div>
+                        <p>
+                            As an investor, your role includes screening start-up applications for investment. <strong>Your task now is to 
+                            invest in a portfolio of six start-ups.</strong> Each start-up offers an innovative solution with potential for 
+                            success. In their short profiles below, you’ll find information about their industry, product, founder, 
+                            and valuation. For this task, you are given a hypothetical investment budget of <strong>$300,000</strong> to distribute 
+                            across the six start-ups.
+                        </p>
+                        <p>
+                            <strong>Bonus:</strong> Your goal is to allocate your funds in a way that maximizes your potential return on investment. 
+                            Participants whose portfolio performance ranks within the top 25% will receive a bonus reward of $1. 
+                        </p>
+                        <p>
+                            As an attention check, you will have to make sure that your responses add up to $300,000 across the six start-ups. 
+                            We do a speed check to ensure you are not just quickly allocating the exact same amount of $50,000 to each 
+                            company without consideration.
+                        </p>
 
-                <div>
-                    <div class="section-label">Industry</div>
-                    <div class="section-text">{{ startup.Industry or "N/A" }}</div>
-                </div>
-
-                <div>
-                    <div class="section-label">Product Description</div>
-                    <div class="section-text">{{ startup.Product_info or "No description available." }}</div>
-                </div>
-
-                <div>
-                    <div class="section-label">Founded</div>
-                    <div class="section-text">{{ startup.Founded or "Unknown" }}</div>
-                </div>
-
-                <div>
-                    <div class="section-label">Founder</div>
-                    <div class="section-text">
-                        {{ startup.Assigned_Founder or "Unknown Founder" }},
-                        {% if startup.Founder_age %}
-                        age {{ startup.Founder_age }},
-                        {{ startup.Founder_Nstartups or "No information available." }}
+                    <div class="flash-messages">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        <ul class="list-unstyled">
+                            {% for category, message in messages %}
+                            <li class="text-danger">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
                         {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <form method="POST" action="{{ url_for('survey_bp.investment') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    {% for startup in startups %}
+                    <div class="startup-card">
+                    <div class="startup-title">{{ startup.Startup_name or "Unnamed Startup" }}</div>
+
+                    <div>
+                        <span class="section-label">Industry:</span>
+                        <span class="section-text">{{ startup.Industry or "Unknown" }}</span>
                     </div>
 
                     <div>
-                        <div class="section-label">Start-up Valuation</div>
-                        <div class="section-text">{{ startup.Evaluation_sentence or "No evaluation available." }}</div>
+                        <span class="section-label">Product:</span>
+                        <span class="section-text">{{ startup.Product_info or "Unknown" }}</span>
                     </div>
 
-                    <div style="margin-bottom: 50px;"></div>
+                    <div>
+                        <span class="section-label">Founded:</span>
+                        <span class="section-text">{{ startup.Founded or "Unknown" }}</span>
+                    </div>
+
+                    <div>
+                        <span class="section-label">Founder:</span>
+                        <span class="section-text">{{ startup.Assigned_Founder or "Unknown" }}{% if startup.Founder_age %}, age {{ startup.Founder_age }}, {{ startup.Founder_Nstartups or "No information available" }}{% endif %}</span>
+                    </div>
+
+                    <div>
+                        <span class="section-label">Valuation:</span>
+                        <span class="section-text">{{ startup.Evaluation_sentence or "No evaluation available" }}</span>
+                    </div>
+
+                    <div style="margin-bottom: 30px;"></div>
 
                     <div>
                         <div class="section-label" style="margin-top: 10px;">
-                            <strong>How much would you like to invest in this start-up?</strong><br>
-                            <small>(Please enter an amount between $0 and $300,000)</small>
+                           <div style="font-weight: bold;">How much would you like to invest in this start-up?</div>
                         </div>
+                        <p class="text-muted fst-italic">(Please enter an amount between $0 and $300,000)</p>
                         <input type="number" name="investment_{{ startup.Startup_name }}" step="1" min="0" max="300000"
-                            inputmode="numeric" pattern="\d*" onwheel="this.blur()"
-                            onkeydown="return event.keyCode !== 38 && event.keyCode !== 40" class="investment-input"
-                            style="width: 120px; margin-top: 5px;" required oninput="updateTotal()">
+                        inputmode="numeric" pattern="\d*" onwheel="this.blur()"
+                        onkeydown="return event.keyCode !== 38 && event.keyCode !== 40" class="investment-input"
+                        style="width: 120px; margin-top: 5px;" required oninput="updateTotal()">
                     </div>
+                    </div>
+                    {% endfor %}
 
-                </div>
-            </div>
-            {% endfor %}
             <div style="text-align: center; margin-top: 20px;">
                 <strong>Total investment so far: $<span id="totalDisplay">0</span></strong><br>
-                <small id="totalWarning" style="color: red; display: none;">Total must be exactly $300,000.</small>
+                <small id="totalWarning" style="color: rgb(155, 3, 3); display: none;">Total must be exactly $300,000.</small>
             </div>
-
-            <button type="submit" class="btn btn-submit">Continue</button>
+            
+            <div class="submit-btn-container">
+                <button type="submit" class="btn custom-btn">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -194,7 +235,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>

@@ -29,7 +29,44 @@
         .error-text {
             font-size: 0.9rem;
         }
+
+        /* Custom color for header */
+        .custom-header {
+            background-color: rgb(0, 80, 180); /* Dark blue background */
+            color: white; /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: center; /* Center the header text */
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 20%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
+        }
+
+        .custom-btn:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
     </style>
+
     <script>
         function validateProlificID() {
             const pid = document.getElementById("prolific_id").value.trim();
@@ -44,40 +81,45 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <div class="card">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h2>Your Rewards</h2>
+
+                    <div class="card-header custom-header">
+                        <h3>Your Rewards</h3>
                     </div>
+                    
                     <div class="card-body">
+
+                        <p class="mt-3">Thank you for participating in this study. It will take approximately 15
+                                minutes to complete this questionnaire. You will earn <strong>a reward of
+                                $2.5</strong> for participating.
+                        </p>
+                        <p>To complete the questionnaire and earn this reward, you have to read all the instructions
+                            carefully and answer the questions correctly and as instructed.</p>
+
+                        <p class="mb-5">You also have the chance to earn <strong> an additional bonus reward of $1</strong> if 
+                            your performance in the main task of the survey ranks among the top 25% participants with best results.</p>
+
+                        <hr />
+
+                        <form method="POST" action="{{ url_for('main.index') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <div class="mb-5">
+                                <label for="prolific_id" class="form-label fw-bold">To confirm you have read and understood the rewards for participating in this study, please enter your Prolific ID in the box below. Make sure that you enter it correctly.
+                                </label>
+                                <input type="text" class="form-control" id="prolific_id" name="prolific_id"
+                                    oninput="validateProlificID()" required>
+                            </div>
+                        
                         {% if error %}
                         <div class="text-danger mb-4 text-center fw-bold">
                             {{ error }}
                         </div>
                         {% endif %}
 
-                        <p>Thank you for participating in this study. It will take <strong>approximately 15
-                                minutes</strong> to complete this questionnaire. You will earn <strong>a reward of
-                                $2.5</strong> for participating.
-                        </p>
-                        <p>To complete the questionnaire and earn this reward, you have to read all the instructions
-                            carefully and answer the questions correctly and as instructed.</p>
-                        <p>You also have the chance to earn <strong> an additional bonus reward of $1</strong> if your
-                            performance in the main task of the survey meets the threshold set for best performance.</p>
-
-                        <hr />
-
-                        <form method="POST" action="{{ url_for('main.index') }}">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <div class="mb-3">
-                                <label for="prolific_id" class="form-label fw-bold">Please enter your Prolific
-                                    ID:</label>
-                                <input type="text" class="form-control" id="prolific_id" name="prolific_id"
-                                    oninput="validateProlificID()" required>
-                            </div>
-
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" id="continueButton" disabled>
-                                    Continue
+                                <button button type="submit" class="btn custom-btn" id="continueButton" disabled>
+                                    Submit
                                 </button>
                             </div>
                         </form>

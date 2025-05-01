@@ -29,7 +29,45 @@
         .error-text {
             font-size: 0.9rem;
         }
+
+        /* Custom color for header */
+        .custom-header {
+            background-color: rgb(0, 80, 180); /* Dark blue background */
+            color: white; /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: center; /* Center the header text */
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 20%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
+        }
+
+        .custom-btn:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
     </style>
+
     <script>
         function countWords(text) {
             return text.trim().split(/\s+/).filter(word => word.length > 0).length;
@@ -73,20 +111,23 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <div class="card">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h2>Your Investment Approach</h2>
+                    <div class="card-header custom-header">
+                        <h3>Investment Approach</h3>
                     </div>
+
                     <div class="card-body">
+
+                        <p class="mt-3 mb-4">Please briefly explain 
+                            the approach you used when allocating your funds among the start-ups in the portfolio. </p>
+
+                        <p class="mt-3 text-muted fst-italic">Please write in clear and complete sentences.</p>
                         {% if error %}
                         <div class="text-danger mb-4 text-center fw-bold">
                             {{ error }}
                         </div>
                         {% endif %}
-
-                        <p>Now that you have made your investment decisions, please briefly explain the approach you used when allocating your funds among the start-ups.</p>
-
-                        <p>Please write in clear and complete sentences.</p>
 
                         <form method="POST" action="{{ url_for('survey_bp.investment_approach') }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -97,10 +138,8 @@
                             
                         
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" id="continueButton" disabled>
-                                    Continue
-                                </button>
+                            <div class="submit-btn-container">
+                                <button type="submit" class="btn custom-btn" id="continueButton" disabled>Submit</button>
                             </div>
                         </form>
                     </div>

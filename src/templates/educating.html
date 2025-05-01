@@ -125,17 +125,60 @@
     <meta charset="UTF-8" />
     <title>Page 4 - Educating: Investing in a Start-up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* Custom color for header */
+        .custom-header {
+            background-color: rgb(0, 80, 180); /* Dark blue background */
+            color: white; /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: center; /* Center the header text */
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 20%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
+        }
+
+        .news-source {
+            font-style: italic;
+            color: #575757;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+
+                    <div class="card-header custom-header">
                         <h3>Investing in a Start-up</h3>
                     </div>
+
                     <div class="card-body">
+
+                        <p class="mt-3 mb-3 text-muted fst-italic">Please read the information carefully to answer the questions.</p>
+
                         <p>
                             A start-up is a company or project undertaken by an entrepreneur to seek, develop, and
                             validate a scalable business model, usually from an innovative idea. During the beginning,
@@ -154,24 +197,23 @@
                             investing in early-stage companies.
                         </p>
 
-                        <div class="text-end">
-                            <small>Source: Wikipedia</small>
-                        </div>
+                        <p class="news-source">Source: Wikipedia</p>
                     
 
                         <form method="POST" action="{{ url_for('survey_bp.phase_control') }}" id="startupQuizForm">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
-                            <p><strong>What is the prospect of young companies that are developing new ideas?</strong>
+                            <p class="mt-3"><strong>What is the prospect of a young company that is developing a new idea?</strong>
                             </p>
                             <div id="prospectOptions"></div>
 
-                            <p class="mt-4"><strong>Who are usually investors of start-ups?</strong></p>
+                            <p class="mt-3"><strong>Who are usually start-up investors?</strong></p>
                             <div id="investorOptions"></div>
 
-                            <br />
-                            <button type="submit" class="btn btn-primary"
+                            <div class="submit-btn-container">
+                                <button type="submit" class="btn custom-btn"
                                 onclick="return validateAnswers()">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
