@@ -595,7 +595,7 @@
     },
     {
         "code": "TAZR3A7C06",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Aegisline",
@@ -661,7 +661,7 @@
     },
     {
         "code": "C5MDKKAB7M",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -727,7 +727,7 @@
     },
     {
         "code": "OFJ841RSOO",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Aegisline",
@@ -793,7 +793,7 @@
     },
     {
         "code": "4L9924Q6IH",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",
@@ -859,7 +859,7 @@
     },
     {
         "code": "9HF5KCQCVZ",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "TacitFrame",

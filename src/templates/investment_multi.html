@@ -6,19 +6,29 @@
     <title>Startup Evaluation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: white;
             font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .container {
             max-width: 1200px;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .startup-card {
-            background-color: #f1f3f5;
-            border: 1px solid #dee2e6;
+            background-color: #f8f8f8;
+            border: 1px solid #f8f8f8;
             border-radius: 6px;
             padding: 30px;
             margin: 30px auto;
@@ -36,14 +46,14 @@
 
         .section-label {
             font-weight: 600;
-            color: #343a40;
+            color: #212529;
             margin-top: 20px;
             margin-bottom: 5px;
         }
 
         .section-text {
-            font-size: 1rem;
-            color: #212529;
+            font-size: 1.1rem;
+            color: black;
         }
 
         .btn-submit {
@@ -76,7 +86,7 @@
         }
 
         .info-text {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: #495057;
             text-align: justify;
             margin-bottom: 50px;
@@ -84,10 +94,17 @@
 
         /* Custom color for header */
         .custom-header {
-            background-color: rgb(0, 80, 180); /* Dark blue background */
-            color: white; /* White text */
+            background-color: white; /* Dark blue background */
+            color: rgb(5, 40, 80); /* White text */
             padding: 15px 20px; /* Added padding for spacing */
-            text-align: center; /* Center the header text */
+            text-align: left;
+            border-bottom: none !important; /* Center the header text */
+            font-weight: bold;
+        }
+
+        .custom-header h3 {
+            margin-bottom: 0px; /* Reduces vertical space under text */
+            font-weight: bold;
         }
 
         /* Custom color for button */
@@ -97,7 +114,7 @@
             color: white; /* White text on the button */
             padding: 12px 20px; /* Add padding to the button */
             font-size: 16px; /* Font size for button text */
-            width: 20%; /* Make the button span the full width */
+            width: 10%; /* Make the button span the full width */
         }
 
         .custom-btn:hover {
@@ -107,10 +124,57 @@
 
         .submit-btn-container {
             display: flex;
-            justify-content: center; /* Align the button to the center horizontally */
+            justify-content: right; /* Align the button to the center horizontally */
             margin-top: 20px; /* Add space above the button */
         }
+
+        .custom-btn:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Initially hide the formula */
+        #investmentFormula {
+            display: none;
+            margin-top: -20px;
+            padding: 0;
+            line-height: 1;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        #investmentFormula div {
+            margin-top: -20px;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .view-formula-link {
+            color: #828282; /* Blue color for the link */
+            font-size: 1.1rem; /* Increase the font size */
+            text-decoration: none; /* Remove the underline */
+            cursor: pointer; /* Change the cursor to a pointer when hovered */
+        }
+
+        .view-formula-link::before {
+            content: "\25B6"; /* ▶ Right-pointing triangle */
+            margin-right: 8px;
+            color: #828282;
+            font-size: 0.9em;
+        }
+
+        .view-formula-link:hover {
+            color: rgb(5, 40, 80); /* Darker blue when hovered */
+            text-decoration: none; /* Add underline on hover */
+        }
     </style>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 
 <body>
@@ -120,26 +184,46 @@
 
                 <div class="card">
 
+                    <!--
                     <div class="card-header custom-header">
                         <h3>Making Investments</h3>
-                    </div>
+                    </div> -->
 
                     <div class="card-body">
 
-                        <p class="mt-3 mb-3 text-muted fst-italic">Please read the information carefully to answer the questions.</p>
+                        <p class="mt-3 mb-5 text-muted fst-italic">Please read the information carefully to answer the questions.</p>
 
                         <p>
                             As an investor, your role includes screening start-up applications for investment. <strong>Your task now is to 
-                            invest in a portfolio of six start-ups.</strong> Each start-up offers an innovative solution with potential for 
-                            success. In their short profiles below, you’ll find information about their industry, product, founder, 
-                            and valuation. For this task, you are given a hypothetical investment budget of <strong>$300,000</strong> to distribute 
-                            across the six start-ups.
+                            allocate a hypothetical budget of $300,000 across a portfolio of six early-stage start-ups. </strong>
+                            These start-ups are based on real business cases which offer innovative solutions with success potential. 
+                            Each profile includes key information about the product, founder, and valuation. 
                         </p>
-                        <p>
-                            <strong>Bonus:</strong> Your goal is to allocate your funds in a way that maximizes your potential return on investment. 
-                            Participants whose portfolio performance ranks within the top 25% will receive a bonus reward of $1. 
+                        <p>Please rely only on the information provided, as it reflects realistic investment scenarios and is 
+                            sufficient for informed decisions. External sources (e.g., online search) should not be used.
                         </p>
+                        <p class="mt-5"><strong>Your goal is to maximize your portfolio’s return. Each of the start-ups may succeed or fail based 
+                            on market benchmarks, and your return will be calculated accordingly.</strong>
+                        </p>
+
+                        <div class="info-text">
+                            <a href="javascript:void(0)" onclick="toggleFormula()" class="view-formula-link">Click here to view the portfolio's return formula</a>
+                        </div>
+                        <!-- Hidden formula -->
+                        <div id="investmentFormula">
+                            <div>
+                                $$ 
+                                \text{return} = \sum_{i \in \text{succeed}} (\text{investment_startup}_i \times 100\%) + \sum_{j \in \text{fail}} (\text{investment_startup}_j \times -80\%) 
+                                $$
+                            </div>
+                        </div>
+
                         <p>
+                            <strong>Bonus reward:</strong> Participants whose portfolio investment return ranks within the top 25% will receive a bonus reward of $1. 
+                        </p>
+
+        
+                        <p class="mt-5 mb-5">
                             As an attention check, you will have to make sure that your responses add up to $300,000 across the six start-ups. 
                             We do a speed check to ensure you are not just quickly allocating the exact same amount of $50,000 to each 
                             company without consideration.
@@ -210,7 +294,9 @@
             </div>
             
             <div class="submit-btn-container">
-                <button type="submit" class="btn custom-btn">Submit</button>
+                <button type="submit" class="btn custom-btn">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
             </div>
         </form>
     </div>
@@ -232,6 +318,18 @@
                 warning.style.display = "inline";
             } else {
                 warning.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        // Toggle visibility of the formula
+        function toggleFormula() {
+            const formula = document.getElementById("investmentFormula");
+            if (formula.style.display === "none") {
+                formula.style.display = "block";
+            } else {
+                formula.style.display = "none";
             }
         }
     </script>

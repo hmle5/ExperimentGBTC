@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to the Study</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
         }
 
         .card {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none !important;
+            box-shadow: none !important;
         }
 
         .btn-primary {
@@ -32,10 +37,17 @@
 
         /* Custom color for header */
         .custom-header {
-            background-color: rgb(0, 80, 180); /* Dark blue background */
-            color: white; /* White text */
+            background-color: white; /* Dark blue background */
+            color: rgb(5, 40, 80); /* White text */
             padding: 15px 20px; /* Added padding for spacing */
-            text-align: center; /* Center the header text */
+            text-align: left;
+            border-bottom: none !important; /* Center the header text */
+            font-weight: bold;
+        }
+
+        .custom-header h3 {
+            margin-bottom: 0px; /* Reduces vertical space under text */
+            font-weight: bold;
         }
 
         /* Custom color for button */
@@ -45,7 +57,7 @@
             color: white; /* White text on the button */
             padding: 12px 20px; /* Add padding to the button */
             font-size: 16px; /* Font size for button text */
-            width: 20%; /* Make the button span the full width */
+            width: 10%; /* Make the button span the full width */
         }
 
         .custom-btn:hover {
@@ -55,7 +67,7 @@
 
         .submit-btn-container {
             display: flex;
-            justify-content: center; /* Align the button to the center horizontally */
+            justify-content: right; /* Align the button to the center horizontally */
             margin-top: 20px; /* Add space above the button */
         }
 
@@ -84,20 +96,20 @@
 
                 <div class="card">
 
-                    <div class="card-header custom-header">
-                        <h3>Your Rewards</h3>
+                    <div class="custom-header">
+                        <h3>Welcome!</h3>
                     </div>
                     
                     <div class="card-body">
 
-                        <p class="mt-3">Thank you for participating in this study. It will take approximately 15
-                                minutes to complete this questionnaire. You will earn <strong>a reward of
+                        <p class="mt-3">Thank you for participating in this study. It will take <strong>approximately 15
+                                minutes</strong> to complete this questionnaire. You will earn <strong>a reward of
                                 $2.5</strong> for participating.
                         </p>
-                        <p>To complete the questionnaire and earn this reward, you have to read all the instructions
-                            carefully and answer the questions correctly and as instructed.</p>
+                        <p>To complete the questionnaire and earn this reward, you will need to read all the instructions
+                            carefully.</p>
 
-                        <p class="mb-5">You also have the chance to earn <strong> an additional bonus reward of $1</strong> if 
+                        <p class="mb-4">You also have the chance to earn <strong> an additional bonus reward of $1</strong> if 
                             your performance in the main task of the survey ranks among the top 25% participants with best results.</p>
 
                         <hr />
@@ -105,7 +117,9 @@
                         <form method="POST" action="{{ url_for('main.index') }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <div class="mb-5">
-                                <label for="prolific_id" class="form-label fw-bold">To confirm you have read and understood the rewards for participating in this study, please enter your Prolific ID in the box below. Make sure that you enter it correctly.
+                                <label for="prolific_id" class="form-label fw-bold">To confirm you have read and understood the rewards for 
+                                    participating in this study, please enter your Prolific ID in the box below. Make sure to enter it correctly 
+                                    so we can verify your participation.
                                 </label>
                                 <input type="text" class="form-control" id="prolific_id" name="prolific_id"
                                     oninput="validateProlificID()" required>
@@ -117,9 +131,9 @@
                         </div>
                         {% endif %}
 
-                            <div class="text-center">
+                            <div class="submit-btn-container">
                                 <button button type="submit" class="btn custom-btn" id="continueButton" disabled>
-                                    Submit
+                                    <i class="bi bi-arrow-right"></i>
                                 </button>
                             </div>
                         </form>
