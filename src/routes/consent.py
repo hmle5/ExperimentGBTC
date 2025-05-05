@@ -165,8 +165,9 @@ def index():
         session["question_answered"] = True
 
         if response_record.completed:
-            error = "You have already completed this survey."
-            return render_template("index.html", error=error)
+            # error = "You have already completed this survey."
+            # return render_template("index.html", error=error)
+            return render_template("already_completed.html")
 
         return redirect(url_for("survey_bp.instructions"))
 
