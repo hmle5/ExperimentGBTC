@@ -925,7 +925,7 @@
     },
     {
         "code": "GEQVVOMR4C",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -991,7 +991,7 @@
     },
     {
         "code": "1TKMLP5QMY",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Lendr",
@@ -1057,7 +1057,7 @@
     },
     {
         "code": "TJOUA31CUS",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Lendr",
@@ -1123,7 +1123,7 @@
     },
     {
         "code": "WDVQJU0O6N",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Lendr",

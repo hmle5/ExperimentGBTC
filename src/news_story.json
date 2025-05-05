@@ -376,7 +376,7 @@
     },
     {
         "code": "3ZW2OH87",
-        "used": false,
+        "used": true,
         "story": "control_news"
     },
     {
@@ -1066,7 +1066,7 @@
     },
     {
         "code": "02X194QT",
-        "used": false,
+        "used": true,
         "story": "control_news"
     },
     {
@@ -1166,7 +1166,7 @@
     },
     {
         "code": "J45ZNRVX",
-        "used": false,
+        "used": true,
         "story": "control_news"
     },
     {
@@ -3571,7 +3571,7 @@
     },
     {
         "code": "C4K62E63",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {

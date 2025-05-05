@@ -97,14 +97,19 @@ def news_info():
         response.last_page_viewed = "news_info"
         db.session.commit()
         get_flashed_messages()  # <--- THIS clears any old messages BEFORE redirect
+        session.pop("story_entry", None)
 
         return redirect(url_for("survey_bp.investment"))
 
     # === GET method ===
-    story_entry = get_unused_story()
+    story_entry = session.get("story_entry")
+
     if not story_entry:
-        flash("All available stories have been used. Survey is closed.", "error")
-        return redirect(url_for("main.index"))
+        story_entry = get_unused_story()
+        if not story_entry:
+            flash("All available stories have been used. Survey is closed.", "error")
+            return redirect(url_for("main.index"))
+        session["story_entry"] = story_entry  # Save to session for reuse
 
     article_data = (
         HOLMES_ARTICLE if story_entry["story"] == "holmes" else CONTROL_ARTICLE
@@ -126,7 +131,7 @@ def news_info():
         unique_code=story_entry["code"],
         story_type=story_entry["story"],
         correct_answer=correct_answer,
-        image_filename=image_filename  # send image file to template
+        image_filename=image_filename,  # send image file to template
     )
 
 
@@ -454,7 +459,8 @@ def final_page():
         mturk_id = request.form.get("mturk_id", "").strip()
         user_code = request.form.get("completion_code", "").strip().upper()
 
-        if not mturk_id or not user_code:
+        # if not mturk_id or not user_code:
+        if not user_code:
             flash("Please fill in all required fields.", "error")
             return redirect(url_for("survey_bp.final_page"))
 
@@ -466,14 +472,14 @@ def final_page():
             return redirect(url_for("survey_bp.final_page"))
 
         # Save to DB
-        response.mturk_id = mturk_id
+        # response.mturk_id = mturk_id
         response.completion_code = user_code
         response.last_page_viewed = "final_page"
         db.session.commit()
 
         # Store for thank-you page
         session["completion_code"] = user_code
-        session["mturk_id"] = mturk_id
+        # session["mturk_id"] = mturk_id
 
         return redirect(url_for("survey_bp.thank_you"))
 
@@ -488,13 +494,20 @@ def thank_you():
     participant_id = session["participant_id"]
     response = Response.query.filter_by(participant_id=participant_id).first()
 
-    mturk_id = session.get("mturk_id", "")
+    # mturk_id = session.get("mturk_id", "")
     completion_code = session.get("completion_code", "")
 
     # Mark survey as completed
     response.completed = True
+    response.end_time = datetime.now()
+    if response.start_time and response.end_time:
+        duration = (response.end_time - response.start_time).total_seconds() / 60
+        response.total_time_survey_minutes = round(duration, 2)
     db.session.commit()
 
     return render_template(
-        "thank_you.html", mturk_id=mturk_id, completion_code=completion_code
+        # "thank_you.html", mturk_id=mturk_id, completion_code=completion_code
+        "thank_you.html",
+        prolific_id=session.get("prolific_id"),
+        completion_code=completion_code,
     )

@@ -176,7 +176,8 @@ def index():
         if not prolific_id:
             error = "Please enter your Prolific ID before continuing."
             return render_template("index.html", error=error)
-
+        # ✅ Store for later use (e.g. thank you page)
+        session["prolific_id"] = prolific_id
         # Create new participant
         participant_id = generate_unique_participant_id()
         session["participant_id"] = participant_id

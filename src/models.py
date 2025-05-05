@@ -30,6 +30,9 @@ class Response(db.Model):
     completed = db.Column(db.Boolean, default=False, nullable=False)
     start_time = db.Column(db.DateTime, nullable=True)
     end_time = db.Column(db.DateTime, nullable=True)
+    total_time_survey_minutes = db.Column(
+        db.Float, nullable=True
+    )  # Total duration in minutes
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     date_updated = db.Column(
         db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow
