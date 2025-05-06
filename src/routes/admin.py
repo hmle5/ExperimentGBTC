@@ -3,18 +3,13 @@ from models import db, Response
 import pandas as pd
 import io
 from flask import Response as FlaskResponse
-from functools import wraps  # Use wraps to preserve function metadata
+from functools import wraps
 import statistics
 
 admin_bp = Blueprint("admin_bp", __name__)
 
 
 def admin_required(func):
-    """
-    Ensures only logged-in admins can access the dashboard.
-    Fixes function overwrite issue using `wraps`.
-    """
-
     @wraps(func)
     def wrapper(*args, **kwargs):
         if "admin" not in session:
@@ -25,46 +20,101 @@ def admin_required(func):
     return wrapper
 
 
+# @admin_bp.route("/admin", methods=["GET"])
+# @admin_required
+# def admin_dashboard():
+#     page = int(request.args.get("page", 1))
+#     per_page = int(request.args.get("per_page", 10))
+
+#     paginated = Response.query.paginate(page=page, per_page=per_page, error_out=False)
+#     all_responses = Response.query.all()
+
+#     durations = [
+#         (r.end_time - r.start_time).total_seconds() / 60
+#         for r in all_responses
+#         if r.start_time and r.end_time
+#     ]
+#     avg_duration = round(statistics.mean(durations), 2) if durations else None
+#     total_completed = sum(1 for r in all_responses if r.completed)
+
+#     def serialize_response(r):
+#         return {
+#             "participant_id": r.participant_id,
+#             "completed": r.completed,
+#             "start_time": r.start_time.isoformat() if r.start_time else None,
+#             "end_time": r.end_time.isoformat() if r.end_time else None,
+#             "investment_duration": r.startup_investment_duration,
+#             "age": r.age,
+#             "gender": r.gender,
+#         }
+
+#     serialized_responses = [serialize_response(r) for r in paginated.items]
+
+#     return render_template(
+#         "admin_dashboard.html",
+#         responses=paginated.items,
+#         serialized_responses=serialized_responses,
+#         page=page,
+#         per_page=per_page,
+#         total=paginated.total,
+#         avg_duration=avg_duration,
+#         total_completed=total_completed,
+#     )
+
+
 @admin_bp.route("/admin", methods=["GET"])
 @admin_required
 def admin_dashboard():
+    from sqlalchemy import and_
+
     page = int(request.args.get("page", 1))
     per_page = int(request.args.get("per_page", 10))
+    gender_filter = request.args.get("gender")
+    education_filter = request.args.get("education_level")
 
-    paginated = Response.query.paginate(page=page, per_page=per_page, error_out=False)
-    all_responses = Response.query.all()
+    filters = []
+    if gender_filter:
+        filters.append(Response.gender == gender_filter)
+    if education_filter:
+        filters.append(Response.education_level == education_filter)
 
-    # Compute stats
-    success_probs = [
-        r.success_prob for r in all_responses if r.success_prob is not None
+    query = Response.query.filter(and_(*filters)) if filters else Response.query
+    paginated = query.paginate(page=page, per_page=per_page, error_out=False)
+    all_responses = query.all()
+
+    # Summary stats
+    durations = [
+        (r.end_time - r.start_time).total_seconds() / 60
+        for r in all_responses
+        if r.start_time and r.end_time
     ]
-    avg_success = round(statistics.mean(success_probs), 2) if success_probs else None
+    avg_duration = round(statistics.mean(durations), 2) if durations else None
     total_completed = sum(1 for r in all_responses if r.completed)
 
-    # Serialize only paginated items for chart JS
-    def serialize_response(r):
-        return {
-            "participant_id": r.participant_id,
-            "success_prob": r.success_prob,
-            "failure_prob": r.failure_prob,
-            "voyagemind_investment": r.voyagemind_investment,
-            "expected_return": r.expected_return,
-            "completed": r.completed,
-            "start_time": r.start_time.isoformat() if r.start_time else None,
-            "end_time": r.end_time.isoformat() if r.end_time else None,
-        }
+    # Charts: avg duration by gender
+    from collections import defaultdict
 
-    serialized_responses = [serialize_response(r) for r in paginated.items]
+    duration_by_gender = defaultdict(list)
+    for r in all_responses:
+        if r.gender and r.start_time and r.end_time:
+            duration = (r.end_time - r.start_time).total_seconds() / 60
+            duration_by_gender[r.gender].append(duration)
+
+    avg_duration_by_gender = {
+        g: round(statistics.mean(d), 2) for g, d in duration_by_gender.items()
+    }
 
     return render_template(
         "admin_dashboard.html",
         responses=paginated.items,
-        serialized_responses=serialized_responses,
         page=page,
         per_page=per_page,
         total=paginated.total,
-        avg_success=avg_success,
+        avg_duration=avg_duration,
         total_completed=total_completed,
+        avg_duration_by_gender=avg_duration_by_gender,
+        selected_gender=gender_filter,
+        selected_education=education_filter,
     )
 
 
@@ -75,14 +125,13 @@ def export_excel():
     data = [
         {
             "Participant ID": r.participant_id,
-            "Success Probability": r.success_prob,
-            "Failure Probability": r.failure_prob,
-            "Investment Amount": r.voyagemind_investment,
-            "Expected Return": r.expected_return,
             "Completed": r.completed,
             "Start Time": r.start_time,
             "End Time": r.end_time,
-            "Story Type": r.story_type,
+            "Investment Duration (mins)": r.startup_investment_duration,
+            "Startup Investments": r.startup_investments,
+            "Investment Approach": r.investment_approach,
+            "Likert Reflection": r.likert_reflection,
             "Age": r.age,
             "Gender": r.gender,
             "Education Level": r.education_level,
@@ -106,27 +155,23 @@ def export_excel():
 @admin_bp.route("/admin/export_csv", methods=["GET"])
 @admin_required
 def export_csv():
-    """
-    Exports survey data as a CSV file.
-    """
     responses = Response.query.all()
-    data = []
-
-    for resp in responses:
-        data.append(
-            {
-                "Participant ID": resp.participant_id,
-                "Success Probability": resp.success_probability,
-                "Failure Probability": resp.failure_probability,
-                "Investment Amount": resp.investment_amount,
-                "Expected Return": resp.expected_return,
-                "Completed Index": resp.completed_index,
-                "Completed Instructions": resp.completed_instructions,
-                "Completed Survey": resp.completed_survey,
-                "Start Time": resp.start_time,
-                "End Time": resp.end_time,
-            }
-        )
+    data = [
+        {
+            "Participant ID": r.participant_id,
+            "Completed": r.completed,
+            "Start Time": r.start_time,
+            "End Time": r.end_time,
+            "Investment Duration (mins)": r.startup_investment_duration,
+            "Startup Investments": r.startup_investments,
+            "Investment Approach": r.investment_approach,
+            "Likert Reflection": r.likert_reflection,
+            "Age": r.age,
+            "Gender": r.gender,
+            "Education Level": r.education_level,
+        }
+        for r in responses
+    ]
 
     df = pd.DataFrame(data)
     output = io.StringIO()
@@ -142,14 +187,11 @@ def export_csv():
 
 @admin_bp.route("/admin/login", methods=["GET", "POST"])
 def admin_login():
-    """
-    Admin login page.
-    """
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if username == "admin" and password == "securepassword":  # Change credentials
+        if username == "admin" and password == "securepassword":
             session["admin"] = True
             return redirect(url_for("admin_bp.admin_dashboard"))
         else:
@@ -160,9 +202,6 @@ def admin_login():
 
 @admin_bp.route("/admin/logout")
 def admin_logout():
-    """
-    Logs out the admin.
-    """
     session.pop("admin", None)
     flash("Logged out successfully!", "success")
     return redirect(url_for("admin_bp.admin_login"))

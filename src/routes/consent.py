@@ -165,8 +165,9 @@ def index():
         session["question_answered"] = True
 
         if response_record.completed:
-            error = "You have already completed this survey."
-            return render_template("index.html", error=error)
+            # error = "You have already completed this survey."
+            # return render_template("index.html", error=error)
+            return render_template("already_completed.html")
 
         return redirect(url_for("survey_bp.instructions"))
 
@@ -176,7 +177,8 @@ def index():
         if not prolific_id:
             error = "Please enter your Prolific ID before continuing."
             return render_template("index.html", error=error)
-
+        # ✅ Store for later use (e.g. thank you page)
+        session["prolific_id"] = prolific_id
         # Create new participant
         participant_id = generate_unique_participant_id()
         session["participant_id"] = participant_id
