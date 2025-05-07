@@ -200,12 +200,12 @@
 
         <div class="news-container">
 
-            <div class="news-header">
+            <div class="news-header mb-5">
                 {{ news_title }}
             </div>
 
             <img src="{{ url_for('static', filename='images/' + image_filename) }}"
-                 class="img-fluid mb-4"
+                 class="img-fluid mb-4 mx-auto d-block"
                  alt="News Image">
                 
             <p class="news-source">News and image source: {{ news_source }}</p>
