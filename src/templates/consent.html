@@ -20,6 +20,12 @@
             box-shadow: none !important;
         }
 
+        .container {
+            max-width: 1000px;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
         /* Custom color for header */
         .custom-header {
             background-color: white; /* Dark blue background */
@@ -61,17 +67,40 @@
         }
     </style>
 
+    <!-- Add the JavaScript here -->
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+        window.onload = function() {
+            // Hide the warning initially
+            document.getElementById('warning').style.display = 'none';
+            noBack();
+        };
+        window.onpageshow = function (evt) {
+            if (evt.persisted) noBack();
+        };
+        window.onunload = function () {
+            void (0);
+        };
+    </script>
+
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <!-- <div class="col-md-8"> -->
 
                 <div class="card">
 
                     <div class="custom-header">
                         <h3>Consent to participate</h3>
+                    </div>
+
+                    <div id="warning" style="color: #78191f;">
+                        You cannot go back to previous pages to ensure data integrity.
                     </div>
 
                     <div class="card-body">

@@ -39,7 +39,8 @@ survey_bp = Blueprint("survey_bp", __name__)  # Ensure the correct Blueprint nam
 def instructions():
     if "participant_id" not in session:
         return redirect(url_for("main.index"))  # Ensure only valid participants proceed
-
+    
+    #session["last_page_viewed"] = "survey_bp.instructions"  # Track current endpoint
     return render_template("instructions.html")
 
 
@@ -48,6 +49,7 @@ def educating():
     if "participant_id" not in session:
         return redirect(url_for("main.index"))  # Ensure only valid participants proceed
 
+    #session["last_page_viewed"] = "survey_bp.educating"
     return render_template("educating.html")
 
 
@@ -56,6 +58,7 @@ def phase_control():
     if "participant_id" not in session:
         return redirect(url_for("main.index"))  # Ensure only valid participants proceed
 
+    #session["last_page_viewed"] = "survey_bp.phase_control"
     return render_template("phase_control.html")
 
 
@@ -326,7 +329,7 @@ def investment_approach():
         approach_text = request.form.get("investment_approach", "").strip()
 
         if not approach_text or len(approach_text.split()) < 15:
-            flash("Please briefly describe your investment approach.", "error")
+            flash("Please write at least 15 words to describe your investment approach.", "error")
             return redirect(url_for("survey_bp.investment_approach"))
 
         response.investment_approach = approach_text
@@ -458,6 +461,7 @@ def final_page():
     if request.method == "POST":
         mturk_id = request.form.get("mturk_id", "").strip()
         user_code = request.form.get("completion_code", "").strip().upper()
+        feedback = request.form.get("survey_feedback", "").strip()  # <-- New line
 
         # if not mturk_id or not user_code:
         if not user_code:
@@ -474,6 +478,7 @@ def final_page():
         # Save to DB
         # response.mturk_id = mturk_id
         response.completion_code = user_code
+        response.survey_feedback = feedback 
         response.last_page_viewed = "final_page"
         db.session.commit()
 

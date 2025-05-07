@@ -20,6 +20,12 @@
             box-shadow: none !important;
         }
 
+        .container {
+            max-width: 1000px;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
@@ -80,8 +86,8 @@
 
         .custom-alert {
             background-color: white;
-            border: 2px solid #dcdcdc;
-            border-radius: 10px;
+            border: none !important;
+            border-radius: none !important;
             padding: 25px 20px;
             box-shadow: none !important;
         }
@@ -97,6 +103,9 @@
 
         .custom-color {
             color: #78191f; /* Replace with any hex code or CSS color */
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -104,7 +113,7 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <!-- <div class="col-md-8"> -->
 
                 <div class="card border-success">
 
@@ -124,10 +133,7 @@
                             ⚠️ If this code is not entered correctly, we will not be able to process your compensation.
                         </p> -->
 
-                        <div class="alert custom-alert text-center my-4">
-                            <strong>Your 16-digit completion code:</strong><br>
-                            <span class="completion-code">{{ expected_code }}</span>
-                        </div>
+                        
 
                         <!-- <p>Please complete the short form below to finalize your submission and download your
                             confirmation.</p> -->
@@ -135,28 +141,41 @@
                         <form method="POST" action="{{ url_for('survey_bp.final_page') }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                            <div class="mt-3 mb-5">
-                                <label for="completion_code" class="form-label"><strong>Please enter your 16-digit
-                                        completion code in the box below:</strong></label>
+                            <div class="mt-3 mb-3">
+                                <label for="completion_code" class="form-label"><strong>Step 1: Please enter your 16-digit
+                                        completion code in the box below.</strong></label>
+                                        <div class="alert custom-alert text-center my-4">
+                                            <strong>Your 16-digit completion code:</strong><br>
+                                            <span class="completion-code">{{ expected_code }}</span>
+                                        </div>
                                 <input type="text" class="form-control" id="completion_code" name="completion_code"
-                                    required placeholder="e.g. ABCD1234WXYZ5678">
+                                    required placeholder="Enter the 16-digit code here, e.g. ABCD1234WXYZ5678">
                             </div>
 
 
-                            <p class="mt-3 mb-3"><strong>To confirm your survey participation and completion on Prolific, 
+                            <p class="mt-5 mb-3"><strong>Step 2: To confirm your survey completion on Prolific and receive your rewards, 
                                 please copy and paste the code below on the platform.</strong>
                             </p>
-                            <p class="mb-5 custom-color"><strong>CODETOINPUT</strong>
+                            <p class="mt-5 text-center"> <strong>Prolific completion code:</strong> 
+                            </p>
+                            <p class="mb-5 custom-color">CODETOINPUT
                             </p>
 
-                            <!--
 
-                            <div class="mb-3">
-                                <label for="mturk_id" class="form-label"><strong>Enter your MTurk Worker
-                                        ID:</strong></label>
-                                <input type="text" class="form-control" id="mturk_id" name="mturk_id" required
-                                    placeholder="e.g. A1234ABC5678XYZ">
-                            </div>-->
+                            <hr class="my-4">
+
+
+                            <p class="mt-3 ">(Optional) If you have any feedback or suggestions for this survey, please share with us in the box below.</p>
+
+
+                            <form method="POST" action="{{ url_for('survey_bp.investment_approach') }}">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <div class="mb-5">
+                                    <textarea class="form-control" id="survey_feedback" name="survey_feedback" rows="4"
+                                        oninput="validateInput()"></textarea>
+                                </div>
+
+
                         
 
                             <div class="submit-btn-container">

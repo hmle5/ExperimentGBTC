@@ -72,6 +72,9 @@ class Response(db.Model):
     # Index for faster queries
     __table_args__ = (db.Index("idx_response_consent_id", "consent_id"),)
 
+    #Survey feedback
+    survey_feedback = db.Column(db.Text, nullable=True)
+
 
 class StartupSetAssignment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

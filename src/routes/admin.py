@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, flash
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash, send_file
 from models import db, Response
 import pandas as pd
 import io
@@ -124,17 +124,22 @@ def export_excel():
     responses = Response.query.all()
     data = [
         {
-            "Participant ID": r.participant_id,
-            "Completed": r.completed,
-            "Start Time": r.start_time,
-            "End Time": r.end_time,
-            "Investment Duration (mins)": r.startup_investment_duration,
-            "Startup Investments": r.startup_investments,
-            "Investment Approach": r.investment_approach,
-            "Likert Reflection": r.likert_reflection,
-            "Age": r.age,
-            "Gender": r.gender,
-            "Education Level": r.education_level,
+            "participant_ID": r.participant_id,
+            "prolific_ID": r.prolific_id,
+            "completed": r.completed,
+            "start_time": r.start_time,
+            "end_time": r.end_time,
+            "total_time": r.total_time_survey_minutes,
+            "news": r.story_type,
+            "investment_duration": r.startup_investment_duration,
+            "startup_set_code": r.startup_code,
+            "startup_investments": r.startup_investments,
+            "investment_approach": r.investment_approach,
+            "likert_reflection": r.likert_reflection,
+            "age": r.age,
+            "gender": r.gender,
+            "education": r.education_level,
+            "survey_feedback": r.survey_feedback,
         }
         for r in responses
     ]
@@ -145,10 +150,11 @@ def export_excel():
         df.to_excel(writer, index=False, sheet_name="Responses")
     output.seek(0)
 
-    return FlaskResponse(
+    return send_file(
         output,
-        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        headers={"Content-Disposition": "attachment; filename=responses.xlsx"},
+        download_name="survey_responses.xlsx",
+        as_attachment=True,
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
 
@@ -158,17 +164,22 @@ def export_csv():
     responses = Response.query.all()
     data = [
         {
-            "Participant ID": r.participant_id,
-            "Completed": r.completed,
-            "Start Time": r.start_time,
-            "End Time": r.end_time,
-            "Investment Duration (mins)": r.startup_investment_duration,
-            "Startup Investments": r.startup_investments,
-            "Investment Approach": r.investment_approach,
-            "Likert Reflection": r.likert_reflection,
-            "Age": r.age,
-            "Gender": r.gender,
-            "Education Level": r.education_level,
+            "participant_ID": r.participant_id,
+            "prolific_ID": r.prolific_id,
+            "completed": r.completed,
+            "start_time": r.start_time,
+            "end_time": r.end_time,
+            "total_time": r.total_time_survey_minutes,
+            "news": r.story_type,
+            "investment_duration": r.startup_investment_duration,
+            "startup_set_code": r.startup_code,
+            "startup_investments": r.startup_investments,
+            "investment_approach": r.investment_approach,
+            "likert_reflection": r.likert_reflection,
+            "age": r.age,
+            "gender": r.gender,
+            "education": r.education_level,
+            "survey_feedback": r.survey_feedback,
         }
         for r in responses
     ]

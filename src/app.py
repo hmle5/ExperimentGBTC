@@ -30,6 +30,21 @@ from utilis import (
 
 def create_app():
     app = Flask(__name__)
+
+    # # Define the allowed survey navigation flow
+    # SURVEY_FLOW = [
+    #     "survey_bp.instructions",
+    #     "survey_bp.educating",
+    #     "survey_bp.phase_control",
+    #     "survey_bp.news_info",
+    #     "survey_bp.investment",
+    #     "survey_bp.investment_approach",
+    #     "survey_bp.investment_reflect_likert",
+    #     "survey_bp.demographic_collecting",
+    #     "survey_bp.final_page",
+    #     "survey_bp.thank_you",
+    # ]
+
     generate_news_story_file()
     # generate_startup_file()
     generate_startup_sets()
@@ -51,6 +66,7 @@ def create_app():
     Session(app)
     csrf = CSRFProtect(app)
     limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
+
 
     def generate_captcha_text(length=6):
         """Generate a random CAPTCHA text with uppercase and numbers only for readability."""
@@ -90,6 +106,30 @@ def create_app():
                 return redirect(url_for("captcha_check"))
 
         return render_template("captcha_check.html")
+    
+    
+    # @app.before_request
+    # def prevent_back():
+    #     if request.endpoint in ["static", "generate_captcha"]:
+    #         return
+
+    #     if "participant_id" in session and request.endpoint:
+    #         last_page = session.get("last_page_viewed")
+
+    #         if not last_page:
+    #             return  # Allow access if no page has been tracked yet
+
+    #         try:
+    #             last_index = SURVEY_FLOW.index(last_page)
+    #             current_index = SURVEY_FLOW.index(request.endpoint)
+    #         except ValueError:
+    #             return  # Skip check if not part of defined flow
+
+    #         if current_index < last_index:
+    #             flash("You cannot go back in the survey flow.", "error")
+    #             return redirect(url_for(last_page))
+
+            
 
     # Register blueprints
     app.register_blueprint(main_bp)

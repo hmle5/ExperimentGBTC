@@ -189,16 +189,21 @@
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
-                        <th>Participant ID</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Education</th>
-                        <th>Completed</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Duration</th>
-                        <th>Investment Approach</th>
-                        <th>Likert Reflection</th>
+                        <th>participant_ID</th>
+                        <th>age</th>
+                        <th>gender</th>
+                        <th>education</th>
+                        <th>completed</th>
+                        <th>start</th>
+                        <th>end</th>
+                        <th>total_duration</th>
+                        <th>news</th>
+                        <th>startup_set</th>
+                        <th>investment_duration</th>
+                        <th>invest_amounts</th>
+                        <th>invest_approach</th>
+                        <th>likert_reflect</th>
+                        <th>survey_feedback</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -211,9 +216,14 @@
                         <td>{% if r.completed %}✅{% else %}❌{% endif %}</td>
                         <td>{{ r.start_time }}</td>
                         <td>{{ r.end_time }}</td>
+                        <td>{{ r.total_time_survey_minutes }}</td>
+                        <td>{{ r.story_type }}</td>
+                        <td>{{ r.startup_code }}</td>
                         <td>{{ r.startup_investment_duration }}</td>
+                        <td>{{ r.startup_investments }}</td>
                         <td>{{ r.investment_approach }}</td>
                         <td>{{ r.likert_reflection }}</td>
+                        <td>{{ r.survey_feedback }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

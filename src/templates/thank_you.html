@@ -5,11 +5,111 @@
     <meta charset="UTF-8">
     <title>Thank You</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .container {
+            max-width: 1000px;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .error-text {
+            font-size: 0.9rem;
+        }
+
+        /* Custom color for header */
+        .custom-header {
+            background-color: white; /* Dark blue background */
+            color: rgb(5, 40, 80); /* White text */
+            padding: 15px 20px; /* Added padding for spacing */
+            text-align: left;
+            border-bottom: none !important; /* Center the header text */
+            font-weight: bold;
+        }
+
+        .custom-header h3 {
+            margin-bottom: 0px; /* Reduces vertical space under text */
+            font-weight: bold;
+        }
+
+        /* Custom color for button */
+        .custom-btn {
+            background-color: rgb(0, 80, 180); 
+            border: none;
+            color: white; /* White text on the button */
+            padding: 12px 20px; /* Add padding to the button */
+            font-size: 16px; /* Font size for button text */
+            width: 50%; /* Make the button span the full width */
+        }
+
+        .custom-btn:hover {
+            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; /* Align the button to the center horizontally */
+            margin-top: 20px; /* Add space above the button */
+        }
+
+        .custom-btn:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .custom-alert {
+            background-color: white;
+            border: none !important;
+            border-radius: none !important;
+            padding: 25px 20px;
+            box-shadow: none !important;
+        }
+
+        .completion-code {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #78191f;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .custom-color {
+            color: #78191f; /* Replace with any hex code or CSS color */
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
     <script>
         function downloadCode() {
-            const prolificId = "{{ prolific_id }}";
             const code = "{{ completion_code }}";
-            const content = `Prolific ID: ${prolificId}\nCompletion Code: ${code}`;
+            const prolificId = "{{ prolific_id }}";
+            const content = `Survey 16-digit completion code: ${code}\nProlific ID: ${prolificId}\nProlific completion code: CODETOINPUT`;
             const blob = new Blob([content], { type: "text/plain" });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
@@ -34,25 +134,33 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <!-- <div class="col-md-8"> -->
                 <div class="card border-info">
-                    <div class="card-header bg-info text-white">
-                        <h3>You're All Set!</h3>
+                    <div class="custom-header">
+                        <h3>You're all set!</h3>
                     </div>
                     <div class="card-body">
-                        <p class="fs-5">Thank you for completing the survey!</p>
-                        <p>Please copy or download your code below and submit it on Prolific to receive your payment.
+                        <p class="mt-3 mb-5">Below are your information and completion codes.
                         </p>
 
                         <div class="alert alert-primary text-center">
-                            <strong>Prolific ID:</strong> {{ prolific_id }}<br>
-                            <strong>Completion Code:</strong><br>
-                            <span class="fs-4 text-success">{{ completion_code }}</span>
+                            <div class="mb-3">
+                                <strong>Survey completion code:</strong><br>
+                                {{ completion_code }}
+                            </div>
+                        
+                            <div class="mb-3">
+                                <strong>Prolific ID:</strong> <br>{{ prolific_id }}
+                            </div>
+                        
+                            <div>
+                                <strong>Prolific completion code:</strong><br> CODETOINPUT
+                            </div>
                         </div>
 
                         <button class="btn btn-outline-primary me-2" onclick="downloadCode()">Download
                             Confirmation</button>
-                        <button class="btn btn-outline-danger" onclick="confirmClose()">Close Tab</button>
+                        <!-- <button class="btn btn-outline-danger" onclick="confirmClose()">Close Tab</button> -->
                     </div>
                 </div>
             </div>
