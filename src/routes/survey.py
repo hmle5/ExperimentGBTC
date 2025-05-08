@@ -20,6 +20,7 @@ from utilis import (
     generate_news_story_file,
     HOLMES_ARTICLE,
     CONTROL_ARTICLE,
+    CONTROL_FRAUD_ARTICLE,
     # generate_startup_file,
     # get_unused_startup,
     # mark_startup_as_used,
@@ -82,7 +83,14 @@ def news_info():
             return redirect(url_for("survey_bp.news_info"))
 
         # Load article based on story_type to get the correct answer
-        article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
+        #article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
+        if story_type == "holmes":
+            article_data = HOLMES_ARTICLE
+        elif story_type == "control_news":
+            article_data = CONTROL_ARTICLE
+        else:
+            article_data = CONTROL_FRAUD_ARTICLE
+
         correct_answer = article_data["correct_answer"]
 
         is_correct = user_answer == correct_answer
@@ -114,15 +122,25 @@ def news_info():
             return redirect(url_for("main.index"))
         session["story_entry"] = story_entry  # Save to session for reuse
 
+    # article_data = (
+    #     HOLMES_ARTICLE if story_entry["story"] == "holmes" else CONTROL_ARTICLE
+    # )
     article_data = (
-        HOLMES_ARTICLE if story_entry["story"] == "holmes" else CONTROL_ARTICLE
+        HOLMES_ARTICLE if story_entry["story"] == "holmes" 
+        else CONTROL_ARTICLE if story_entry["story"] == "control_news" 
+        else CONTROL_FRAUD_ARTICLE
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
     # random.shuffle(shuffled_options)
 
     # Determine image filename
-    image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+    #image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+    image_filename = (
+        "holmes.png" if story_entry["story"] == "holmes"
+        else "control.png" if story_entry["story"] == "control_news"
+        else "control_fraud.png"
+    )
 
     return render_template(
         "news_info.html",

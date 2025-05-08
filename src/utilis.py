@@ -57,6 +57,22 @@ The survey’s findings also show that inflation continues to be small business 
     "correct_answer": "About one-third of small businesses believe the economy is in good health, but inflation continues to be their biggest challenge.",
 }
 
+CONTROL_FRAUD_ARTICLE = {
+    "title": "Keep it Real: The SEC Renews Warning About ‘Startup Culture’",
+    "content": """Last week, The Wall Street Journal published an article titled: “SEC Sends a Message to Startups About ‘Fake It’ Culture.” According to the article, the “startup culture” at issue “encouraged setting lofty or even unrealistic growth projections to maximize company potential and catch the attention of investors and customers.”
+Culturally, some might view “fake it until you make it” as a simple testament to the faith and hope that business founders have in their company’s innovations and inventions. The U.S. Securities and Exchange Commission’s recent enforcement actions serve as a reminder that startup fundraisers cannot use the “fake it until you make it” ethos to whitewash lying to investors. 
+Why did the SEC choose to issue this reminder now? The agency did not say. But with the stock markets at record highs, and the promises of billions of dollars to be made in artificial intelligence investments discussed at every turn, excessive frothiness on Wall Street can easily lead to overeager investors in startup land whose investment decisions are governed more by FOMO (the “fear of missing out”) than sound financial analysis. 
+""",
+    "source": "The National Law Review",
+    "question": "What was the reminder issued by the U.S. Securities and Exchange Commission, and why did the agency do it?",
+    "options": [
+        "The SEC emphasized the value of the start-up culture in unlocking company potential, amid the positive outlook for high-tech investments.",
+        "The SEC warned that unrealistic growth projections by start-ups misled investors and customers, thus worsening the current stock market.",
+        "The SEC reminded founders and investors that the startup culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
+    ],
+    "correct_answer": "The SEC reminded founders and investors that the startup culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
+}
+
 
 def generate_news_story_file():
     """Create the JSON file at startup if it does not exist."""
@@ -71,6 +87,7 @@ def generate_news_story_file():
     for _ in range(500):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
         stories.append({"code": generate_code(), "used": False, "story": "control_news"})
+        stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
 
     # Save to JSON file
     with open(NEWS_FILE, "w") as f:
