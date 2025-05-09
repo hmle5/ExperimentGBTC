@@ -67,7 +67,6 @@ def create_app():
     csrf = CSRFProtect(app)
     limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
-
     def generate_captcha_text(length=6):
         """Generate a random CAPTCHA text with uppercase and numbers only for readability."""
         characters = string.ascii_uppercase + string.digits
@@ -83,8 +82,15 @@ def create_app():
         # Store a hashed CAPTCHA answer instead of plaintext
         session["captcha_answer"] = captcha_text
 
+        # Create a random filename for each CAPTCHA image
+        random_suffix = "".join(
+            random.choices(string.ascii_letters + string.digits, k=12)
+        )
+        filename = f"captcha_{random_suffix}.png"
+        captcha_path = os.path.join("static", filename)
+
         # Generate and save image
-        captcha_path = "static/captcha.png"
+        # captcha_path = "static/captcha.png"
         image.write(captcha_text, captcha_path)
 
         return send_file(captcha_path, mimetype="image/png")
@@ -106,8 +112,7 @@ def create_app():
                 return redirect(url_for("captcha_check"))
 
         return render_template("captcha_check.html")
-    
-    
+
     # @app.before_request
     # def prevent_back():
     #     if request.endpoint in ["static", "generate_captcha"]:
@@ -128,8 +133,6 @@ def create_app():
     #         if current_index < last_index:
     #             flash("You cannot go back in the survey flow.", "error")
     #             return redirect(url_for(last_page))
-
-            
 
     # Register blueprints
     app.register_blueprint(main_bp)
