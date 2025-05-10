@@ -12,7 +12,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from models import db  # Import SQLAlchemy instance
+from models import db, Response  # Import SQLAlchemy instance
 import os
 import random
 import string
@@ -44,6 +44,111 @@ def create_app():
     #     "survey_bp.final_page",
     #     "survey_bp.thank_you",
     # ]
+
+    SURVEY_FLOW = [
+        "survey_bp.instructions",
+        "survey_bp.educating",
+        "survey_bp.phase_control",
+        "survey_bp.news_info",
+        "survey_bp.investment",
+        "survey_bp.investment_approach",
+        "survey_bp.investment_reflect_likert",
+        "survey_bp.investment_demographic",
+        "survey_bp.final_page",
+        "survey_bp.thank_you",
+    ]
+
+    @app.before_request
+    def enforce_survey_flow():
+        if request.endpoint in [
+            "static",
+            "generate_captcha",
+            None,
+        ] or request.endpoint.startswith("admin_bp."):
+            return
+
+        if request.endpoint not in SURVEY_FLOW:
+            return  # Allow non-survey routes
+
+        participant_id = session.get("participant_id")
+        if not participant_id:
+            return
+
+        response = Response.query.filter_by(participant_id=participant_id).first()
+        if not response:
+            return
+
+        last_page = response.last_page_viewed
+        current_endpoint = request.endpoint
+
+        # If no page completed yet, only allow first
+        if not last_page:
+            if current_endpoint != SURVEY_FLOW[0]:
+                flash("Please start from the beginning of the survey.", "error")
+                return redirect(url_for(SURVEY_FLOW[0]))
+            return
+
+        try:
+            last_index = SURVEY_FLOW.index(last_page)
+            allowed_next = (
+                SURVEY_FLOW[last_index + 1]
+                if last_index + 1 < len(SURVEY_FLOW)
+                else SURVEY_FLOW[-1]
+            )
+        except ValueError:
+            return  # invalid route or last_page
+
+        if current_endpoint != allowed_next:
+            flash("You must follow the survey steps in order.", "error")
+            return redirect(url_for(allowed_next))
+
+    # @app.before_request
+    # def enforce_survey_flow():
+    #     # Skip checks for static files, captcha, or admin routes
+    #     if request.endpoint in [
+    #         "static",
+    #         "generate_captcha",
+    #         None,
+    #     ] or request.endpoint.startswith("admin_bp."):
+    #         return
+
+    #     if request.endpoint not in SURVEY_FLOW:
+    #         return  # Allow non-survey routes
+
+    #     participant_id = session.get("participant_id")
+    #     if not participant_id:
+    #         return
+
+    #     response = Response.query.filter_by(participant_id=participant_id).first()
+    #     if not response:
+    #         return
+
+    #     last_page = response.last_page_viewed
+    #     current_endpoint = request.endpoint
+
+    #     # Default to first step if no page yet completed
+    #     if not last_page:
+    #         allowed = SURVEY_FLOW[0]
+    #         if current_endpoint != allowed:
+    #             flash("Please start from the beginning of the survey.", "error")
+    #             return redirect(url_for(allowed))
+    #         return
+
+    #     try:
+    #         last_index = SURVEY_FLOW.index(last_page)
+    #         current_index = SURVEY_FLOW.index(current_endpoint)
+    #     except ValueError:
+    #         return  # Unexpected value in last_page or request.endpoint
+
+    #     if current_index > last_index + 1:
+    #         flash("You cannot skip ahead.", "error")
+    #         return redirect(url_for(SURVEY_FLOW[last_index + 1]))
+    #     elif current_index < last_index:
+    #         flash("You cannot go back in the survey flow.", "error")
+    #         return redirect(url_for(SURVEY_FLOW[last_index + 1]))
+
+    #     # Otherwise, allow access to the next or current step
+    #     return
 
     generate_news_story_file()
     # generate_startup_file()

@@ -35,31 +35,125 @@ import os
 survey_bp = Blueprint("survey_bp", __name__)  # Ensure the correct Blueprint name
 
 
-# Dummy startup dataset for randomized selection
-@survey_bp.route("/instructions", methods=["GET"])
+# @survey_bp.route("/instructions", methods=["GET", "POST"])
+# def instructions():
+#     if "participant_id" not in session:
+#         return redirect(url_for("main.index"))
+
+#     participant_id = session["participant_id"]
+#     response = Response.query.filter_by(participant_id=participant_id).first()
+
+#     if request.method == "POST":
+#         # No validation needed here if the page is informational
+#         response.last_page_viewed = "survey_bp.instructions"
+#         db.session.commit()
+#         return redirect(url_for("survey_bp.educating"))
+
+#     return render_template("instructions.html")
+
+
+@survey_bp.route("/instructions", methods=["GET", "POST"])
 def instructions():
     if "participant_id" not in session:
-        return redirect(url_for("main.index"))  # Ensure only valid participants proceed
-    
-    #session["last_page_viewed"] = "survey_bp.instructions"  # Track current endpoint
+        return redirect(url_for("main.index"))
+
+    participant_id = session["participant_id"]
+    response = Response.query.filter_by(participant_id=participant_id).first()
+
+    if request.method == "POST":
+        selected = request.form.getlist("answer")
+
+        # ✅ Backend validation of checkboxes
+        if set(selected) == {"Agree", "Others"} and len(selected) == 2:
+            response.last_page_viewed = "survey_bp.instructions"
+            db.session.commit()
+            db.session.refresh(response)  # ✅ Ensure the session reflects the DB write
+
+            return redirect(url_for("survey_bp.educating"))
+        else:
+            flash("Incorrect answer. Please read the question again.", "error")
+            return redirect(url_for("survey_bp.instructions"))
+
     return render_template("instructions.html")
+
+
+# @survey_bp.route("/educating", methods=["GET", "POST"])
+# def educating():
+#     if "participant_id" not in session:
+#         return redirect(url_for("main.index"))
+
+#     participant_id = session["participant_id"]
+#     response = Response.query.filter_by(participant_id=participant_id).first()
+
+#     if request.method == "POST":
+#         response.last_page_viewed = "survey_bp.educating"
+#         db.session.commit()
+#         return redirect(url_for("survey_bp.phase_control"))
+
+#     return render_template("educating.html")
 
 
 @survey_bp.route("/educating", methods=["GET", "POST"])
 def educating():
     if "participant_id" not in session:
-        return redirect(url_for("main.index"))  # Ensure only valid participants proceed
+        return redirect(url_for("main.index"))
 
-    #session["last_page_viewed"] = "survey_bp.educating"
+    participant_id = session["participant_id"]
+    response = Response.query.filter_by(participant_id=participant_id).first()
+
+    if request.method == "POST":
+        prospect_answer = request.form.get("prospect")
+        investor_answer = request.form.get("investors")
+
+        if prospect_answer == "out_of_business" and investor_answer == "both":
+            response.last_page_viewed = "survey_bp.educating"
+            db.session.commit()
+            db.session.refresh(response)  # ✅ Ensure the session reflects the DB write
+
+            return redirect(url_for("survey_bp.phase_control"))
+        else:
+            flash("Incorrect answer. Please read the content and try again.", "error")
+            return redirect(url_for("survey_bp.educating"))
+
     return render_template("educating.html")
+
+
+# @survey_bp.route("/phase_control", methods=["GET", "POST"])
+# def phase_control():
+#     if "participant_id" not in session:
+#         return redirect(url_for("main.index"))
+
+#     participant_id = session["participant_id"]
+#     response = Response.query.filter_by(participant_id=participant_id).first()
+
+#     if request.method == "POST":
+#         response.last_page_viewed = "survey_bp.phase_control"
+#         db.session.commit()
+#         return redirect(url_for("survey_bp.news_info"))
+
+#     return render_template("phase_control.html")
 
 
 @survey_bp.route("/phase_control", methods=["GET", "POST"])
 def phase_control():
     if "participant_id" not in session:
-        return redirect(url_for("main.index"))  # Ensure only valid participants proceed
+        return redirect(url_for("main.index"))
 
-    #session["last_page_viewed"] = "survey_bp.phase_control"
+    participant_id = session["participant_id"]
+    response = Response.query.filter_by(participant_id=participant_id).first()
+
+    if request.method == "POST":
+        selected = request.form.get("phase_response")
+        if selected == "read_news":
+            response.last_page_viewed = "survey_bp.phase_control"
+            db.session.commit()
+            db.session.refresh(response)  # ✅ Ensure the session reflects the DB write
+
+            return redirect(url_for("survey_bp.news_info"))
+        else:
+            flash("Incorrect answer. Please read the prompt and try again.", "error")
+            return redirect(url_for("survey_bp.phase_control"))
+
     return render_template("phase_control.html")
 
 
@@ -83,7 +177,7 @@ def news_info():
             return redirect(url_for("survey_bp.news_info"))
 
         # Load article based on story_type to get the correct answer
-        #article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
+        # article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
         if story_type == "holmes":
             article_data = HOLMES_ARTICLE
         elif story_type == "control_news":
@@ -105,7 +199,7 @@ def news_info():
         response.story_type = story_type
         response.user_answer = user_answer
         response.is_correct = is_correct
-        response.last_page_viewed = "news_info"
+        response.last_page_viewed = "survey_bp.news_info"
         db.session.commit()
         get_flashed_messages()  # <--- THIS clears any old messages BEFORE redirect
         session.pop("story_entry", None)
@@ -126,20 +220,28 @@ def news_info():
     #     HOLMES_ARTICLE if story_entry["story"] == "holmes" else CONTROL_ARTICLE
     # )
     article_data = (
-        HOLMES_ARTICLE if story_entry["story"] == "holmes" 
-        else CONTROL_ARTICLE if story_entry["story"] == "control_news" 
-        else CONTROL_FRAUD_ARTICLE
+        HOLMES_ARTICLE
+        if story_entry["story"] == "holmes"
+        else (
+            CONTROL_ARTICLE
+            if story_entry["story"] == "control_news"
+            else CONTROL_FRAUD_ARTICLE
+        )
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
     # random.shuffle(shuffled_options)
 
     # Determine image filename
-    #image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+    # image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
     image_filename = (
-        "holmes.png" if story_entry["story"] == "holmes"
-        else "control.png" if story_entry["story"] == "control_news"
-        else "control_fraud.png"
+        "holmes.png"
+        if story_entry["story"] == "holmes"
+        else (
+            "control.png"
+            if story_entry["story"] == "control_news"
+            else "control_fraud.png"
+        )
     )
 
     return render_template(
@@ -197,18 +299,6 @@ def investment():
                 flash("Invalid amount entered.", "error")
                 return render_template("investment_multi.html", startups=startups)
 
-            # try:
-            #     amount = int(
-            #         Decimal(amount_str).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
-            #     )
-            #     print(
-            #         f"{startup_name} → raw: {amount_str} → Decimal: {Decimal(amount_str)} → final: {amount}"
-            #     )
-
-            # except (InvalidOperation, ValueError, TypeError):
-            #     flash("Invalid amount entered.", "error")
-            #     return render_template("investment_multi.html", startups=startups)
-
             if not (0 <= amount <= 300000):
                 flash("Each amount must be between 0 and 300,000.", "error")
                 return render_template("investment_multi.html", startups=startups)
@@ -228,6 +318,7 @@ def investment():
             response.startup_code = set_code
             response.startup_investments = investments
             response.startup_investment_duration = time_spent
+            response.last_page_viewed = "survey_bp.investment"
             db.session.commit()
         else:
             flash("Error saving investments.", "error")
@@ -304,37 +395,6 @@ def investment():
     return render_template("investment_multi.html", startups=startups)
 
 
-# @survey_bp.route("/investment_reflecting", methods=["GET", "POST"])
-# def investment_reflecting():
-#     if "participant_id" not in session:
-#         return redirect(url_for("main.index"))
-
-#     participant_id = session["participant_id"]
-#     response = Response.query.filter_by(participant_id=participant_id).first()
-
-#     if request.method == "POST":
-#         startup_choices = request.form.getlist("startup_factors")
-#         founder_choices = request.form.getlist("founder_factors")
-
-#         if not startup_choices or not founder_choices:
-#             flash(
-#                 "Please select at least one factor for both startup and founder.",
-#                 "error",
-#             )
-#             return redirect(url_for("survey_bp.investment_reflecting"))
-
-#         response.startup_factors = ",".join(startup_choices)
-#         response.founder_factors = ",".join(founder_choices)
-#         response.last_page_viewed = "investment_reflecting"
-#         db.session.commit()
-
-#         return redirect(
-#             url_for("survey_bp.investment_demographic")
-#         )  # Replace with your next route
-
-#     return render_template("investment_reflecting.html")
-
-
 @survey_bp.route("/investment_approach", methods=["GET", "POST"])
 def investment_approach():
     if "participant_id" not in session:
@@ -347,11 +407,14 @@ def investment_approach():
         approach_text = request.form.get("investment_approach", "").strip()
 
         if not approach_text or len(approach_text.split()) < 15:
-            flash("Please write at least 15 words to describe your investment approach.", "error")
+            flash(
+                "Please write at least 15 words to describe your investment approach.",
+                "error",
+            )
             return redirect(url_for("survey_bp.investment_approach"))
 
         response.investment_approach = approach_text
-        response.last_page_viewed = "investment_approach"
+        response.last_page_viewed = "survey_bp.investment_approach"
         db.session.commit()
 
         return redirect(
@@ -388,7 +451,7 @@ def investment_reflect_likert():
             likert_data[key] = int(val)
 
         response.likert_reflection = likert_data  # Optional if column is Text
-        response.last_page_viewed = "investment_reflect_likert"
+        response.last_page_viewed = "survey_bp.investment_reflect_likert"
         db.session.commit()
 
         return redirect(url_for("survey_bp.investment_demographic"))  # Or next step
@@ -441,7 +504,7 @@ def investment_demographic():
         response.education_level = (
             education_other if education == "Other" else education
         )
-        response.last_page_viewed = "demographic_collecting"
+        response.last_page_viewed = "survey_bp.investment_demographic"
         db.session.commit()
 
         return redirect(url_for("survey_bp.final_page"))
@@ -496,8 +559,8 @@ def final_page():
         # Save to DB
         # response.mturk_id = mturk_id
         response.completion_code = user_code
-        response.survey_feedback = feedback 
-        response.last_page_viewed = "final_page"
+        response.survey_feedback = feedback
+        response.last_page_viewed = "survey_bp.final_page"
         db.session.commit()
 
         # Store for thank-you page
@@ -526,6 +589,7 @@ def thank_you():
     if response.start_time and response.end_time:
         duration = (response.end_time - response.start_time).total_seconds() / 60
         response.total_time_survey_minutes = round(duration, 2)
+    response.last_page_viewed = "survey_bp.thank_you"
     db.session.commit()
 
     return render_template(

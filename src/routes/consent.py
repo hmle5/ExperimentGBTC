@@ -139,13 +139,74 @@ def attentioncheck_1():
     return render_template("attentioncheck_1.html", error=error)
 
 
+# @main_bp.route("/index", methods=["GET", "POST"])
+# def index():
+#     error = None
+#     ip = get_client_ip()
+#     user_agent = get_user_agent()
+
+#     # Check if user has already given consent
+#     consent_record = UserConsent.query.filter_by(
+#         ip_address=ip, user_agent=user_agent
+#     ).first()
+
+#     if not consent_record or not consent_record.consent_given:
+#         return redirect(url_for("main.consent"))
+
+#     # Check if there's an existing response for this user
+#     response_record = Response.query.filter_by(
+#         consent_id=consent_record.consent_id
+#     ).first()
+
+#     if response_record:
+#         # Resume from last recorded point
+#         session["participant_id"] = response_record.participant_id
+#         session["start_time"] = response_record.start_time
+#         session["question_answered"] = True
+
+#         if response_record.completed:
+#             # error = "You have already completed this survey."
+#             # return render_template("index.html", error=error)
+#             return render_template("already_completed.html")
+
+#         return redirect(url_for("survey_bp.instructions"))
+
+#     if request.method == "POST":
+#         prolific_id = request.form.get("prolific_id", "").strip()
+
+#         if not prolific_id:
+#             error = "Please enter your Prolific ID before continuing."
+#             return render_template("index.html", error=error)
+#         # ✅ Store for later use (e.g. thank you page)
+#         session["prolific_id"] = prolific_id
+#         # Create new participant
+#         participant_id = generate_unique_participant_id()
+#         session["participant_id"] = participant_id
+#         session["start_time"] = datetime.now()
+#         session["question_answered"] = True
+
+#         # Create response record
+#         response_record = Response(
+#             consent_id=consent_record.consent_id,
+#             participant_id=participant_id,
+#             prolific_id=prolific_id,
+#             completed=False,
+#             start_time=datetime.now(),
+#         )
+#         db.session.add(response_record)
+#         db.session.commit()
+
+#         return redirect(url_for("survey_bp.instructions"))
+
+#     return render_template("index.html", error=error)
+
+
 @main_bp.route("/index", methods=["GET", "POST"])
 def index():
     error = None
     ip = get_client_ip()
     user_agent = get_user_agent()
 
-    # Check if user has already given consent
     consent_record = UserConsent.query.filter_by(
         ip_address=ip, user_agent=user_agent
     ).first()
@@ -153,39 +214,53 @@ def index():
     if not consent_record or not consent_record.consent_given:
         return redirect(url_for("main.consent"))
 
-    # Check if there's an existing response for this user
     response_record = Response.query.filter_by(
         consent_id=consent_record.consent_id
     ).first()
 
     if response_record:
-        # Resume from last recorded point
         session["participant_id"] = response_record.participant_id
         session["start_time"] = response_record.start_time
         session["question_answered"] = True
 
         if response_record.completed:
-            # error = "You have already completed this survey."
-            # return render_template("index.html", error=error)
             return render_template("already_completed.html")
 
-        return redirect(url_for("survey_bp.instructions"))
+        # 🧠 Resume from the next required step
+        SURVEY_FLOW = [
+            "survey_bp.instructions",
+            "survey_bp.educating",
+            "survey_bp.phase_control",
+            "survey_bp.news_info",
+            "survey_bp.investment",
+            "survey_bp.investment_approach",
+            "survey_bp.investment_reflect_likert",
+            "survey_bp.investment_demographic",
+            "survey_bp.final_page",
+            "survey_bp.thank_you",
+        ]
+
+        last_page = response_record.last_page_viewed or SURVEY_FLOW[0]
+        try:
+            last_index = SURVEY_FLOW.index(last_page)
+            next_step = SURVEY_FLOW[min(last_index + 1, len(SURVEY_FLOW) - 1)]
+        except ValueError:
+            next_step = SURVEY_FLOW[0]
+
+        return redirect(url_for(next_step))
 
     if request.method == "POST":
         prolific_id = request.form.get("prolific_id", "").strip()
-
         if not prolific_id:
             error = "Please enter your Prolific ID before continuing."
             return render_template("index.html", error=error)
-        # ✅ Store for later use (e.g. thank you page)
-        session["prolific_id"] = prolific_id
-        # Create new participant
+
         participant_id = generate_unique_participant_id()
         session["participant_id"] = participant_id
         session["start_time"] = datetime.now()
         session["question_answered"] = True
+        session["prolific_id"] = prolific_id
 
-        # Create response record
         response_record = Response(
             consent_id=consent_record.consent_id,
             participant_id=participant_id,
@@ -195,6 +270,7 @@ def index():
         )
         db.session.add(response_record)
         db.session.commit()
+        db.session.refresh(response_record)  # <-- add this
 
         return redirect(url_for("survey_bp.instructions"))
 
