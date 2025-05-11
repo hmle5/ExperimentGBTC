@@ -233,16 +233,16 @@ def news_info():
     # random.shuffle(shuffled_options)
 
     # Determine image filename
-    # image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
-    image_filename = (
-        "holmes.png"
-        if story_entry["story"] == "holmes"
-        else (
-            "control.png"
-            if story_entry["story"] == "control_news"
-            else "control_fraud.png"
-        )
-    )
+    image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+    # image_filename = (
+    #     "holmes.png"
+    #     if story_entry["story"] == "holmes"
+    #     else (
+    #         "control.png"
+    #         if story_entry["story"] == "control_news"
+    #         else "control_fraud.png"
+    #     )
+    # )
 
     return render_template(
         "news_info.html",
@@ -482,13 +482,13 @@ def investment_demographic():
             flash("Please complete all fields before submitting.", "error")
             return redirect(url_for("survey_bp.investment_demographic"))
 
-        if gender == "Other" and not gender_other:
-            flash("Please specify your gender.", "error")
-            return redirect(url_for("survey_bp.investment_demographic"))
+        # if gender == "Other" and not gender_other:
+        #     flash("Please specify your gender.", "error")
+        #     return redirect(url_for("survey_bp.investment_demographic"))
 
-        if education == "Other" and not education_other:
-            flash("Please specify your education level.", "error")
-            return redirect(url_for("survey_bp.investment_demographic"))
+        # if education == "Other" and not education_other:
+        #     flash("Please specify your education level.", "error")
+        #     return redirect(url_for("survey_bp.investment_demographic"))
 
         try:
             age_val = int(age)
@@ -499,11 +499,9 @@ def investment_demographic():
             flash("Age must be a number.", "error")
             return redirect(url_for("survey_bp.investment_demographic"))
 
-        response.gender = gender_other if gender == "Other" else gender
+        response.gender = gender
         response.age = age_val
-        response.education_level = (
-            education_other if education == "Other" else education
-        )
+        response.education_level = education
         response.last_page_viewed = "survey_bp.investment_demographic"
         db.session.commit()
 

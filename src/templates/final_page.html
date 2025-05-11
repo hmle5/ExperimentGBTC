@@ -141,7 +141,7 @@
 
                     <div class="card-body">
                         <p class="mt-3 mb-5">Thank you for completing this study. To confirm your 
-                            participation and receive your rewards, please follow the <strong>two</strong> steps below.</p>
+                            participation and receive your rewards, please follow the <strong>three</strong> steps below.</p>
 
                         <!--<p class="fw-bold text-danger">
                             ✅ <strong>Important:</strong> To receive your payment on MTurk, you <u>must</u> enter the
@@ -160,14 +160,14 @@
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
                             <div class="mt-3 mb-3">
-                                <label for="completion_code" class="form-label"><strong>Step 1: Please enter your 16-digit
+                                <label for="completion_code" class="form-label"><strong>Step 1: Please copy and paste your 16-digit
                                         completion code in the box below.</strong></label>
                                         <div class="alert custom-alert text-center my-4">
                                             <strong>Your 16-digit completion code:</strong><br>
                                             <span class="completion-code">{{ expected_code }}</span>
                                         </div>
                                 <input type="text" class="form-control" id="completion_code" name="completion_code"
-                                    required placeholder="Enter the 16-digit code here, e.g. ABCD1234WXYZ5678">
+                                    required placeholder="Paste or enter the 16-digit code here, e.g. ABCD1234WXYZ5678">
                             </div>
 
 
@@ -176,20 +176,25 @@
                             </p>
                             <p class="mt-5 text-center"> <strong>Prolific completion code:</strong> 
                             </p>
-                            <p class="mb-5 custom-color">CODETOINPUT
+                            <p class="mb-5 custom-color">C3CB5BBT
                             </p>
+
+                            <p class="mt-5 mb-3"><strong>Step 3: If you have any comments about this survey, you may enter them in the 
+                                optional text box below. Otherwise, click the "Finish and Download Confirmation" button to complete the verification process.</strong>
+                            </p>
+                            
 
 
                             <hr class="my-4">
 
 
-                            <p class="mt-3 ">(Optional) If you have any feedback or suggestions for this survey, please share with us in the box below.</p>
+                            <p class="mt-3 ">(Optional) If you have any comments or suggestions for this survey, please share with us in the box below.</p>
 
 
                             <form method="POST" action="{{ url_for('survey_bp.investment_approach') }}">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 <div class="mb-5">
-                                    <textarea class="form-control" id="survey_feedback" name="survey_feedback" rows="4"
+                                    <textarea class="form-control" id="survey_feedback" name="survey_feedback" rows="3"
                                         oninput="validateInput()"></textarea>
                                 </div>
 

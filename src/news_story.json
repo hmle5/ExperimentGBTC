@@ -781,7 +781,7 @@
     },
     {
         "code": "Y2W8HGTE",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {
@@ -2441,7 +2441,7 @@
     },
     {
         "code": "BI6IHY63",
-        "used": false,
+        "used": true,
         "story": "control_fraud_news"
     },
     {
@@ -3721,7 +3721,7 @@
     },
     {
         "code": "39DLTGH0",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {
@@ -4851,7 +4851,7 @@
     },
     {
         "code": "3O2WDL6W",
-        "used": false,
+        "used": true,
         "story": "control_news"
     },
     {
@@ -4976,7 +4976,7 @@
     },
     {
         "code": "7PDL6K0H",
-        "used": false,
+        "used": true,
         "story": "control_fraud_news"
     },
     {
@@ -5611,7 +5611,7 @@
     },
     {
         "code": "PRST6GNN",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {
@@ -5666,7 +5666,7 @@
     },
     {
         "code": "C5U2WLT6",
-        "used": false,
+        "used": true,
         "story": "control_fraud_news"
     },
     {
@@ -6466,7 +6466,7 @@
     },
     {
         "code": "FA78DCL7",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {
@@ -7056,7 +7056,7 @@
     },
     {
         "code": "K8Z0Z2QY",
-        "used": false,
+        "used": true,
         "story": "control_news"
     },
     {

@@ -63,8 +63,8 @@ CONTROL_FRAUD_ARTICLE = {
 Culturally, some might view “fake it until you make it” as a simple testament to the faith and hope that business founders have in their company’s innovations and inventions. The U.S. Securities and Exchange Commission’s recent enforcement actions serve as a reminder that startup fundraisers cannot use the “fake it until you make it” ethos to whitewash lying to investors. 
 Why did the SEC choose to issue this reminder now? The agency did not say. But with the stock markets at record highs, and the promises of billions of dollars to be made in artificial intelligence investments discussed at every turn, excessive frothiness on Wall Street can easily lead to overeager investors in startup land whose investment decisions are governed more by FOMO (the “fear of missing out”) than sound financial analysis. 
 """,
-    "source": "The National Law Review",
-    "question": "What was the reminder issued by the U.S. Securities and Exchange Commission, and why did the agency do it?",
+    "source": "The National Law Review and U.S. Chamber of Commerce",
+    "question": "What was the reminder issued by the U.S. Securities and Exchange Commission (SEC), and why did the agency do it?",
     "options": [
         "The SEC emphasized the value of the start-up culture in unlocking company potential, amid the positive outlook for high-tech investments.",
         "The SEC warned that unrealistic growth projections by start-ups misled investors and customers, thus worsening the current stock market.",
@@ -214,6 +214,12 @@ def prepare_randomized_startup_set(
         )
 
     random.shuffle(combined)
+
+    # Add order variable: "Startup A", "Startup B", ...
+    order_labels = [f"Start-up {chr(65 + i)}" for i in range(set_size)]
+    for i, startup in enumerate(combined):
+        startup["Order"] = order_labels[i]
+    
     return combined
 
 
