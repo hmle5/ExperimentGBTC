@@ -83,8 +83,9 @@ def generate_news_story_file():
         return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
     # Generate 500 unique entries for each story type
+    # Pilot 1: 90 unique entries for each story type
     stories = []
-    for _ in range(500):
+    for _ in range(90):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
         stories.append({"code": generate_code(), "used": False, "story": "control_news"})
         stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
@@ -134,7 +135,7 @@ def mark_story_as_used(story_code):
 # === CONFIGURABLE CONSTANTS ===
 DEFAULT_EXCEL_PATH = "data/clean_data_new.xlsx"
 DEFAULT_JSON_PATH = "startup_data.json"
-DEFAULT_NUM_SETS = 1000
+DEFAULT_NUM_SETS = 400
 DEFAULT_SET_SIZE = 6
 DEFAULT_CODE_LENGTH = 10
 

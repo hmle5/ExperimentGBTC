@@ -355,7 +355,8 @@ def investment():
             flash("No unused startup sets available.", "error")
             return redirect(url_for("main.index"))
 
-        selected_set = unused_sets[0]
+        #selected_set = unused_sets[0]
+        selected_set = random.choice(unused_sets)
         session["startups"] = selected_set["startups"]
         session["startup_set_code"] = selected_set["code"]
         session["startup_set_start_time"] = time.time()
