@@ -51,6 +51,7 @@ class Response(db.Model):
     education_level = db.Column(db.String(50), nullable=True)
     prolific_id = db.Column(db.String(100), nullable=True)
     completion_code = db.Column(db.String(50), nullable=True)
+    last_page_viewed = db.Column(db.String(100), nullable=True)
 
     # New fields to track investments and time spent
     startup_investments = db.Column(
@@ -72,7 +73,7 @@ class Response(db.Model):
     # Index for faster queries
     __table_args__ = (db.Index("idx_response_consent_id", "consent_id"),)
 
-    #Survey feedback
+    # Survey feedback
     survey_feedback = db.Column(db.Text, nullable=True)
 
 

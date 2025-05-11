@@ -1,4 +1,13 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, flash, send_file
+from flask import (
+    Blueprint,
+    render_template,
+    request,
+    session,
+    redirect,
+    url_for,
+    flash,
+    send_file,
+)
 from models import db, Response
 import pandas as pd
 import io
@@ -133,6 +142,7 @@ def export_excel():
             "news": r.story_type,
             "investment_duration": r.startup_investment_duration,
             "startup_set_code": r.startup_code,
+            "completion_code": r.completion_code,
             "startup_investments": r.startup_investments,
             "investment_approach": r.investment_approach,
             "likert_reflection": r.likert_reflection,
@@ -154,7 +164,7 @@ def export_excel():
         output,
         download_name="survey_responses.xlsx",
         as_attachment=True,
-        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     )
 
 
@@ -173,6 +183,7 @@ def export_csv():
             "news": r.story_type,
             "investment_duration": r.startup_investment_duration,
             "startup_set_code": r.startup_code,
+            "completion_code": r.completion_code,
             "startup_investments": r.startup_investments,
             "investment_approach": r.investment_approach,
             "likert_reflection": r.likert_reflection,

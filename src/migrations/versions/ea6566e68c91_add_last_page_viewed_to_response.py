@@ -1,8 +1,8 @@
-"""Initial migration.
+"""Add last_page_viewed to Response
 
-Revision ID: e6c08e965ec9
+Revision ID: ea6566e68c91
 Revises: 
-Create Date: 2025-04-30 00:08:02.774877
+Create Date: 2025-05-11 00:22:06.265485
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e6c08e965ec9'
+revision = 'ea6566e68c91'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -53,6 +53,7 @@ def upgrade():
     sa.Column('completed', sa.Boolean(), nullable=False),
     sa.Column('start_time', sa.DateTime(), nullable=True),
     sa.Column('end_time', sa.DateTime(), nullable=True),
+    sa.Column('total_time_survey_minutes', sa.Float(), nullable=True),
     sa.Column('date_created', sa.DateTime(), nullable=False),
     sa.Column('date_updated', sa.DateTime(), nullable=False),
     sa.Column('startup_code', sa.String(length=50), nullable=True),
@@ -61,10 +62,12 @@ def upgrade():
     sa.Column('education_level', sa.String(length=50), nullable=True),
     sa.Column('prolific_id', sa.String(length=100), nullable=True),
     sa.Column('completion_code', sa.String(length=50), nullable=True),
+    sa.Column('last_page_viewed', sa.String(length=100), nullable=True),
     sa.Column('startup_investments', sa.JSON(), nullable=True),
     sa.Column('startup_investment_duration', sa.Float(), nullable=True),
     sa.Column('investment_approach', sa.Text(), nullable=True),
     sa.Column('likert_reflection', sa.JSON(), nullable=True),
+    sa.Column('survey_feedback', sa.Text(), nullable=True),
     sa.ForeignKeyConstraint(['consent_id'], ['user_consent.consent_id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('consent_id'),

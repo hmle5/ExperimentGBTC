@@ -1,123 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Page 4 - Educating: Investing in a Start-up</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h3>Investing in a Start-up</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            A start-up is a company or project undertaken by an entrepreneur to seek, develop, and
-                            validate a scalable business model, usually from an innovative idea. During the beginning,
-                            start-ups face high uncertainty and have high rates of failure, but a minority of them do go
-                            on to become successful and influential.
-                        </p>
-                        <p>
-                            Start-up investing is the action of making an investment in an early-stage company. Beyond
-                            the start-up founders' own contributions, some start-ups raise additional investment at some
-                            or several stages of their growth. Securing investments is important for the development of
-                            a start-up.
-                        </p>
-                        <p>
-                            Investors of start-ups can be institutions such as banks and venture capital firms. They can
-                            also be individuals with available funds for investment and expertise in screening and
-                            investing in early-stage companies.
-                        </p>
-
-                        <form method="POST" action="{{ url_for('survey_bp.phase_control') }}" id="startupQuizForm">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-                            <p><strong>What is the prospect of young companies that are developing new ideas?</strong>
-                            </p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="prospect" value="profitable"
-                                    id="profitable">
-                                <label class="form-check-label" for="profitable">It is highly probable that a start-up
-                                    with new ideas will be profitable</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="prospect" value="out_of_business"
-                                    id="out_of_business">
-                                <label class="form-check-label" for="out_of_business">It is highly probable that a
-                                    start-up will eventually go out of business</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="prospect" value="receive_investment"
-                                    id="receive_investment">
-                                <label class="form-check-label" for="receive_investment">It is highly probable that a
-                                    start-up will receive investments to develop their ideas</label>
-                            </div>
-
-                            <p class="mt-4"><strong>Who are usually investors of start-ups?</strong></p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="investors" value="venture_capital"
-                                    id="venture_capital">
-                                <label class="form-check-label" for="venture_capital">Venture capital companies</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="investors" value="individuals"
-                                    id="individuals">
-                                <label class="form-check-label" for="individuals">Individual persons</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="investors" value="both" id="both">
-                                <label class="form-check-label" for="both">Both of the above</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="investors" value="none" id="none">
-                                <label class="form-check-label" for="none">None of the above</label>
-                            </div>
-
-                            <br>
-                            <button type="submit" class="btn btn-primary"
-                                onclick="return validateAnswers()">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function validateAnswers() {
-            // Get selected values
-            const prospectAnswer = document.querySelector('input[name="prospect"]:checked');
-            const investorsAnswer = document.querySelector('input[name="investors"]:checked');
-
-            // Correct answers
-            const correctProspect = "receive_investment";
-            const correctInvestors = "both";
-
-            // Check if answers are correct
-            if (!prospectAnswer || !investorsAnswer) {
-                alert("Please select an answer for both questions.");
-                return false;
-            }
-
-            if (prospectAnswer.value !== correctProspect || investorsAnswer.value !== correctInvestors) {
-                alert("Incorrect answers. Please review the information and try again.");
-                return false;
-            }
-
-            return true; // Proceed to the next page if answers are correct
-        }
-    </script>
-
-</body>
-
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,38 +43,50 @@
 
         /* Custom color for header */
         .custom-header {
-            background-color: white; /* Dark blue background */
-            color: rgb(5, 40, 80); /* White text */
-            padding: 15px 20px; /* Added padding for spacing */
+            background-color: white;
+            /* Dark blue background */
+            color: rgb(5, 40, 80);
+            /* White text */
+            padding: 15px 20px;
+            /* Added padding for spacing */
             text-align: left;
-            border-bottom: none !important; /* Center the header text */
+            border-bottom: none !important;
+            /* Center the header text */
             font-weight: bold;
         }
 
         .custom-header h3 {
-            margin-bottom: 0px; /* Reduces vertical space under text */
+            margin-bottom: 0px;
+            /* Reduces vertical space under text */
             font-weight: bold;
         }
 
         /* Custom color for button */
         .custom-btn {
-            background-color: rgb(0, 80, 180); 
+            background-color: rgb(0, 80, 180);
             border: none;
-            color: white; /* White text on the button */
-            padding: 12px 20px; /* Add padding to the button */
-            font-size: 16px; /* Font size for button text */
-            width: 10%; /* Make the button span the full width */
+            color: white;
+            /* White text on the button */
+            padding: 12px 20px;
+            /* Add padding to the button */
+            font-size: 16px;
+            /* Font size for button text */
+            width: 10%;
+            /* Make the button span the full width */
         }
 
         .custom-btn:hover {
-            background-color: rgb(5, 40, 80); /* Darker blue when hovered */
+            background-color: rgb(5, 40, 80);
+            /* Darker blue when hovered */
             color: white;
         }
 
         .submit-btn-container {
             display: flex;
-            justify-content: right; /* Align the button to the center horizontally */
-            margin-top: 20px; /* Add space above the button */
+            justify-content: right;
+            /* Align the button to the center horizontally */
+            margin-top: 20px;
+            /* Add space above the button */
         }
 
         .custom-btn:disabled {
@@ -217,57 +109,59 @@
         <div class="row justify-content-center">
             <!-- <div class="col-md-8"> -->
 
-                <div class="card">
+            <div class="card">
 
-                    <div class="custom-header">
-                        <h3>Investing in a start-up</h3>
-                    </div>
+                <div class="custom-header">
+                    <h3>Investing in a start-up</h3>
+                </div>
 
-                    <div class="card-body">
+                <div class="card-body">
 
-                        <p class="mt-3 mb-3 text-muted fst-italic">Please read the information carefully to answer the questions.</p>
+                    <p class="mt-3 mb-3 text-muted fst-italic">Please read the information carefully to answer the
+                        questions.</p>
 
-                        <p>
-                            A start-up is a company or project undertaken by an entrepreneur to seek, develop, and
-                            validate a scalable business model, usually from an innovative idea. During the beginning,
-                            start-ups face high uncertainty and have high rates of failure, but a minority of them do go
-                            on to become successful and influential.
+                    <p>
+                        A start-up is a company or project undertaken by an entrepreneur to seek, develop, and
+                        validate a scalable business model, usually from an innovative idea. During the beginning,
+                        start-ups face high uncertainty and have high rates of failure, but a minority of them do go
+                        on to become successful and influential.
+                    </p>
+                    <p>
+                        Start-up investing is the action of making an investment in an early-stage company. Beyond
+                        the start-up founders' own contributions, some start-ups raise additional investment at some
+                        or several stages of their growth. Securing investments is important for the development of
+                        a start-up.
+                    </p>
+                    <p>
+                        Investors of start-ups can be institutions such as banks and venture capital firms. They can
+                        also be individuals with available funds for investment and expertise in screening and
+                        investing in early-stage companies.
+                    </p>
+
+                    <p class="news-source">Source: Wikipedia</p>
+
+
+                    <form method="POST" action="{{ url_for('survey_bp.educating') }}" id="startupQuizForm">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+                        <p class="mt-3"><strong>What is the prospect of a young company that is developing a new
+                                idea?</strong>
                         </p>
-                        <p>
-                            Start-up investing is the action of making an investment in an early-stage company. Beyond
-                            the start-up founders' own contributions, some start-ups raise additional investment at some
-                            or several stages of their growth. Securing investments is important for the development of
-                            a start-up.
-                        </p>
-                        <p>
-                            Investors of start-ups can be institutions such as banks and venture capital firms. They can
-                            also be individuals with available funds for investment and expertise in screening and
-                            investing in early-stage companies.
-                        </p>
+                        <div id="prospectOptions"></div>
 
-                        <p class="news-source">Source: Wikipedia</p>
-                    
+                        <p class="mt-3"><strong>Who are usually start-up investors?</strong></p>
+                        <div id="investorOptions"></div>
 
-                        <form method="POST" action="{{ url_for('survey_bp.phase_control') }}" id="startupQuizForm">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-
-                            <p class="mt-3"><strong>What is the prospect of a young company that is developing a new idea?</strong>
-                            </p>
-                            <div id="prospectOptions"></div>
-
-                            <p class="mt-3"><strong>Who are usually start-up investors?</strong></p>
-                            <div id="investorOptions"></div>
-
-                            <div class="submit-btn-container">
-                                <button type="submit" class="btn custom-btn" onclick="return validateAnswers()">
-                                    <i class="bi bi-arrow-right"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="submit-btn-container">
+                            <button type="submit" class="btn custom-btn" onclick="return validateAnswers()">
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
