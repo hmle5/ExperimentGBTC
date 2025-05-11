@@ -1,7 +1,7 @@
 [
     {
         "code": "KMQ1OIXMG8",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Expada",
@@ -67,7 +67,7 @@
     },
     {
         "code": "1F5L6SD5K5",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "SkyrOn",
@@ -133,7 +133,7 @@
     },
     {
         "code": "KIC8ZL9KNE",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Lendr",

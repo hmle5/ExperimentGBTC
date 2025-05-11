@@ -146,7 +146,23 @@
     </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+        window.onload = function() {
+            // Hide the warning initially
+            document.getElementById('warning').style.display = 'none';
+            noBack();
+        };
+        window.onpageshow = function (evt) {
+            if (evt.persisted) noBack();
+        };
+        window.onunload = function () {
+            void (0);
+        };
+        
         const options = [
             { id: "strongDisagree", label: "Strongly Disagree", value: "Strongly Disagree" },
             { id: "disagree", label: "Disagree", value: "Disagree" },

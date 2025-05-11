@@ -4006,7 +4006,7 @@
     },
     {
         "code": "8SX8O2QB",
-        "used": false,
+        "used": true,
         "story": "holmes"
     },
     {
@@ -5156,7 +5156,7 @@
     },
     {
         "code": "G9SY0ESX",
-        "used": false,
+        "used": true,
         "story": "control_fraud_news"
     },
     {
@@ -6026,7 +6026,7 @@
     },
     {
         "code": "L8JAR8WQ",
-        "used": false,
+        "used": true,
         "story": "control_fraud_news"
     },
     {

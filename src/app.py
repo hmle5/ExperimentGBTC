@@ -99,7 +99,7 @@ def create_app():
             return  # invalid route or last_page
 
         if current_endpoint != allowed_next:
-            flash("You must follow the survey steps in order.", "error")
+            flash("Please finish your answers.", "error")
             return redirect(url_for(allowed_next))
 
     # @app.before_request
