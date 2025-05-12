@@ -170,7 +170,7 @@ def create_app():
     Migrate(app, db)
     Session(app)
     csrf = CSRFProtect(app)
-    limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
+    # limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
     def generate_captcha_text(length=6):
         """Generate a random CAPTCHA text with uppercase and numbers only for readability."""
@@ -179,6 +179,7 @@ def create_app():
         return "".join(random.choices(characters, k=length))
 
     @app.route("/captcha_image")
+    @limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
     def generate_captcha():
         """Generate a CAPTCHA image and return it securely."""
         image = ImageCaptcha(width=280, height=90)
@@ -201,7 +202,7 @@ def create_app():
         return send_file(captcha_path, mimetype="image/png")
 
     @app.route("/", methods=["GET", "POST"])
-    @limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
+    # @limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
     def captcha_check():
         if request.method == "POST":
             user_input = request.form.get("captcha", "").strip().upper()
