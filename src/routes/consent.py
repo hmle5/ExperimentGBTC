@@ -22,14 +22,17 @@ main_bp = Blueprint("main", __name__)
 
 @main_bp.route("/consent", methods=["GET"])
 def consent():
-    ip = get_client_ip()
-    user_agent = get_user_agent()
-    consent_record = UserConsent.query.filter_by(
-        ip_address=ip, user_agent=user_agent
-    ).first()
+    # ip = get_client_ip()
+    # user_agent = get_user_agent()
+    # consent_record = UserConsent.query.filter_by(
+    #     ip_address=ip, user_agent=user_agent
+    # ).first()
 
-    if consent_record and consent_record.consent_given:
-        return redirect(url_for("main.index"))  # Redirect if already consented
+    consent_id = session.get("consent_id")
+    if consent_id:
+        consent_record = UserConsent.query.filter_by(consent_id=consent_id).first()
+        if consent_record and consent_record.consent_given:
+            return redirect(url_for("main.index"))
 
     return render_template("consent.html")
 
@@ -204,12 +207,12 @@ def attentioncheck_1():
 @main_bp.route("/index", methods=["GET", "POST"])
 def index():
     error = None
-    #ip = get_client_ip()
-    #user_agent = get_user_agent()
+    # ip = get_client_ip()
+    # user_agent = get_user_agent()
     consent_id = session.get("consent_id")
 
     consent_record = UserConsent.query.filter_by(
-        #ip_address=ip, user_agent=user_agent, 
+        # ip_address=ip, user_agent=user_agent,
         consent_id=consent_id
     ).first()
 
@@ -217,7 +220,8 @@ def index():
         return redirect(url_for("main.consent"))
 
     response_record = Response.query.filter_by(
-        consent_id=consent_record.consent_id
+        # consent_id=consent_record.consent_id,
+        consent_id=consent_id
     ).first()
 
     if response_record:
