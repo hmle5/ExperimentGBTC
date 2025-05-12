@@ -137,29 +137,35 @@
             <!-- <div class="col-md-8"> -->
                 <div class="card border-info">
                     <div class="custom-header">
-                        <h3>You're all set!</h3>
+                        <h3>Thank you for completing this survey!</h3>
                     </div>
                     <div class="card-body">
-                        <p class="mt-3 mb-5">Below are your information and completion codes.
+                        <p class="mt-3 mb-3" style="color: #78191f;font-size: 1.2rem;"><strong>Please enter the Prolific completion code below on Prolific platform to confirm your survey completion. </strong> </p>
+                        <p class="mt-3 mb-5">Below is a summary of the Prolific ID you entered at the beginning of the survey and the 16-digit system-generated completion code provided on the previous page. 
+                            Please save this information and refer to it if you need to contact us. Thank you again for your participation!
                         </p>
 
                         <div class="alert alert-primary text-center">
-                            <div class="mb-3">
-                                <strong>Survey completion code:</strong><br>
+                            <div class="mt-5 mb-5" style="color: #78191f;font-size: 1.4rem;">
+                                <strong>Prolific completion code:</strong><br> <strong>C3CB5BBT </strong>
+                            </div>
+
+                            <div class="mb-5" style="color: #78191f;font-size: 1.4rem;">
+                                <strong>Your Prolific ID:</strong> <br>{{ prolific_id }}
+                            </div>
+
+                            <div class="mb-5">
+                                <strong>16-digit system completion code:</strong><br>
                                 {{ completion_code }}
                             </div>
                         
-                            <div class="mb-3">
-                                <strong>Prolific ID:</strong> <br>{{ prolific_id }}
-                            </div>
+                            
                         
-                            <div>
-                                <strong>Prolific completion code:</strong><br> C3CB5BBT
-                            </div>
+                            
                         </div>
 
                         <button class="btn btn-outline-primary me-2" onclick="downloadCode()">Download
-                            Confirmation</button>
+                            Information</button>
                         <!-- <button class="btn btn-outline-danger" onclick="confirmClose()">Close Tab</button> -->
                     </div>
                 </div>

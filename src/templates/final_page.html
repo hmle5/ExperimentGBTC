@@ -62,7 +62,7 @@
             border: none;
             color: white; /* White text on the button */
             padding: 12px 20px; /* Add padding to the button */
-            font-size: 16px; /* Font size for button text */
+            font-size: 1.5rem; /* Font size for button text */
             width: 50%; /* Make the button span the full width */
         }
 
@@ -136,12 +136,33 @@
                 <div class="card border-success">
 
                     <div class="custom-header">
-                        <h3>Survey completed!</h3>
+                        <!-- <h3>Survey completed!</h3> -->
                     </div>
 
                     <div class="card-body">
-                        <p class="mt-3 mb-5">Thank you for completing this study. To confirm your 
-                            participation and receive your rewards, please follow the <strong>three</strong> steps below.</p>
+
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                          {% if messages %}
+                            {% for category, message in messages %}
+                              <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endwith %}
+
+                        <!-- <p class="mt-3 mb-5">Thank you for completing this study. To confirm your 
+                            participation and receive your rewards, please follow the <strong>three</strong> steps below.</p> -->
+
+                        <p class="mt-3">You are almost there...</p>
+                        
+                        <p class="mt-3">To confirm your 
+                            participation on our system, please first enter the <strong>16-digit completion code</strong> as instructed below.</p>
+                        
+                        <p class="mt-3 mb-5">⚠️ After submitting the code, you will receive your Prolific completion code on the next page. The 16-digit completion code
+                            provided below is NOT your Prolific completion code.
+                        </p>
 
                         <!--<p class="fw-bold text-danger">
                             ✅ <strong>Important:</strong> To receive your payment on MTurk, you <u>must</u> enter the
@@ -160,10 +181,10 @@
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
                             <div class="mt-3 mb-3">
-                                <label for="completion_code" class="form-label"><strong>Step 1: Please copy and paste your 16-digit
-                                        completion code in the box below.</strong></label>
+                                <label for="completion_code" class="form-label"><strong>Please copy and paste your 16-digit
+                                        completion code in the box below. Make sure that you enter it correctly so we can verify your completion.</strong></label>
                                         <div class="alert custom-alert text-center my-4">
-                                            <strong>Your 16-digit completion code:</strong><br>
+                                            <strong>Your 16-digit system completion code (not Prolific completion code):</strong><br>
                                             <span class="completion-code">{{ expected_code }}</span>
                                         </div>
                                 <input type="text" class="form-control" id="completion_code" name="completion_code"
@@ -171,16 +192,15 @@
                             </div>
 
 
-                            <p class="mt-5 mb-3"><strong>Step 2: To confirm your survey completion on Prolific and receive your rewards, 
+                            <!-- <p class="mt-5 mb-3"><strong>Step 2: To confirm your survey completion on Prolific and receive your rewards, 
                                 please copy and paste the code below on the platform.</strong>
                             </p>
                             <p class="mt-5 text-center"> <strong>Prolific completion code:</strong> 
                             </p>
                             <p class="mb-5 custom-color">C3CB5BBT
-                            </p>
+                            </p> -->
 
-                            <p class="mt-5 mb-3"><strong>Step 3: If you have any comments about this survey, you may enter them in the 
-                                optional text box below. Otherwise, click the "Finish and Download Confirmation" button to complete the verification process.</strong>
+                            <p class="mt-5 mb-5" style="color: #78191f; font-size: 1.4rem;"><strong>Click "Receive Prolific Completion Code" button below to get your Prolific completion code on the next page.</strong>
                             </p>
                             
 
@@ -194,7 +214,7 @@
                             <form method="POST" action="{{ url_for('survey_bp.investment_approach') }}">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 <div class="mb-5">
-                                    <textarea class="form-control" id="survey_feedback" name="survey_feedback" rows="3"
+                                    <textarea class="form-control" id="survey_feedback" name="survey_feedback" rows="4"
                                         oninput="validateInput()"></textarea>
                                 </div>
 
@@ -202,7 +222,7 @@
                         
 
                             <div class="submit-btn-container">
-                                <button type="submit" class="btn custom-btn">Finish and Download Confirmation</button>
+                                <button type="submit" class="btn custom-btn">Receive Prolific Completion Code</button>
                             </div>
                         </form>
 
