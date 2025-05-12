@@ -22,14 +22,17 @@ main_bp = Blueprint("main", __name__)
 
 @main_bp.route("/consent", methods=["GET"])
 def consent():
-    ip = get_client_ip()
-    user_agent = get_user_agent()
-    consent_record = UserConsent.query.filter_by(
-        ip_address=ip, user_agent=user_agent
-    ).first()
+    # ip = get_client_ip()
+    # user_agent = get_user_agent()
+    # consent_record = UserConsent.query.filter_by(
+    #     ip_address=ip, user_agent=user_agent
+    # ).first()
 
-    if consent_record and consent_record.consent_given:
-        return redirect(url_for("main.index"))  # Redirect if already consented
+    consent_id = session.get("consent_id")
+    if consent_id:
+        consent_record = UserConsent.query.filter_by(consent_id=consent_id).first()
+        if consent_record and consent_record.consent_given:
+            return redirect(url_for("main.index"))
 
     return render_template("consent.html")
 
@@ -139,77 +142,15 @@ def attentioncheck_1():
     return render_template("attentioncheck_1.html", error=error)
 
 
-# @main_bp.route("/index", methods=["GET", "POST"])
-# def index():
-#     error = None
-#     ip = get_client_ip()
-#     user_agent = get_user_agent()
-
-#     # Check if user has already given consent
-#     consent_record = UserConsent.query.filter_by(
-#         ip_address=ip, user_agent=user_agent
-#     ).first()
-
-#     if not consent_record or not consent_record.consent_given:
-#         return redirect(url_for("main.consent"))
-
-#     # Check if there's an existing response for this user
-#     response_record = Response.query.filter_by(
-#         consent_id=consent_record.consent_id
-#     ).first()
-
-#     if response_record:
-#         # Resume from last recorded point
-#         session["participant_id"] = response_record.participant_id
-#         session["start_time"] = response_record.start_time
-#         session["question_answered"] = True
-
-#         if response_record.completed:
-#             # error = "You have already completed this survey."
-#             # return render_template("index.html", error=error)
-#             return render_template("already_completed.html")
-
-#         return redirect(url_for("survey_bp.instructions"))
-
-#     if request.method == "POST":
-#         prolific_id = request.form.get("prolific_id", "").strip()
-
-#         if not prolific_id:
-#             error = "Please enter your Prolific ID before continuing."
-#             return render_template("index.html", error=error)
-#         # ✅ Store for later use (e.g. thank you page)
-#         session["prolific_id"] = prolific_id
-#         # Create new participant
-#         participant_id = generate_unique_participant_id()
-#         session["participant_id"] = participant_id
-#         session["start_time"] = datetime.now()
-#         session["question_answered"] = True
-
-#         # Create response record
-#         response_record = Response(
-#             consent_id=consent_record.consent_id,
-#             participant_id=participant_id,
-#             prolific_id=prolific_id,
-#             completed=False,
-#             start_time=datetime.now(),
-#         )
-#         db.session.add(response_record)
-#         db.session.commit()
-
-#         return redirect(url_for("survey_bp.instructions"))
-
-#     return render_template("index.html", error=error)
-
-
 @main_bp.route("/index", methods=["GET", "POST"])
 def index():
     error = None
-    #ip = get_client_ip()
-    #user_agent = get_user_agent()
+    # ip = get_client_ip()
+    # user_agent = get_user_agent()
     consent_id = session.get("consent_id")
 
     consent_record = UserConsent.query.filter_by(
-        #ip_address=ip, user_agent=user_agent, 
+        # ip_address=ip, user_agent=user_agent,
         consent_id=consent_id
     ).first()
 
@@ -217,7 +158,8 @@ def index():
         return redirect(url_for("main.consent"))
 
     response_record = Response.query.filter_by(
-        consent_id=consent_record.consent_id
+        # consent_id=consent_record.consent_id,
+        consent_id=consent_id
     ).first()
 
     if response_record:
@@ -257,22 +199,34 @@ def index():
             error = "Please enter your Prolific ID before continuing."
             return render_template("index.html", error=error)
 
-        participant_id = generate_unique_participant_id()
-        session["participant_id"] = participant_id
-        session["start_time"] = datetime.now()
+        response_record = Response.query.filter_by(consent_id=consent_id).first()
+        if response_record:
+            flash("You have already started this survey.")
+            return redirect(url_for("main.index"))
+
+        # participant_id = generate_unique_participant_id()
+        participant_id = uuid.uuid4().hex
+        session["participant_id"] = str(participant_id)
+        session["start_time"] = datetime.now().isoformat()
         session["question_answered"] = True
         session["prolific_id"] = prolific_id
 
-        response_record = Response(
-            consent_id=consent_record.consent_id,
-            participant_id=participant_id,
-            prolific_id=prolific_id,
-            completed=False,
-            start_time=datetime.now(),
-        )
-        db.session.add(response_record)
-        db.session.commit()
-        db.session.refresh(response_record)  # <-- add this
+        try:
+            response_record = Response(
+                consent_id=consent_id,
+                participant_id=participant_id,
+                prolific_id=prolific_id,
+                completed=False,
+                start_time=datetime.now(),
+            )
+            db.session.add(response_record)
+            db.session.commit()
+            db.session.refresh(response_record)
+        except Exception as e:
+            db.session.rollback()
+            error = "Database error occurred. Please try again later."
+            print("DB error:", e)
+            return render_template("index.html", error=error)
 
         return redirect(url_for("survey_bp.instructions"))
 
