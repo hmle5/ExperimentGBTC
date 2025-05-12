@@ -204,11 +204,13 @@ def attentioncheck_1():
 @main_bp.route("/index", methods=["GET", "POST"])
 def index():
     error = None
-    ip = get_client_ip()
-    user_agent = get_user_agent()
+    #ip = get_client_ip()
+    #user_agent = get_user_agent()
+    consent_id = session.get("consent_id")
 
     consent_record = UserConsent.query.filter_by(
-        ip_address=ip, user_agent=user_agent
+        #ip_address=ip, user_agent=user_agent, 
+        consent_id=consent_id
     ).first()
 
     if not consent_record or not consent_record.consent_given:
