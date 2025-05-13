@@ -171,7 +171,7 @@ def create_app():
     Session(app)
     csrf = CSRFProtect(app)
     # limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
-    limiter = Limiter(get_remote_address, app=app)
+    #limiter = Limiter(get_remote_address, app=app)
 
     def generate_captcha_text(length=6):
         """Generate a random CAPTCHA text with uppercase and numbers only for readability."""
@@ -180,7 +180,7 @@ def create_app():
         return "".join(random.choices(characters, k=length))
 
     @app.route("/captcha_image")
-    @limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
+    #@limiter.limit("5 per minute")  # Prevent CAPTCHA abuse
     def generate_captcha():
         """Generate a CAPTCHA image and return it securely."""
         image = ImageCaptcha(width=280, height=90)
