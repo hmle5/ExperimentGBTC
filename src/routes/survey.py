@@ -19,7 +19,11 @@ from utilis import (
     mark_story_as_used,
     generate_news_story_file,
     HOLMES_ARTICLE,
+<<<<<<< HEAD
     CONTROL_ARTICLE,
+=======
+    # CONTROL_ARTICLE,
+>>>>>>> e88d7fd (Consistent time zone)
     CONTROL_FRAUD_ARTICLE,
     # generate_startup_file,
     # get_unused_startup,
@@ -29,6 +33,10 @@ from utilis import (
 )
 from models import db, Response
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+GERMAN_TZ = ZoneInfo("Europe/Berlin")
 import json
 import os
 
@@ -180,8 +188,15 @@ def news_info():
         # article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
         if story_type == "holmes":
             article_data = HOLMES_ARTICLE
+<<<<<<< HEAD
         elif story_type == "control_news":
             article_data = CONTROL_ARTICLE
+=======
+        # elif story_type == "control_news":
+        #    article_data = CONTROL_ARTICLE
+        elif story_type == "bankman":
+            article_data = BANKMAN_ARTICLE
+>>>>>>> e88d7fd (Consistent time zone)
         else:
             article_data = CONTROL_FRAUD_ARTICLE
 
@@ -280,7 +295,9 @@ def investment():
             flash("Session expired. Please restart the task.", "error")
             return redirect(url_for("main.index"))
 
-        time_spent = time.time() - start_time
+        # time_spent = time.time() - start_time
+        time_spent = datetime.now(GERMAN_TZ).timestamp() - start_time
+
         investments = {}
         total_investment = 0
 
@@ -355,11 +372,12 @@ def investment():
             flash("No unused startup sets available.", "error")
             return redirect(url_for("main.index"))
 
-        #selected_set = unused_sets[0]
+        # selected_set = unused_sets[0]
         selected_set = random.choice(unused_sets)
         session["startups"] = selected_set["startups"]
         session["startup_set_code"] = selected_set["code"]
-        session["startup_set_start_time"] = time.time()
+        # session["startup_set_start_time"] = time.time()
+        session["startup_set_start_time"] = datetime.now(GERMAN_TZ).timestamp()
 
         selected_set["used"] = True  # temporary flag only
         with open(STARTUP_JSON_PATH, "w") as file:
@@ -584,7 +602,9 @@ def thank_you():
 
     # Mark survey as completed
     response.completed = True
-    response.end_time = datetime.now()
+    # response.end_time = datetime.now()
+    response.end_time = datetime.now(GERMAN_TZ)
+
     if response.start_time and response.end_time:
         duration = (response.end_time - response.start_time).total_seconds() / 60
         response.total_time_survey_minutes = round(duration, 2)
