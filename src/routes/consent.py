@@ -57,9 +57,24 @@ def give_consent():
             consent_given=True,
         )
         db.session.add(consent_record)
+        stub_response = Response(
+            consent_id=consent_id,
+            participant_id=None,
+            prolific_id=None,
+            completed=False,
+            start_time=datetime.now(GERMAN_TZ),
+            attentioncheck_1_duration=None,
+            attentioncheck_1_response=None,
+            last_page_viewed=None,
+        )
+        db.session.add(stub_response)
         db.session.commit()
 
         session["consent_id"] = consent_id
+        # session["start_time"] = stub_response.start_time.datetime.now(
+        #     GERMAN_TZ
+        # ).timestamp()
+        session["start_time"] = stub_response.start_time.timestamp()
         return redirect(url_for("main.attentioncheck_1"))  # Proceed to index
     elif consent_status == "denied":
         return redirect(url_for("main.exit"))  # Redirect to exit page
@@ -127,6 +142,12 @@ def is_too_fast(min_seconds=5):
 @main_bp.route("/attentioncheck_1", methods=["GET", "POST"])
 def attentioncheck_1():
     error = None
+    consent_id = session.get("consent_id")
+    if not consent_id:
+        return redirect(url_for("captcha_check"))
+    response_record = Response.query.filter_by(consent_id=consent_id).first()
+    if not response_record:
+        return redirect(url_for("captcha_check"))
 
     if request.method == "POST":
         response_text = request.form.get("response", "").strip()
@@ -137,30 +158,33 @@ def attentioncheck_1():
             "attention_attempt_start", datetime.now(GERMAN_TZ).timestamp()
         )
         attempt_duration = datetime.now(GERMAN_TZ).timestamp() - attempt_start
-
-        session["attentioncheck_1_duration"] = (
-            session.get("attentioncheck_1_duration", 0) + attempt_duration
-        )
+        total_duration = session.get("attentioncheck_1_duration", 0) + attempt_duration
+        session["attentioncheck_1_duration"] = total_duration
 
         if honeypot:
             error = "Invalid submission."
         elif is_too_fast():
             error = "Please take more time to consider your answer."
         elif is_gibberish(response_text):
-            error = "Your response appears repetitive or nonsensical. Please provide a real opinion with at least 15 meaningful words."
+            error = "Your response appears repetitive, nonsensical or to contain too many short words. Please provide an answer with at least 15 meaningful words."
         else:
             # Passed the check
             session["attentioncheck_1_response"] = response_text
+            session["attentioncheck_1_duration"] = total_duration
+
+            response_record.attentioncheck_1_response = response_text
+            response_record.attentioncheck_1_duration = total_duration
 
             consent_id = session.get("consent_id")
             response_record = Response.query.filter_by(consent_id=consent_id).first()
 
-            if response_record:
-                response_record.attentioncheck_1_response = response_text
-                response_record.attentioncheck_1_duration = session.get(
-                    "attentioncheck_1_duration", 0
-                )
-                db.session.commit()
+            # if response_record:
+            #     response_record.attentioncheck_1_response = response_text
+            #     response_record.attentioncheck_1_duration = session.get(
+            #         "attentioncheck_1_duration", 0
+            #     )
+            #     db.session.commit()
+            db.session.commit()
 
             return redirect(url_for("main.index"))
 
@@ -181,23 +205,25 @@ def index():
     # Validate that user has given consent
     consent_record = UserConsent.query.filter_by(consent_id=consent_id).first()
     if not consent_record or not consent_record.consent_given:
-        return redirect(url_for("main.consent"))
-
-    # Check if this user has a response already
+        # return redirect(url_for("main.consent"))
+        return redirect(url_for("captcha_check"))
+    # 2) Fetch the (stub) Response row that we created at /give_consent
     response_record = Response.query.filter_by(consent_id=consent_id).first()
+    if not response_record:
+        # In case the stub was never created, send them back to consent
+        return redirect(url_for("captcha_check"))
 
-    if response_record:
-        # Set session info from DB
-        session["participant_id"] = response_record.participant_id
-        # session["start_time"] = response_record.start_time.isoformat()
-        session["start_time"] = response_record.start_time.timestamp()
-        session["question_answered"] = True
+    if not response_record.attentioncheck_1_response:
+        flash("Please complete the attention check before continuing.", "error")
+        return redirect(url_for("main.attentioncheck_1"))
 
+    if response_record.participant_id and response_record.prolific_id:
         if response_record.completed:
             return render_template("already_completed.html")
 
         # Resume from the next step in survey flow
         SURVEY_FLOW = [
+            "main.index",
             "survey_bp.instructions",
             "survey_bp.educating",
             "survey_bp.phase_control",
@@ -222,6 +248,12 @@ def index():
     # Handle new participant form submission
     if request.method == "POST":
         prolific_id = request.form.get("prolific_id", "").strip()
+
+        attentioncheck_1_response = session.get("attentioncheck_1_response", "").strip()
+        if not attentioncheck_1_response:
+            flash("Please complete the attention check before proceeding.", "error")
+            return redirect(url_for("main.attentioncheck_1"))
+
         if not prolific_id:
             error = "Please enter your Prolific ID before continuing."
             return render_template("index.html", error=error)
@@ -233,35 +265,40 @@ def index():
 
         # Create new response record
         participant_id = uuid.uuid4().hex
+        response_record.participant_id = participant_id
+        response_record.prolific_id = prolific_id
+        response_record.last_page_viewed = "main.index"
+        db.session.commit()
+
         session["participant_id"] = participant_id
         session["start_time"] = session.get(
             "start_time", datetime.now(GERMAN_TZ).timestamp()
         )
 
         # session["start_time"] = session.get("start_time", time.time())  # fallback
-        session["question_answered"] = True
+        # session["question_answered"] = True
         session["prolific_id"] = prolific_id
 
-        try:
-            response_record = Response(
-                consent_id=consent_id,
-                participant_id=participant_id,
-                prolific_id=prolific_id,
-                completed=False,
-                start_time=datetime.fromtimestamp(
-                    float(session["start_time"]), GERMAN_TZ
-                ),
-                attentioncheck_1_duration=session.get("attentioncheck_1_duration"),
-                attentioncheck_1_response=session.get("attentioncheck_1_response"),
-            )
-            db.session.add(response_record)
-            db.session.commit()
-            db.session.refresh(response_record)
-        except Exception as e:
-            db.session.rollback()
-            error = "Database error occurred. Please try again later."
-            print("DB error:", e)
-            return render_template("index.html", error=error)
+        # try:
+        #     response_record = Response(
+        #         consent_id=consent_id,
+        #         participant_id=participant_id,
+        #         prolific_id=prolific_id,
+        #         completed=False,
+        #         start_time=datetime.fromtimestamp(
+        #             float(session["start_time"]), GERMAN_TZ
+        #         ),
+        #         attentioncheck_1_duration=session.get("attentioncheck_1_duration"),
+        #         attentioncheck_1_response=session.get("attentioncheck_1_response"),
+        #     )
+        #     db.session.add(response_record)
+        #     db.session.commit()
+        #     db.session.refresh(response_record)
+        # except Exception as e:
+        #     db.session.rollback()
+        #     error = "Database error occurred. Please try again later."
+        #     print("DB error:", e)
+        #     return render_template("index.html", error=error)
 
         return redirect(url_for("survey_bp.instructions"))
 
