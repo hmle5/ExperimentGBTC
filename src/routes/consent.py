@@ -135,8 +135,8 @@ def is_gibberish(text):
 
 
 def is_too_fast(min_seconds=5):
-    now_ts = datetime.now(GERMAN_TZ).timestamp()
-    return now_ts - session.get("start_time", 0) < min_seconds
+    #return time.time() - session.get("start_time", 0) < min_seconds
+    return time.time() - session.get("attention_attempt_start", 0) < min_seconds
 
 
 @main_bp.route("/attentioncheck_1", methods=["GET", "POST"])
