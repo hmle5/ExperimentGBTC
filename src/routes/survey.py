@@ -103,7 +103,7 @@ def instructions():
             db.session.commit()
             db.session.refresh(response)  # ✅ Ensure the session reflects the DB write
 
-            return redirect(url_for("survey_bp.information"))
+            return redirect(url_for("survey_bp.educating"))
         else:
             flash("Incorrect answer. Please read the question again.", "error")
             return redirect(url_for("survey_bp.instructions"))
