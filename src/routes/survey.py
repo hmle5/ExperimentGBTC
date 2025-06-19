@@ -21,6 +21,7 @@ from utilis import (
     HOLMES_ARTICLE,
     # CONTROL_ARTICLE,
     CONTROL_FRAUD_ARTICLE,
+    # BANKMAN_ARTICLE,
     # generate_startup_file,
     # get_unused_startup,
     # mark_startup_as_used,
@@ -31,10 +32,17 @@ from models import db, Response
 import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from collections import Counter
+from nltk.corpus import words as nltk_words
+import nltk
+
+nltk.download("words")
 
 GERMAN_TZ = ZoneInfo("Europe/Berlin")
 import json
 import os
+import re
+
 
 survey_bp = Blueprint("survey_bp", __name__)  # Ensure the correct Blueprint name
 
