@@ -68,9 +68,9 @@ Why did the SEC choose to issue this reminder now? The agency did not say. But w
     "options": [
         "The SEC emphasized the value of the start-up culture in unlocking company potential, amid the positive outlook for high-tech investments.",
         "The SEC warned that unrealistic growth projections by start-ups misled investors and customers, thus worsening the current stock market.",
-        "The SEC reminded founders and investors that the startup culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
+        "The SEC reminded founders and investors that the start-up culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
     ],
-    "correct_answer": "The SEC reminded founders and investors that the startup culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
+    "correct_answer": "The SEC reminded founders and investors that the start-up culture often exaggerates a company's true potential, amid overenthusiasm around AI.",
 }
 
 
@@ -87,7 +87,7 @@ def generate_news_story_file():
     stories = []
     for _ in range(90):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
-        stories.append({"code": generate_code(), "used": False, "story": "control_news"})
+        #stories.append({"code": generate_code(), "used": False, "story": "control_news"})
         stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
 
     # Save to JSON file

@@ -19,11 +19,7 @@ from utilis import (
     mark_story_as_used,
     generate_news_story_file,
     HOLMES_ARTICLE,
-<<<<<<< HEAD
-    CONTROL_ARTICLE,
-=======
     # CONTROL_ARTICLE,
->>>>>>> e88d7fd (Consistent time zone)
     CONTROL_FRAUD_ARTICLE,
     # generate_startup_file,
     # get_unused_startup,
@@ -198,15 +194,6 @@ def news_info():
         # article_data = HOLMES_ARTICLE if story_type == "holmes" else CONTROL_ARTICLE
         if story_type == "holmes":
             article_data = HOLMES_ARTICLE
-<<<<<<< HEAD
-        elif story_type == "control_news":
-            article_data = CONTROL_ARTICLE
-=======
-        # elif story_type == "control_news":
-        #    article_data = CONTROL_ARTICLE
-        elif story_type == "bankman":
-            article_data = BANKMAN_ARTICLE
->>>>>>> e88d7fd (Consistent time zone)
         else:
             article_data = CONTROL_FRAUD_ARTICLE
 
@@ -264,7 +251,7 @@ def news_info():
     # random.shuffle(shuffled_options)
 
     # Determine image filename
-    image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control.png"
+    image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control_fraud.png"
     # image_filename = (
     #     "holmes.png"
     #     if story_entry["story"] == "holmes"
