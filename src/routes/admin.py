@@ -29,46 +29,6 @@ def admin_required(func):
     return wrapper
 
 
-# @admin_bp.route("/admin", methods=["GET"])
-# @admin_required
-# def admin_dashboard():
-#     page = int(request.args.get("page", 1))
-#     per_page = int(request.args.get("per_page", 10))
-
-#     paginated = Response.query.paginate(page=page, per_page=per_page, error_out=False)
-#     all_responses = Response.query.all()
-
-#     durations = [
-#         (r.end_time - r.start_time).total_seconds() / 60
-#         for r in all_responses
-#         if r.start_time and r.end_time
-#     ]
-#     avg_duration = round(statistics.mean(durations), 2) if durations else None
-#     total_completed = sum(1 for r in all_responses if r.completed)
-
-#     def serialize_response(r):
-#         return {
-#             "participant_id": r.participant_id,
-#             "completed": r.completed,
-#             "start_time": r.start_time.isoformat() if r.start_time else None,
-#             "end_time": r.end_time.isoformat() if r.end_time else None,
-#             "investment_duration": r.startup_investment_duration,
-#             "age": r.age,
-#             "gender": r.gender,
-#         }
-
-#     serialized_responses = [serialize_response(r) for r in paginated.items]
-
-#     return render_template(
-#         "admin_dashboard.html",
-#         responses=paginated.items,
-#         serialized_responses=serialized_responses,
-#         page=page,
-#         per_page=per_page,
-#         total=paginated.total,
-#         avg_duration=avg_duration,
-#         total_completed=total_completed,
-#     )
 
 
 @admin_bp.route("/admin", methods=["GET"])
@@ -155,7 +115,6 @@ def export_excel():
             "age": r.age,
             "gender": r.gender,
             "education": r.education_level,
-            "guess_intention": r.guess_intention,
             "survey_feedback": r.survey_feedback,
         }
         for r in responses
@@ -203,7 +162,6 @@ def export_csv():
             "age": r.age,
             "gender": r.gender,
             "education": r.education_level,
-            "guess_intention": r.guess_intention,
             "survey_feedback": r.survey_feedback,
         }
         for r in responses

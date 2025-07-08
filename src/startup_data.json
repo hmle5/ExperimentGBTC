@@ -19153,7 +19153,7 @@
     },
     {
         "code": "OLVZISW3AT",
-        "used": false,
+        "used": true,
         "startups": [
             {
                 "Startup_name": "Regenary",

@@ -47,21 +47,6 @@ import re
 survey_bp = Blueprint("survey_bp", __name__)  # Ensure the correct Blueprint name
 
 
-# @survey_bp.route("/instructions", methods=["GET", "POST"])
-# def instructions():
-#     if "participant_id" not in session:
-#         return redirect(url_for("main.index"))
-
-#     participant_id = session["participant_id"]
-#     response = Response.query.filter_by(participant_id=participant_id).first()
-
-#     if request.method == "POST":
-#         # No validation needed here if the page is informational
-#         response.last_page_viewed = "survey_bp.instructions"
-#         db.session.commit()
-#         return redirect(url_for("survey_bp.educating"))
-
-#     return render_template("instructions.html")
 
 
 @survey_bp.route("/instructions", methods=["GET", "POST"])
@@ -118,21 +103,6 @@ def instructions():
     return render_template("instructions.html")
 
 
-# @survey_bp.route("/educating", methods=["GET", "POST"])
-# def educating():
-#     if "participant_id" not in session:
-#         return redirect(url_for("main.index"))
-
-#     participant_id = session["participant_id"]
-#     response = Response.query.filter_by(participant_id=participant_id).first()
-
-#     if request.method == "POST":
-#         response.last_page_viewed = "survey_bp.educating"
-#         db.session.commit()
-#         return redirect(url_for("survey_bp.phase_control"))
-
-#     return render_template("educating.html")
-
 
 @survey_bp.route("/educating", methods=["GET", "POST"])
 def educating():
@@ -159,20 +129,6 @@ def educating():
     return render_template("educating.html")
 
 
-# @survey_bp.route("/phase_control", methods=["GET", "POST"])
-# def phase_control():
-#     if "participant_id" not in session:
-#         return redirect(url_for("main.index"))
-
-#     participant_id = session["participant_id"]
-#     response = Response.query.filter_by(participant_id=participant_id).first()
-
-#     if request.method == "POST":
-#         response.last_page_viewed = "survey_bp.phase_control"
-#         db.session.commit()
-#         return redirect(url_for("survey_bp.news_info"))
-
-#     return render_template("phase_control.html")
 
 
 @survey_bp.route("/phase_control", methods=["GET", "POST"])
@@ -196,6 +152,8 @@ def phase_control():
             return redirect(url_for("survey_bp.phase_control"))
 
     return render_template("phase_control.html")
+
+
 
 
 @survey_bp.route("/news_info", methods=["GET", "POST"])
@@ -278,11 +236,8 @@ def news_info():
         HOLMES_ARTICLE
         if story_entry["story"] == "holmes"
         else CONTROL_FRAUD_ARTICLE
-        # else (
-        #     BANKMAN_ARTICLE
-        #     if story_entry["story"] == "bankman"
-        #     else CONTROL_FRAUD_ARTICLE
-        # )
+
+
     )
     correct_answer = article_data["correct_answer"]
     shuffled_options = article_data["options"].copy()
@@ -290,15 +245,7 @@ def news_info():
 
     # Determine image filename
     image_filename = "holmes.png" if story_entry["story"] == "holmes" else "control_fraud.png"
-    # image_filename = (
-    #     "holmes.png"
-    #     if story_entry["story"] == "holmes"
-    #     else (
-    #         "control.png"
-    #         if story_entry["story"] == "control_news"
-    #         else "control_fraud.png"
-    #     )
-    # )
+
 
     return render_template(
         "news_info.html",
@@ -471,7 +418,7 @@ def is_gibberish(text):
     if len(words) < 10:
         return True
 
-    mostly_short = sum(1 for w in words if len(w) < 3) / len(words) > 0.3
+    mostly_short = sum(1 for w in words if len(w) < 3) / len(words) > 0.5
     unique_ratio = len(set(w.lower() for w in words)) / len(words)
     too_repetitive = unique_ratio < 0.6
     non_alpha = (
@@ -520,6 +467,7 @@ def investment_approach():
     return render_template("investment_approach.html")
 
 
+
 @survey_bp.route("/investment_reflect_likert", methods=["GET", "POST"])
 def investment_reflect_likert():
     if "participant_id" not in session:
@@ -555,6 +503,8 @@ def investment_reflect_likert():
     return render_template("investment_reflect_likert.html")
 
 
+
+
 @survey_bp.route("/demographic_collecting", methods=["GET", "POST"])
 def investment_demographic():
     if "participant_id" not in session:
@@ -580,14 +530,6 @@ def investment_demographic():
             flash("Please complete all fields before submitting.", "error")
             return redirect(url_for("survey_bp.investment_demographic"))
 
-        # if gender == "Other" and not gender_other:
-        #     flash("Please specify your gender.", "error")
-        #     return redirect(url_for("survey_bp.investment_demographic"))
-
-        # if education == "Other" and not education_other:
-        #     flash("Please specify your education level.", "error")
-        #     return redirect(url_for("survey_bp.investment_demographic"))
-
         try:
             age_val = int(age)
             if age_val < 10 or age_val > 120:
@@ -600,7 +542,6 @@ def investment_demographic():
         response.gender = gender
         response.age = age_val
         response.education_level = education
-        response.guess_intention = guess_intention
         response.last_page_viewed = "survey_bp.investment_demographic"
         db.session.commit()
 

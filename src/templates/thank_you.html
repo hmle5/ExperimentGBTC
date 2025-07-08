@@ -109,7 +109,7 @@
         function downloadCode() {
             const code = "{{ completion_code }}";
             const prolificId = "{{ prolific_id }}";
-            const content = `Survey 16-digit completion code: ${code}\nProlific ID: ${prolificId}\nProlific completion code: C12GLBJJ`;
+            const content = `Survey 18-digit completion code: ${code}\nProlific ID: ${prolificId}\nProlific completion code: CVKTZKEH`;
             const blob = new Blob([content], { type: "text/plain" });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
@@ -141,13 +141,13 @@
                     </div>
                     <div class="card-body">
                         <p class="mt-3 mb-3" style="color: #78191f;font-size: 1.2rem;"><strong>Please enter the Prolific completion code below on Prolific platform to confirm your survey completion. </strong> </p>
-                        <p class="mt-3 mb-5">Below is a summary of the Prolific ID you entered at the beginning of the survey and the 16-digit system-generated completion code provided on the previous page. 
+                        <p class="mt-3 mb-5">Below is a summary of the Prolific ID you entered at the beginning of the survey and the 18-digit system-generated completion code provided on the previous page. 
                             Please save this information and refer to it if you need to contact us. Thank you again for your participation!
                         </p>
 
                         <div class="alert alert-primary text-center">
                             <div class="mt-5 mb-5" style="color: #78191f;font-size: 1.4rem;">
-                                <strong>Prolific completion code:</strong><br> <strong>C12GLBJJ </strong>
+                                <strong>Prolific completion code:</strong><br> <strong>CVKTZKEH </strong>
                             </div>
 
                             <div class="mb-5" style="color: #78191f;font-size: 1.4rem;">
@@ -155,7 +155,7 @@
                             </div>
 
                             <div class="mb-5">
-                                <strong>16-digit system completion code:</strong><br>
+                                <strong>18-digit system completion code:</strong><br>
                                 {{ completion_code }}
                             </div>
                         
