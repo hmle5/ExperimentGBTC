@@ -85,7 +85,7 @@ def generate_news_story_file():
     # Generate 600 unique entries for each story type
 
     stories = []
-    for _ in range(700):
+    for _ in range(600):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
         #stories.append({"code": generate_code(), "used": False, "story": "control_news"})
         stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
