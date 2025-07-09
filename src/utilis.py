@@ -82,11 +82,10 @@ def generate_news_story_file():
     def generate_code():
         return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
-    # Generate 500 unique entries for each story type
-    # Pilot 1: 90 unique entries for each story type
-    # Pilot 1 repli: 60 unique entries for each story type two stories
+    # Generate 600 unique entries for each story type
+
     stories = []
-    for _ in range(60):
+    for _ in range(700):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
         #stories.append({"code": generate_code(), "used": False, "story": "control_news"})
         stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
@@ -136,7 +135,7 @@ def mark_story_as_used(story_code):
 # === CONFIGURABLE CONSTANTS ===
 DEFAULT_EXCEL_PATH = "data/clean_data_new.xlsx"
 DEFAULT_JSON_PATH = "startup_data.json"
-DEFAULT_NUM_SETS = 300
+DEFAULT_NUM_SETS = 2000
 DEFAULT_SET_SIZE = 6
 DEFAULT_CODE_LENGTH = 10
 
@@ -186,6 +185,7 @@ def prepare_randomized_startup_set(
     selected_startups = startup_df.sample(n=set_size, replace=False).to_dict(
         orient="records"
     )
+    # Randomize founder first name and evaluator
     assigned_founders = random.sample(founder_firstname, set_size)
     assigned_sentences = random.sample(evaluation_sentences, set_size)
 
