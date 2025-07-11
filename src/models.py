@@ -93,7 +93,7 @@ class Response(db.Model):
 class StartupSetAssignment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     participant_id = db.Column(db.String(100), nullable=False, index=True)
-    startup_set_code = db.Column(db.String(10), nullable=False, unique=True)
+    startup_set_code = db.Column(db.String(10), nullable=False)
     # assigned_at = db.Column(db.DateTime, default=datetime.utcnow)
     assigned_at = db.Column(db.DateTime, default=lambda: datetime.now(GERMAN_TZ))
     duration_seconds = db.Column(db.Float, nullable=True)
