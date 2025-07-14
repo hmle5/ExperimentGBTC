@@ -83,9 +83,12 @@ def generate_news_story_file():
         return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
     # Generate 600 unique entries for each story type
+    # 14.07.2025 increase story codes to prevent server overload: for each story type generate 400 more codes
+    # origin news codes saved
+    # append new codes to current file
 
     stories = []
-    for _ in range(600):
+    for _ in range(400):
         stories.append({"code": generate_code(), "used": False, "story": "holmes"})
         #stories.append({"code": generate_code(), "used": False, "story": "control_news"})
         stories.append({"code": generate_code(), "used": False, "story": "control_fraud_news"})
